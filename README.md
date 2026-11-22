@@ -2,13 +2,13 @@
 
 A lightweight, English-language IELTS learning dashboard designed for GitHub Pages. It uses plain HTML, CSS and JavaScript; no build step or package installation is required.
 
-## Features in version 1.0
+## Features in version 1.1
 
 - Four skill areas: Listening, Reading, Writing and Speaking
-- Initial placement test covering vocabulary, grammar and reading
+- Short foundation check covering vocabulary, grammar and basic reading (not a full IELTS placement test)
 - Personal vocabulary bank with topic tags and a simple review schedule
 - Categorised mistake notebook with filters and review status
-- Random practice-set builder using included original sample prompts
+- Random practice-set builder using included original sample questions and prompts, with answer explanations for multiple-choice items
 - Mock exam score records with an automatically calculated overall band
 - Score history chart and skill averages
 - Daily study planner with automatic task completion tracking
@@ -41,7 +41,7 @@ The Writing Studio and Speaking area are prepared for future AI integration, but
 
 ## Question bank and copyright
 
-The diagnostic and random-set questions included here are original sample questions for demonstrating the app. They are not a complete IELTS question bank and are not official IELTS questions. You can add your own notes and legally obtained practice material. Do not upload copyrighted books or paid question banks unless you have permission.
+The diagnostic and random-set questions included here are original learning exercises written for this app. They are not official IELTS questions, are not copied from past papers, and do not represent a complete IELTS question bank. Listening practice currently records results from materials you use elsewhere; it does not provide built-in listening audio. The speaking area provides prompts, a timer and reflection logging; it does not record or score speech. The writing area saves drafts locally but does not provide AI marking. You can add your own notes and legally obtained practice material. Do not upload copyrighted books or paid question banks unless you have permission.
 
 ## IELTS band calculation
 

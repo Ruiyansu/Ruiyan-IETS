@@ -17,7 +17,7 @@
       <div class="sidebar-label">WORKSPACE</div>
       <nav class="nav-list" id="mainNav">
         <button class="nav-item active" data-view="dashboard"><span>▦</span> Dashboard</button>
-        <button class="nav-item" data-view="diagnostic"><span>◎</span> Placement test</button>
+        <button class="nav-item" data-view="diagnostic"><span>◎</span> Quick diagnostic</button>
         <button class="nav-item" data-view="listening"><span>◖</span> Listening</button>
         <button class="nav-item" data-view="reading"><span>▤</span> Reading</button>
         <button class="nav-item" data-view="writing"><span>✎</span> Writing</button>
@@ -47,7 +47,7 @@
         <section class="view active" id="view-dashboard">
           <div class="welcome-row">
             <div><p class="eyebrow">YOUR PERSONAL IELTS JOURNEY</p><h1>Good to see you.</h1><p class="muted">A little progress, every day. Your target is <b>Band 7.0</b>.</p></div>
-            <button class="button button-dark" data-go="diagnostic">Start placement test <span>→</span></button>
+            <button class="button button-dark" data-go="diagnostic">Start quick check <span>→</span></button>
           </div>
           <div class="stats-grid">
             <article class="stat-card"><span class="stat-label">LATEST OVERALL BAND</span><strong id="dashBand">—</strong><small id="dashBandSub">Complete a mock exam to begin</small></article>
@@ -77,17 +77,17 @@
               <button class="skill-card speaking" data-go="speaking"><span class="skill-icon">◉</span><b>Speaking</b><small>Fluency · Vocabulary · Pronunciation</small><span class="skill-link">Open practice →</span></button>
             </div>
           </div>
-          <div class="notice"><b>Learning note</b><span>Your starting level is not assumed. Take the placement test first, then record practice and mock exam results to build a reliable progress history.</span></div>
+          <div class="notice"><b>Learning note</b><span>This short check covers vocabulary, grammar and basic reading only. It is not a full IELTS test or an official band score.</span></div>
         </section>
 
         <section class="view" id="view-diagnostic">
-          <div class="page-heading"><p class="eyebrow">STARTING POINT</p><h1>Placement test</h1><p class="muted">A short diagnostic to explore your current vocabulary, grammar and reading skills. This is a learning check, not an official IELTS score.</p></div>
+          <div class="page-heading"><p class="eyebrow">STARTING POINT</p><h1>Quick foundation check</h1><p class="muted">A short diagnostic to explore your current vocabulary, grammar and reading skills. This is a learning check, not an official IELTS score.</p></div>
           <div class="panel narrow">
             <div class="panel-heading"><div><p class="eyebrow">FOUNDATION CHECK</p><h2 id="diagTitle">Before you begin</h2></div><span class="pill" id="diagProgress">Ready</span></div>
             <div id="diagnosticArea">
               <p class="body-copy">Answer the questions without a dictionary or translator. Choose the answer that feels right. You can review your result at the end.</p>
               <div class="info-grid"><div><b>12</b><small>Questions</small></div><div><b>10–15 min</b><small>Suggested time</small></div><div><b>3</b><small>Skill areas</small></div></div>
-              <button class="button button-dark" id="startDiagnostic">Begin test →</button>
+              <button class="button button-dark" id="startDiagnostic">Begin check →</button>
             </div>
           </div>
         </section>
@@ -149,9 +149,9 @@
         </section>
 
         <section class="view" id="view-mock">
-          <div class="page-heading"><p class="eyebrow">EXAM SIMULATION</p><h1>Mock exam centre</h1><p class="muted">Build a practice set, complete it, and record your results to track your progress.</p></div>
+          <div class="page-heading"><p class="eyebrow">EXAM SIMULATION</p><h1>Mock exam centre</h1><p class="muted">Build a focused set from original practice questions and prompts, then record your results to track progress.</p></div>
           <div class="feature-grid">
-            <article class="panel"><p class="eyebrow">RANDOM PAPER BUILDER</p><h2>Create a practice set</h2><label>Practice area<select id="mockArea"><option>Mixed skills</option><option>Listening</option><option>Reading</option><option>Speaking</option><option>Writing</option></select></label><label>Number of prompts<select id="mockCount"><option>5</option><option>10</option><option>15</option><option>20</option></select></label><label>Question type<select id="mockType"><option>Any available type</option><option>Vocabulary</option><option>Grammar</option><option>Speaking prompts</option><option>Reading strategies</option></select></label><button class="button button-dark" id="buildMock">Generate random set</button><div id="mockSet" class="mock-set"><span class="muted">Your generated practice set will appear here.</span></div></article>
+            <article class="panel"><p class="eyebrow">ORIGINAL PRACTICE BANK</p><h2>Create a practice set</h2><p class="small muted">These are original IELTS-style learning exercises, not official IELTS past-paper questions.</p><label>Practice category<select id="mockArea"><option>All categories</option><option>Vocabulary</option><option>Grammar</option><option>Reading strategies</option><option>Speaking prompts</option></select></label><label>Number of prompts<select id="mockCount"><option>5</option><option>10</option><option>15</option><option>20</option></select></label><label>Question format<select id="mockType"><option>All formats</option><option>Multiple choice</option><option>Speaking prompt</option></select></label><button class="button button-dark" id="buildMock">Generate practice set</button><div id="mockSet" class="mock-set"><span class="muted">Your generated practice set will appear here.</span></div></article>
             <article class="panel"><p class="eyebrow">RECORD A MOCK RESULT</p><h2>Save exam scores</h2><label>Exam name<input id="examName" placeholder="e.g. Full Mock Test 01"></label><div class="score-fields"><label>Listening<input type="number" min="0" max="9" step=".5" id="scoreListening" placeholder="—"></label><label>Reading<input type="number" min="0" max="9" step=".5" id="scoreReading" placeholder="—"></label><label>Writing<input type="number" min="0" max="9" step=".5" id="scoreWriting" placeholder="—"></label><label>Speaking<input type="number" min="0" max="9" step=".5" id="scoreSpeaking" placeholder="—"></label></div><label>Date<input type="date" id="examDate"></label><button class="button button-dark" id="saveExam">Save mock result</button><p class="small muted">Enter estimated or practice band scores. Label them honestly; these are not official IELTS results.</p></article>
           </div>
           <div class="panel"><div class="panel-heading"><h2>Mock exam history</h2><span class="pill" id="examCount">0 exams</span></div><div id="examHistory" class="table-wrap"></div></div>
@@ -165,14 +165,14 @@
         </section>
 
         <section class="view" id="view-planner">
-          <div class="page-heading"><p class="eyebrow">CONSISTENCY OVER INTENSITY</p><h1>Study planner</h1><p class="muted">A flexible routine you can adjust. Completing an activity automatically updates your study record.</p></div>
+          <div class="page-heading"><p class="eyebrow">CONSISTENCY OVER INTENSITY</p><h1>Study planner</h1><p class="muted">A flexible routine you can adjust. Tick off each task when you finish it; completed tasks and saved practice sessions are added to your activity record.</p></div>
           <div class="feature-grid">
             <article class="panel"><div class="panel-heading"><h2>Today's tasks</h2><span class="pill" id="plannerDate"></span></div><div id="plannerTasks" class="task-list"></div><div class="add-task"><input id="customTask" placeholder="Add a personal study task"><button class="button button-dark" id="addTask">Add</button></div></article>
-            <article class="panel"><p class="eyebrow">STUDY STREAK</p><h2>Your consistency</h2><div class="streak-number"><strong id="streakNumber">0</strong><span>study days recorded</span></div><div id="calendar" class="calendar-grid"></div><p class="small muted">Days with completed tasks or saved practice sessions are marked.</p></article>
+            <article class="panel"><p class="eyebrow">STUDY ACTIVITY</p><h2>Your consistency</h2><div class="streak-number"><strong id="streakNumber">0</strong><span>study days recorded</span></div><div id="calendar" class="calendar-grid"></div><p class="small muted">Days with completed tasks or saved practice sessions are marked.</p></article>
           </div>
         </section>
       </div>
-      <footer class="footer"><span>IELTS STUDIO · PERSONAL LEARNING HUB</span><span>Version 1.0 · Your data stays in this browser</span></footer>
+      <footer class="footer"><span>IELTS STUDIO · PERSONAL LEARNING HUB</span><span>Version 1.1 · Original sample content · Data stays in this browser</span></footer>
     </main>
   </div>
   <div class="toast" id="toast" role="status"></div>
