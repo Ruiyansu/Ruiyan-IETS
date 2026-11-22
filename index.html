@@ -104,7 +104,7 @@
 
         <section class="view" id="view-reading">
           <div class="page-heading"><p class="eyebrow">SKILL 02</p><h1>Reading</h1><p class="muted">Practise understanding main ideas, locating information and recognising paraphrases.</p></div>
-          <div class="panel skill-test-panel"><div class="panel-heading"><div><p class="eyebrow">AUTOMATICALLY MARKED PRACTICE</p><h2>Reading test</h2></div><span class="pill">10 questions</span></div><p class="muted">阅读文章并完成题目。提交后自动判分、显示正确答案和解析。</p><div id="readingQuiz"></div></div>
+          <div class="panel skill-test-panel reading-library-panel"><div id="readingQuiz"></div></div>
           <div class="feature-grid">
             <article class="panel"><span class="feature-icon blue">▤</span><h2>Reading practice log</h2><p class="muted">Record a passage or full reading test.</p><label>Material / passage<input id="readName" placeholder="e.g. Academic Reading — Passage 2"></label><div class="two-fields"><label>Correct answers<input id="readCorrect" type="number" min="0" max="40" placeholder="e.g. 27"></label><label>Total questions<input id="readTotal" type="number" min="1" max="40" value="40"></label></div><label>Question types to review<input id="readNote" placeholder="e.g. T/F/NG, matching headings"></label><button class="button button-dark" id="saveReading">Save reading session</button></article>
             <article class="panel"><p class="eyebrow">QUESTION TYPE TRACKER</p><h2>What should I practise?</h2><div class="type-list"><div><span>True / False / Not Given</span><span class="pill">Review</span></div><div><span>Matching headings</span><span class="pill">Review</span></div><div><span>Matching information</span><span class="pill">Review</span></div><div><span>Sentence completion</span><span class="pill">Review</span></div><div><span>Multiple choice</span><span class="pill">Review</span></div></div></article>
@@ -181,5 +181,6 @@
   </div>
   <div class="toast" id="toast" role="status"></div>
   <script src="app.js"></script>
+  <script src="reading-bank.js"></script>
 </body>
 </html>
