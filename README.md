@@ -1,55 +1,25 @@
-# IELTS Studio — Personal Learning Hub
+# IELTS Studio — Personal Academic Practice Hub (v2)
 
-A lightweight, English-language IELTS learning dashboard designed for GitHub Pages. It uses plain HTML, CSS and JavaScript; no build step or package installation is required.
+A browser-based personal IELTS practice website. Upload the folder to GitHub Pages or open `index.html` in a modern browser. Data is stored locally in that browser.
 
-## Features in version 1.1
+## What works in this version
+- **Reading:** a complete original 10-question practice set with a passage, answer submission, automatic marking, explanations, percentage score and saved history.
+- **Listening:** an original 10-question listening exercise. The audio is generated using the browser's English speech synthesis voice; answers are automatically marked and saved. Voice availability and accent depend on the browser/device.
+- **Writing:** essay workspace, word count, local draft saving, draft recovery while typing, and a four-criterion self-assessment score. The self-assessment is not AI marking or an official examiner score.
+- **Speaking:** prompts, timer, practice reflection and four-criterion self-assessment. The score is user-entered self-assessment, not AI speech recognition or official marking.
+- **Learning records:** sessions, mock scores, vocabulary, mistakes, planner, activity calendar, export/import backup.
+- **Data migration:** existing `ieltsStudio.v1` browser data is read and then saved under the v2 key.
 
-- Four skill areas: Listening, Reading, Writing and Speaking
-- Short foundation check covering vocabulary, grammar and basic reading (not a full IELTS placement test)
-- Personal vocabulary bank with topic tags and a simple review schedule
-- Categorised mistake notebook with filters and review status
-- Random practice-set builder using included original sample questions and prompts, with answer explanations for multiple-choice items
-- Mock exam score records with an automatically calculated overall band
-- Score history chart and skill averages
-- Daily study planner with automatic task completion tracking
-- Local browser storage, plus JSON export/import backup
-- Responsive layout for desktop and mobile
+## Scoring notes
+Reading and Listening show the exact number correct out of 10 and percentage accuracy. They also store an equivalent raw count out of 40 for tracking only; this is **not** an official IELTS band conversion. Writing and Speaking scores are self-assessments across the four public IELTS assessment criteria.
 
-## Deploy with GitHub Pages
+All built-in questions and passages are original practice content, not official IELTS, Cambridge or IELTS Atlas past-paper materials.
 
-1. Create a new GitHub repository, for example `ielts-studio`.
-2. Upload `index.html`, `styles.css`, `app.js` and `.nojekyll` to the repository root.
-3. Open **Settings → Pages**.
-4. Under **Build and deployment**, choose **Deploy from a branch**.
-5. Select branch `main` and folder `/ (root)`, then save.
-6. Wait for GitHub Pages to publish the site. The URL will usually look like:
-   `https://YOUR-USERNAME.github.io/ielts-studio/`
-
-If you use a different repository name, GitHub will generate a corresponding project URL.
-
-## Important data notes
-
-- Your learning data is stored in `localStorage` in the browser where you use the site.
-- Data does not automatically sync between devices or browsers.
-- Clearing browser site data may erase your records. Use **Export my data** regularly to download a JSON backup.
-- **Import backup** replaces the data currently stored in that browser.
-- This first version does not use a cloud database or user accounts.
-
-## AI features
-
-The Writing Studio and Speaking area are prepared for future AI integration, but this version does not call an AI service. To add AI safely, create a server-side endpoint (for example with a serverless function) and keep API keys in server-side environment variables. Never put a private API key in `app.js` or any public GitHub repository.
-
-## Question bank and copyright
-
-The diagnostic and random-set questions included here are original learning exercises written for this app. They are not official IELTS questions, are not copied from past papers, and do not represent a complete IELTS question bank. Listening practice currently records results from materials you use elsewhere; it does not provide built-in listening audio. The speaking area provides prompts, a timer and reflection logging; it does not record or score speech. The writing area saves drafts locally but does not provide AI marking. You can add your own notes and legally obtained practice material. Do not upload copyrighted books or paid question banks unless you have permission.
-
-## IELTS band calculation
-
-The app calculates the average of the four entered skill bands and rounds to the nearest half band for a practice estimate. Official IELTS score reporting may involve test-specific reporting rules; use official score reports as the authority.
+## Important limitations
+- No AI writing correction, AI speaking conversation, speech recognition or official examiner scoring is connected.
+- Listening audio uses browser text-to-speech rather than an official IELTS recording.
+- `localStorage` is specific to the browser and website origin. It does not automatically sync between devices or browsers. Use Export backup regularly.
+- GitHub Pages is static hosting; do not put private API keys in client-side files.
 
 ## Files
-
-- `index.html` — app structure and English interface
-- `styles.css` — responsive visual design
-- `app.js` — navigation, practice tools, charts and local data storage
-- `.nojekyll` — tells GitHub Pages not to run Jekyll processing
+`index.html`, `styles.css`, `app.js`, `README.md`, `.nojekyll`.

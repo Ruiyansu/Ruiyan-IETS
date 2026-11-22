@@ -1,5 +1,6 @@
 /* IELTS Studio — first version. All data is stored locally in this browser. */
-const STORE_KEY = "ieltsStudio.v1";
+const STORE_KEY = "ieltsStudio.v2";
+const LEGACY_STORE_KEY = "ieltsStudio.v1";
 const todayISO = () => new Date().toISOString().slice(0,10);
 const defaultTasks = [
   {id:"t1",title:"Listening practice",detail:"Complete one focused listening activity",done:false},
@@ -15,13 +16,13 @@ const seedWords = [
 function uid(){return Math.random().toString(36).slice(2,10)}
 function loadState(){
   try{
-    const saved=JSON.parse(localStorage.getItem(STORE_KEY));
-    if(saved) return {...saved,tasks:saved.tasks||defaultTasks,words:saved.words||[],mistakes:saved.mistakes||[],exams:saved.exams||[],sessions:saved.sessions||[],essays:saved.essays||[],speaking:saved.speaking||[],activityDays:saved.activityDays||[]};
+    const saved=JSON.parse(localStorage.getItem(STORE_KEY) || localStorage.getItem(LEGACY_STORE_KEY));
+    if(saved) return {...saved,tasks:saved.tasks||defaultTasks,words:saved.words||[],mistakes:saved.mistakes||[],exams:saved.exams||[],sessions:saved.sessions||[],essays:saved.essays||[],speaking:saved.speaking||[],activityDays:saved.activityDays||[],practiceResults:saved.practiceResults||{},practiceDrafts:saved.practiceDrafts||{}};
   }catch(e){console.warn("Could not read saved data",e)}
-  return {tasks:defaultTasks.map(x=>({...x})),words:seedWords,mistakes:[],exams:[],sessions:[],essays:[],speaking:[],activityDays:[]};
+  return {tasks:defaultTasks.map(x=>({...x})),words:seedWords,mistakes:[],exams:[],sessions:[],essays:[],speaking:[],activityDays:[],practiceResults:{},practiceDrafts:{}};
 }
 let state=loadState();
-function save(){localStorage.setItem(STORE_KEY,JSON.stringify(state));renderAll()}
+function save(){try{localStorage.setItem(STORE_KEY,JSON.stringify(state));}catch(e){console.error("Save failed",e);toast("本地保存失败，请导出备份并检查浏览器存储空间");}renderAll()}
 function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2200)}
 function escapeHTML(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function markActivity(date=todayISO()){if(!state.activityDays.includes(date))state.activityDays.push(date)}
@@ -95,7 +96,7 @@ function renderSessions(){
 }
 document.querySelectorAll(".routine-check").forEach(c=>c.onchange=()=>{if(c.checked){markActivity();save();toast("Listening routine step completed")}});
 document.getElementById("essayText").addEventListener("input",()=>{const n=document.getElementById("essayText").value.trim().split(/\s+/).filter(Boolean).length;document.getElementById("wordCount").textContent=`${n} words`});
-document.getElementById("saveEssay").onclick=()=>{const text=document.getElementById("essayText").value.trim();if(!text){toast("Write something before saving");return}state.essays.push({id:uid(),type:document.getElementById("essayType").value,prompt:document.getElementById("essayPrompt").value,text,date:todayISO(),words:text.split(/\s+/).length});markActivity();save();toast("Writing draft saved locally")};
+document.getElementById("saveEssay").onclick=()=>{const text=document.getElementById("essayText").value.trim();if(!text){toast("Write something before saving");return}state.essays.push({id:uid(),type:document.getElementById("essayType").value,prompt:document.getElementById("essayPrompt").value,text,date:todayISO(),words:text.split(/\s+/).length});markActivity();save();localStorage.removeItem('ieltsStudio.pendingEssay');toast("Writing draft saved locally")};
 function renderEssays(){const arr=[...state.essays].reverse();document.getElementById("essayHistory").innerHTML=arr.length?`<table><thead><tr><th>DATE</th><th>TYPE</th><th>QUESTION</th><th>WORDS</th><th></th></tr></thead><tbody>${arr.map(e=>`<tr><td>${e.date}</td><td>${escapeHTML(e.type)}</td><td>${escapeHTML(e.prompt||"Personal draft").slice(0,55)}</td><td>${e.words}</td><td><button class="text-button" data-open-essay="${e.id}">Open</button></td></tr>`).join("")}</tbody></table>`:'<div class="empty-table">No saved drafts yet.</div>';document.querySelectorAll("[data-open-essay]").forEach(b=>b.onclick=()=>{const e=state.essays.find(x=>x.id===b.dataset.openEssay);document.getElementById("essayType").value=e.type;document.getElementById("essayPrompt").value=e.prompt;document.getElementById("essayText").value=e.text;document.getElementById("wordCount").textContent=e.words+" words";nav("writing")})}
 const speakingPrompts=[["Part 1 · Work or study","Do you work or are you a student?"],["Part 1 · Hometown","What do you like most about your hometown?"],["Part 1 · Daily routine","Which part of your day do you enjoy most?"],["Part 2 · Describe a skill","Describe a skill you would like to learn. You should say what it is, why you want to learn it and how you would learn it."],["Part 2 · A memorable journey","Describe a journey that you remember well. You should say where you went, who you went with and why it was memorable."],["Part 3 · Technology","How has technology changed the way people communicate?"],["Part 3 · Education","Should universities focus more on practical skills or academic knowledge?"]];
 document.getElementById("newPrompt").onclick=()=>{const p=speakingPrompts[Math.floor(Math.random()*speakingPrompts.length)];document.getElementById("speakingPart").textContent=p[0];document.getElementById("speakingPrompt").textContent=p[1]};
@@ -155,7 +156,8 @@ document.getElementById("buildMock").onclick=()=>{
 };
 document.getElementById("addTask").onclick=()=>{const v=document.getElementById("customTask").value.trim();if(!v){toast("Enter a task name");return}state.tasks.push({id:uid(),title:v,detail:"Personal study task",done:false});document.getElementById("customTask").value="";save();toast("Task added")};
 function renderCalendar(){const el=document.getElementById("calendar"),now=new Date(),year=now.getFullYear(),month=now.getMonth(),first=new Date(year,month,1).getDay(),days=new Date(year,month+1,0).getDate();let html=["S","M","T","W","T","F","S"].map(x=>`<div class="calendar-day head">${x}</div>`).join("");for(let i=0;i<first;i++)html+='<div></div>';for(let d=1;d<=days;d++){const date=`${year}-${String(month+1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;html+=`<div class="calendar-day ${state.activityDays.includes(date)?"active":""}">${d}</div>`}el.innerHTML=html;document.getElementById("streakNumber").textContent=state.activityDays.length;document.getElementById("dashDays").textContent=state.activityDays.length}
-function renderAll(){renderTasks();renderWords();renderMistakes();renderExams();renderSessions();renderEssays();renderSpeaking();renderCalendar()}
+function renderProductiveScores(){["Writing","Speaking"].forEach(skill=>{const id=skill.toLowerCase()+"ScoreHistory",el=document.getElementById(id);if(!el)return;const rows=state.sessions.filter(x=>x.skill===skill).slice().reverse();el.innerHTML=rows.length?`<div class="table-wrap"><table><thead><tr><th>DATE</th><th>PRACTICE</th><th>SELF-ASSESSMENT BAND</th></tr></thead><tbody>${rows.map(x=>`<tr><td>${escapeHTML(x.date)}</td><td>${escapeHTML(x.name)}</td><td><b>${Number(x.band).toFixed(1)}</b></td></tr>`).join("")}</tbody></table></div>`:`<div class="empty-table">暂无自评成绩</div>`})}
+function renderAll(){renderTasks();renderWords();renderMistakes();renderExams();renderSessions();renderEssays();renderSpeaking();renderProductiveScores();renderCalendar()}
 document.getElementById("startDiagnostic").onclick=runDiagnostic;
 const diagnosticQuestions=[
  {area:"Vocabulary",q:"The word “crucial” is closest in meaning to:",opts:["Unimportant","Essential","Uncertain","Frequent"],a:1,why:"Crucial means extremely important or necessary."},
@@ -191,4 +193,72 @@ document.getElementById("exportBtn").onclick=()=>{const blob=new Blob([JSON.stri
 document.getElementById("importBtn").onclick=()=>document.getElementById("importFile").click();
 document.getElementById("importFile").onchange=async e=>{const file=e.target.files[0];if(!file)return;try{const data=JSON.parse(await file.text());if(!data||!Array.isArray(data.words)||!Array.isArray(data.exams))throw new Error("Invalid backup");if(confirm("Import this backup and replace the data currently stored in this browser?")){state=data;save();toast("Backup imported")}}catch(err){toast("Could not import this file. Check that it is an IELTS Studio backup.")}e.target.value=""};
 function renderDashboardDiagnostic(){if(state.diagnostic){const d=state.diagnostic;document.getElementById("dashBandSub").textContent=`Placement check: ${d.pct}% · ${d.date}`}}
+
+// ===== IELTS Studio v2: real answerable practice with automatic marking =====
+const skillBanks = {
+ reading: {
+  passage: `Urban green spaces are increasingly recognised as essential parts of city infrastructure. Beyond providing places for recreation, parks and community gardens can reduce the urban heat-island effect by offering shade and allowing water to evaporate from vegetation. They may also support biodiversity, particularly when different habitats are connected by green corridors. However, the benefits are not distributed equally. In some cities, new parks have contributed to rising property prices, making nearby housing less affordable for long-term residents. Urban planners therefore argue that green-space projects should be combined with policies that protect existing communities.`,
+  questions: [
+   ["What is the main purpose of the passage?",["To argue that all cities should ban cars","To explain benefits and challenges of urban green spaces","To compare rural and urban populations","To describe the history of public gardens"],1,"The passage discusses environmental and social benefits, as well as unequal effects."],
+   ["According to the passage, how can parks reduce urban heat?",["By increasing traffic flow","By providing shade and supporting evaporation","By replacing public transport","By reflecting all sunlight"],1,"Shade and evaporation from vegetation are explicitly mentioned."],
+   ["What are green corridors intended to do?",["Connect different habitats","Separate residential areas","Increase property prices","Prevent all flooding"],0,"The passage says connected green corridors can support biodiversity."],
+   ["Which social problem may follow the creation of new parks?",["Lower school attendance","Rising housing costs","Reduced biodiversity","A decline in tourism"],1,"New parks may contribute to rising property prices and less affordable housing."],
+   ["The word ‘distributed’ is closest in meaning to:",["shared","measured","removed","delayed"],0,"Here, benefits are not shared equally among residents."],
+   ["The passage suggests that green spaces are:",["Only useful for sport","Part of essential city infrastructure","Too expensive to maintain","Unrelated to public health"],1,"The opening sentence describes them as essential infrastructure."],
+   ["What does ‘They’ in the second sentence refer to?",["City authorities","Community gardens only","Parks and community gardens","Property prices"],2,"The pronoun refers to parks and community gardens."],
+   ["Which statement is NOT supported by the passage?",["Vegetation can help cool cities","Green corridors may help biodiversity","All residents benefit equally from new parks","Housing protection may be needed"],2,"The passage directly says benefits are not distributed equally."],
+   ["What do urban planners recommend?",["Stopping all park construction","Combining green projects with community protections","Building parks only in wealthy areas","Replacing gardens with roads"],1,"The final sentence gives this recommendation."],
+   ["Which title best summarises the passage?",["The End of City Life","Urban Green Spaces: Benefits and Difficulties","A Guide to Buying Property","The History of Urban Transport"],1,"This title covers both the benefits and challenges discussed."]
+  ]
+ },
+ listening: {
+  script: `Hello, this is a message for people who have registered for the university study skills workshop. The workshop will take place on Thursday the fourteenth of May, not Wednesday as stated in the first email. Please arrive at the West Building, room 204, by 9:15. The session begins at half past nine and finishes at twelve fifteen. You do not need to bring a laptop, but please bring a notebook. A light lunch will be provided. If you have any questions, contact the organiser, Helen Carter, by email before Monday.`,
+  questions: [
+   ["On which day will the workshop take place?",["Wednesday","Thursday","Friday","Monday"],1,"The speaker corrects the earlier email: Thursday."],
+   ["What is the date of the workshop?",["The 4th of May","The 14th of May","The 15th of May","The 24th of May"],1,"The date is the fourteenth of May."],
+   ["Where will the workshop be held?",["East Building, room 204","West Building, room 204","West Building, room 214","Library, room 204"],1,"The location is West Building, room 204."],
+   ["What time should participants arrive?",["9:00","9:15","9:30","9:45"],1,"Participants should arrive by 9:15."],
+   ["When does the session finish?",["11:45","12:00","12:15","12:30"],2,"It finishes at twelve fifteen."],
+   ["What should participants bring?",["A laptop","A printed ticket","A notebook","A packed lunch"],2,"A notebook is required; a laptop is not needed."],
+   ["What will be provided?",["Breakfast","A light lunch","A notebook","A laptop"],1,"A light lunch will be provided."],
+   ["Who is the organiser?",["Helen Carter","Hannah Cooper","Helen Cooper","Harriet Carter"],0,"The organiser is Helen Carter."],
+   ["How should participants contact the organiser?",["By phone","In person","By email","By post"],2,"The speaker asks people to contact her by email."],
+   ["By when should questions be sent?",["Before Monday","After Monday","On Thursday morning","Before Friday"],0,"Questions should be sent before Monday."]
+  ]
+ }
+};
+const skillQuizState = {reading:state.practiceResults?.reading||null,listening:state.practiceResults?.listening||null};
+function renderSkillQuiz(skill){
+ const root=document.getElementById(skill+'Quiz'); if(!root)return;
+ const bank=skillBanks[skill];
+ const prior=skillQuizState[skill];
+ if(prior && prior.submitted){root.innerHTML=`<div class="quiz-result"><div class="info-grid"><div><b>${prior.correct}/${bank.questions.length}</b><small>答对题数</small></div><div><b>${Math.round(prior.correct/bank.questions.length*100)}%</b><small>正确率</small></div><div><b>${prior.raw}/40</b><small>折算答对数</small></div></div><h3>答案解析</h3>${bank.questions.map((q,i)=>`<div class="question"><b>${i+1}. ${escapeHTML(q[0])}</b><p class="small">${prior.answers[i]===q[2]?'✓ 回答正确':'✕ 你的答案：'+escapeHTML(q[1][prior.answers[i]]||'未作答')+'；正确答案：'+escapeHTML(q[1][q[2]])}</p><p class="small muted">${escapeHTML(q[3])}</p></div>`).join('')}<button class="button button-dark" id="retry-${skill}">再做一次</button></div>`;
+  document.getElementById('retry-'+skill).onclick=()=>{skillQuizState[skill]=null;state.practiceResults=state.practiceResults||{};state.practiceResults[skill]=null;state.practiceDrafts[skill]={};save();renderSkillQuiz(skill)};return;}
+ const answers=prior?.answers||state.practiceDrafts?.[skill]||{};
+ let html='';
+ if(skill==='reading') html+=`<div class="reading-passage"><h3>Reading passage</h3><p>${escapeHTML(bank.passage)}</p></div>`;
+ if(skill==='listening') html+=`<div class="audio-box"><p>先听录音，建议不要边听边看文字稿。</p><button class="button button-light" id="playListening">▶ 播放 / 重播听力材料</button><span class="small muted">浏览器语音合成 · 可重复播放</span></div>`;
+ html+=bank.questions.map((q,i)=>`<div class="question quiz-question"><b>${i+1}. ${escapeHTML(q[0])}</b>${q[1].map((o,j)=>`<label class="option"><input type="radio" name="${skill}-${i}" value="${j}" ${Number(answers[i])===j?'checked':''}><span>${String.fromCharCode(65+j)}. ${escapeHTML(o)}</span></label>`).join('')}</div>`).join('');
+ html+=`<button class="button button-dark" id="submit-${skill}">提交答案并查看成绩</button>`;
+ root.innerHTML=html;
+ root.querySelectorAll('input[type=radio]').forEach(el=>el.addEventListener('change',()=>{const m=el.name.match(/-(\d+)$/);if(!m)return;state.practiceDrafts[skill]=state.practiceDrafts[skill]||{};state.practiceDrafts[skill][m[1]]=Number(el.value);try{localStorage.setItem(STORE_KEY,JSON.stringify(state));}catch(e){}}));
+ if(skill==='listening')document.getElementById('playListening').onclick=()=>{if(!('speechSynthesis' in window)){toast('当前浏览器不支持语音播放');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(bank.script);u.lang='en-GB';u.rate=.88;speechSynthesis.speak(u)};
+ document.getElementById('submit-'+skill).onclick=()=>{
+  const chosen=bank.questions.map((q,i)=>{const el=document.querySelector(`input[name="${skill}-${i}"]:checked`);return el?Number(el.value):null});
+  if(chosen.some(x=>x===null)){toast('还有题目没有作答，请完成全部 10 题');return}
+  const correct=chosen.filter((a,i)=>a===bank.questions[i][2]).length;
+  const record={id:uid(),skill:skill==='reading'?'Reading':'Listening',name:skill==='reading'?'IELTS Studio Reading Practice 01':'IELTS Studio Listening Practice 01',correct,total:10,note:'自动判分练习',date:todayISO(),percent:correct*10};
+  state.sessions.push(record);markActivity();skillQuizState[skill]={submitted:true,correct,answers:chosen,raw:correct*4};state.practiceResults=state.practiceResults||{};state.practiceResults[skill]=skillQuizState[skill];state.practiceDrafts[skill]={};save();renderSkillQuiz(skill);toast(`完成！答对 ${correct}/10，正确率 ${correct*10}%`);
+ };
+}
+function assessmentMarkup(kind,labels){return `<div class="score-fields">${labels.map((x,i)=>`<label>${x}<select id="${kind}Band${i}">${Array.from({length:19},(_,j)=>j*.5).map(v=>`<option value="${v}" ${v===5?'selected':''}>${v.toFixed(1)}</option>`).join('')}</select></label>`).join('')}</div><label>练习名称<input id="${kind}Name" placeholder="例如：Task 2 — Education / Speaking Part 2"></label><button class="button button-dark" id="save${kind}Assessment">计算并保存自评分</button><div id="${kind}AssessmentResult"></div>`}
+const writingRoot=document.getElementById('writingAssessment'); if(writingRoot)writingRoot.innerHTML=assessmentMarkup('Writing',['Task Response / Achievement','Coherence & Cohesion','Lexical Resource','Grammar Range & Accuracy']);
+const speakingRoot=document.getElementById('speakingAssessment'); if(speakingRoot)speakingRoot.innerHTML=assessmentMarkup('Speaking',['Fluency & Coherence','Lexical Resource','Grammar Range & Accuracy','Pronunciation']);
+function setupAssessment(kind){const btn=document.getElementById('save'+kind+'Assessment');if(!btn)return;btn.onclick=()=>{const vals=[0,1,2,3].map(i=>Number(document.getElementById(kind+'Band'+i).value));const avg=vals.reduce((a,b)=>a+b,0)/4;const band=Math.round(avg*2)/2;const name=document.getElementById(kind+'Name').value.trim()||(kind+' self-assessment');const record={id:uid(),skill:kind,date:todayISO(),name,correct:0,total:0,note:'Self-assessed band '+band.toFixed(1)+' · '+vals.map(v=>v.toFixed(1)).join('/'),band};state.sessions.push(record);markActivity();save();document.getElementById(kind+'AssessmentResult').innerHTML=`<div class="notice"><b>你的自评参考分：${band.toFixed(1)}</b><span>四项标准原始平均分：${avg.toFixed(2)}。该分数仅供练习追踪，不是官方评分或 AI 批改结果。</span></div>`;toast(kind+' 自评分已保存');}}
+setupAssessment('Writing');setupAssessment('Speaking');
+renderSkillQuiz('reading');renderSkillQuiz('listening');
+// Persist unfinished essay drafts while typing; restore the latest unsaved text after refresh.
+const essayTextEl=document.getElementById('essayText');
+if(essayTextEl){const draft=JSON.parse(localStorage.getItem('ieltsStudio.pendingEssay')||'null');if(draft&&!essayTextEl.value){document.getElementById('essayType').value=draft.type||'Writing Task 2';document.getElementById('essayPrompt').value=draft.prompt||'';essayTextEl.value=draft.text||'';document.getElementById('wordCount').textContent=(draft.text||'').trim().split(/\s+/).filter(Boolean).length+' words';}essayTextEl.addEventListener('input',()=>{localStorage.setItem('ieltsStudio.pendingEssay',JSON.stringify({type:document.getElementById('essayType').value,prompt:document.getElementById('essayPrompt').value,text:essayTextEl.value}));});}
+
 renderAll();renderDashboardDiagnostic();
