@@ -39,3 +39,33 @@ body{background:radial-gradient(ellipse at 12% 8%,rgba(188,213,231,.48),transpar
 .panel,.stat-card{background:rgba(255,255,255,.86);backdrop-filter:blur(14px);border-color:rgba(126,151,184,.30);box-shadow:0 12px 32px rgba(35,57,88,.075)}
 .topbar{background:rgba(249,251,255,.78);backdrop-filter:blur(18px)}
 .skill-card.listening{background:linear-gradient(145deg,#dff3f0,#e9f5f5)}.skill-card.reading{background:linear-gradient(145deg,#e4edff,#edf1fc)}.skill-card.writing{background:linear-gradient(145deg,#fff0df,#f8f0e9)}.skill-card.speaking{background:linear-gradient(145deg,#eee8fa,#f3eff8)}
+
+/* Reading question-bank browser */
+.reading-library-panel{padding:26px}
+.reading-library-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:20px}
+.reading-library-head h2{font-size:24px;margin:0 0 5px}
+.reading-library-progress{min-width:120px;padding:12px 18px;border:1px solid #d9e2ee;border-radius:18px;background:rgba(255,255,255,.7);text-align:center}
+.reading-library-progress b,.reading-library-progress span{display:block}
+.reading-library-progress b{font-size:23px;color:#172b48}
+.reading-library-progress span{font-size:11px;color:#687b92;margin-top:3px}
+.reading-filter-row{display:grid;grid-template-columns:minmax(220px,1fr) 150px 170px;gap:10px;margin:18px 0 22px}
+.reading-filter-row input,.reading-filter-row select{margin:0;max-width:none}
+.reading-bank-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.reading-bank-card{background:rgba(255,255,255,.92);border:1px solid rgba(130,153,181,.28);border-radius:15px;padding:20px;box-shadow:0 8px 24px rgba(40,60,90,.055);min-width:0}
+.reading-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.reading-card-icon{width:35px;height:35px;border-radius:50%;display:grid;place-items:center;background:#e6edff;color:#607dd2;font-size:19px}
+.reading-status{font-size:11px;border-radius:20px;padding:5px 10px;background:#f2eee8;color:#81725e}
+.reading-status.is-done{background:#e2f3ed;color:#27745c}
+.reading-bank-card h3{font-size:18px;line-height:1.4;color:#17243a;margin:0 0 9px}
+.reading-meta{display:inline-block;background:#f0ede8;color:#4d5662;border-radius:8px;padding:7px 10px;font-size:11px;line-height:1.5}
+.reading-card-detail{font-size:12px;color:#738197;margin:12px 0 15px}
+.reading-card-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.reading-card-actions .button{margin:0}
+.reading-workspace{margin-top:22px;scroll-margin-top:90px}
+.reading-practice-shell{background:rgba(255,255,255,.76);border:1px solid #d9e2ee;border-radius:15px;padding:22px}
+.reading-workspace-head{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:16px}
+.reading-workspace-head h2{margin:0 0 4px}
+.reading-passage{background:rgba(235,242,250,.82);border:1px solid #d7e2ef;border-radius:12px;padding:20px 22px;margin:12px 0 18px}
+.reading-passage p{font-size:14px;line-height:1.9;color:#263b57}
+.reading-questions .quiz-question{padding:18px 0}
+@media(max-width:720px){.reading-library-panel{padding:16px}.reading-library-head{align-items:flex-start}.reading-filter-row{grid-template-columns:1fr 1fr}.reading-filter-row .reading-search{grid-column:1/-1}.reading-bank-grid{grid-template-columns:1fr}.reading-practice-shell{padding:15px}.reading-workspace-head{align-items:flex-start}}
