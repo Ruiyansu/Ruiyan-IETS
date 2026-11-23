@@ -215,18 +215,41 @@ const skillQuizState = {reading:state.practiceResults?.reading||null,listening:s
 // Reading data is imported by the owner into this browser; copyrighted passage text is
 // deliberately not committed to this public repository.
 let readingBankCache=null;
+let readingBankLoadStarted=false;
 function getReadingBank(){
  if(readingBankCache)return readingBankCache;
  try{return JSON.parse(localStorage.getItem("ieltsStudio.readingBank")||"null")}catch(e){return null}
 }
-async function restoreCompressedReadingBank(){
- const encoded=localStorage.getItem("ieltsStudio.readingBank.gz");
- if(!encoded||typeof DecompressionStream!=="function")return null;
- const binary=atob(encoded),bytes=new Uint8Array(binary.length);
- for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);
- const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
- readingBankCache=JSON.parse(await new Response(stream).text());
- return readingBankCache;
+function openReadingDatabase(){
+ return new Promise((resolve,reject)=>{
+  if(!window.indexedDB){reject(new Error("IndexedDB unavailable"));return}
+  const request=indexedDB.open("ieltsStudioPersonalData",1);
+  request.onupgradeneeded=()=>{const db=request.result;if(!db.objectStoreNames.contains("readingBank"))db.createObjectStore("readingBank")};
+  request.onsuccess=()=>resolve(request.result);
+  request.onerror=()=>reject(request.error||new Error("Database open failed"));
+ });
+}
+async function restoreReadingBank(){
+ const db=await openReadingDatabase();
+ return new Promise((resolve,reject)=>{
+  const tx=db.transaction("readingBank","readonly"),request=tx.objectStore("readingBank").get("main");
+  request.onsuccess=()=>{readingBankCache=request.result||null;db.close();resolve(readingBankCache)};
+  request.onerror=()=>{db.close();reject(request.error||new Error("Database read failed"))};
+ });
+}
+async function saveReadingBank(data){
+ const db=await openReadingDatabase();
+ await new Promise((resolve,reject)=>{
+  const tx=db.transaction("readingBank","readwrite");tx.objectStore("readingBank").put(data,"main");
+  tx.oncomplete=()=>{db.close();resolve()};
+  tx.onerror=()=>{db.close();reject(tx.error||new Error("Database write failed"))};
+  tx.onabort=()=>{db.close();reject(tx.error||new Error("Database write aborted"))};
+ });
+ readingBankCache=data;readingBankLoadStarted=true;
+}
+async function clearReadingBank(){
+ try{const db=await openReadingDatabase();await new Promise((resolve,reject)=>{const tx=db.transaction("readingBank","readwrite");tx.objectStore("readingBank").delete("main");tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>{db.close();reject(tx.error)}})}catch(e){}
+ readingBankCache=null;localStorage.removeItem("ieltsStudio.readingBank");
 }
 function readingQuestionHTML(q,i,answer){
  const id="rq-"+i, type=q.type||"short";
@@ -255,9 +278,10 @@ function renderSkillQuiz(skill){
  const root=document.getElementById(skill+"Quiz"); if(!root)return;
  if(skill==="reading"){
   const bank=getReadingBank();
-  if(!bank&&localStorage.getItem("ieltsStudio.readingBank.gz")){
-   root.innerHTML='<div class="reading-empty"><h2>正在加载你的阅读题库…</h2><p>首次读取可能需要几秒钟。</p></div>';
-   restoreCompressedReadingBank().then(()=>renderSkillQuiz("reading")).catch(()=>{localStorage.removeItem("ieltsStudio.readingBank.gz");renderSkillQuiz("reading");toast("题库读取失败，请重新导入 JSON 文件")});
+  if(!bank&&!readingBankLoadStarted){
+   readingBankLoadStarted=true;
+   root.innerHTML='<div class="reading-empty"><h2>正在读取你的个人题库…</h2><p>首次打开可能需要几秒钟。</p></div>';
+   restoreReadingBank().then(()=>renderSkillQuiz("reading")).catch(()=>{readingBankLoadStarted=true;renderSkillQuiz("reading")});
    return;
   }
   if(!bank||!Array.isArray(bank.passages)||!bank.passages.length){
