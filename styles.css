@@ -842,3 +842,44 @@ td{background:rgba(250,249,241,.82)!important;color:#4b574b!important;border-col
  border:1px solid rgba(32,40,32,.12)!important;
 }
 #view-reading .reading-library-card{border-radius:16px!important;overflow:hidden}
+
+
+/* Prominent typography — subtle raised lettering, while keeping small text clean */
+#view-home h1,#view-home h2,#view-home h3,
+.view h1,.view h2,.view h3,
+.page-heading h1,.page-heading h2,
+.panel-heading h2,.panel-heading h3,
+.stat-card strong,.skill-card b,
+.reading-library-card b,.reading-task-heading,
+.speaking-answer-editor h3,.speaking-selected-question b,
+.prompt-card h2,.prompt-card h3,
+.breadcrumb b,.today-label b {
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.88),
+    1px 2px 0 rgba(255,255,255,.42),
+    0 3px 5px rgba(57,70,60,.13)!important;
+}
+
+/* Light lettering on dark/strong surfaces gets a restrained deep shadow */
+.sidebar .brand,.sidebar .nav-item,
+.sidebar .storage-note b,
+.button-dark,.calendar-day.active,
+.avatar,.reading-task-heading.light,
+.badge-strong,.status-pill-strong {
+  text-shadow:
+    0 1px 0 rgba(37,52,35,.78),
+    1px 2px 0 rgba(37,52,35,.42),
+    0 3px 5px rgba(20,30,20,.22)!important;
+}
+
+/* Small/supporting copy stays flat for comfortable long reading */
+small,.muted,.body-copy,.eyebrow,
+.sidebar .brand small,.sidebar .sidebar-label,
+.sidebar .nav-item span,.sidebar .storage-note small,
+.stat-label,.stat-card small,
+.reading-library-card small,
+.reading-task-heading small,
+.speaking-answer-footer small,
+.footer,.caption,.hint,.helper-text {
+  text-shadow:none!important;
+}
