@@ -1,0 +1,1483 @@
+{
+  "version": 2,
+  "source": "【雅思阅读】2026年8月22日超小范围押题密卷(1).pdf",
+  "passages": [
+    {
+      "id": "sydney-opera-house",
+      "title": "Sydney Opera House",
+      "group": "Reading Passage 1",
+      "text": "Sydney Opera House is an example of late modern architecture; it is admired internationally and treasured by the people of Australia.\n\nIn 1956 the Premier of New South Wales, Australia, announced an international competition for the design of an opera house for Sydney. It attracted more than 200 entries from around the world and was won by Jørn Utzon, a relatively little-known architect from Denmark. The story goes that during the judging of the competition, one judge, American architect Eero Saarinen, arrived in Sydney after the other three judges had started assessing the entries. He looked through their rejected entries and stopped at the Utzon design, declaring it to be outstanding.\n\nIt was Utzon’s life and travels that had shaped his design for the Sydney Opera House. Though he had never visited the site, he used his maritime background to study naval charts of Sydney Harbour. His early exposure to shipbuilding provided the inspiration for the design of the roof, which is a series of curved ‘shells’ that look like the sails of a sailing ship billowing in the wind. From his travels to Mexico, he had the idea of placing his building on a wide horizontal platform.\n\nConstruction of the platform began in 1959, and throughout the early 1960s Utzon amended his original designs in order to develop a way to build the large ‘shells’ that cover the two main halls. The construction of the roof brought together some of the world’s best engineers and craftsmen, devising innovative techniques to create a major visual impact in accordance with Utzon’s vision. The design was one of the first examples of the use of computer-aided design for complex shapes.\n\nAlthough Utzon had spectacular plans for the interior, he was unable to realise them. Cost overruns contributed to criticism of the project and, after a change of government, the Minister of Works began questioning Utzon’s schedules and cost estimates. Payments to Utzon were stopped and he was forced to withdraw as chief architect in 1966. Following his resignation, there were protests through the streets led by prominent architect Harry Seidler and others, demanding that Utzon be reinstated as architect. However, Utzon was not reinstated and left Australia in 1966. He never returned, and new architects were appointed to complete the building in his absence. The original cost estimate for the Opera House was $7 million, with the completion date set for 26 January 1963. However, the Opera House was not formally completed until 1973, having cost $102 million.\n\nSince its opening in 1973, Sydney Opera House has earned a reputation as a world-class\n\nperforming-arts centre and become a symbol of both Sydney and Australia. Situated at Bennelong Point on Sydney Harbour, it consists of a series of large precast ‘shells’ made of concrete, each composed of sections of a sphere of 75.2 metres radius, forming the roofs of the structure, set on a monumental platform. The building is 183 metres long and 120 metres wide at its widest point. It is supported on 588 concrete piers, which are sunk approximately 25 metres below sea level.\n\nAlthough the roof structures are commonly referred to as ‘shells’, they are precast concrete panels supported by concrete ribs. The ‘shells’ are covered with 1,056,006 white and cream-coloured tiles manufactured in a factory in Sweden that generally produced stoneware tiles for the paper-mill industry. The design solution and construction of the shell structure took eight years to complete, and the development of the special ceramic tiles took over three years. Apart from the tiles covering the ‘shells’, the building’s exterior is mostly clad with granite quarried in Australia.\n\nContrary to its name, Sydney Opera House includes multiple performance venues. It is among the busiest performing-arts centres in the world, holding over 1,500 performances each year. It hosts a large number of performing-arts companies, including the four resident companies: Opera Australia, the Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra.\n\nWith its grand setting and cathedral-like atmosphere, the Concert Hall is Sydney Opera House’s most prestigious performance space. The largest of all interior venues, it delivers outstanding acoustics thanks to its high ceiling and wood panelling. There is a sizeable outdoor forecourt from which people ascend to the main entrance. The steps, which lead up from the forecourt to the main performance venues, are nearly 100 metres wide.\n\nIn 1999 Utzon was re-engaged to develop a set of design principles to act as a guide for future changes to the building. All of this design work he did from his base in Europe. These principles help to ensure that the building’s architectural integrity is maintained. The first alteration to the exterior was the addition of a new colonnade, which shades nine large glass openings in the previously solid exterior wall. This Utzon-led project, completed in 2006, enabled theatre patrons to see the harbour for the first time from the theatre foyers. The design also incorporates the first public lift and interior escalators to assist less-mobile patrons.\n\nSince 2007, the cultural, heritage and architectural importance of Sydney Opera House has been protected by its inclusion on the World Heritage List.",
+      "questions": [
+        {
+          "number": 1,
+          "prompt": "Utzon was famous for his work before he designed the Opera House.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "原文称 Utzon 当时是 “a relatively little-known architect”，说明他此前并不出名。"
+        },
+        {
+          "number": 2,
+          "prompt": "Utzon’s design was favoured by the four judges of the competition from the beginning.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "其他三位评委已经开始评审并淘汰了 Utzon 的设计；后来 Saarinen 才从淘汰作品中发现它。"
+        },
+        {
+          "number": 3,
+          "prompt": "Utzon’s knowledge of boats gave him the idea for parts of the Opera House.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章说他的造船经历启发了屋顶设计，屋顶像帆船在风中鼓起的船帆。"
+        },
+        {
+          "number": 4,
+          "prompt": "Utzon was impressed by the opera houses he had seen in Mexico.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "原文只说他从墨西哥旅行中想到把建筑放在宽阔的水平平台上，没有提到他看过或喜欢当地歌剧院。"
+        },
+        {
+          "number": 5,
+          "prompt": "Utzon changed his designs in the 1960s after construction began.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "平台工程于 1959 年开始；文章接着说他在 20 世纪 60 年代早期修改了原设计。"
+        },
+        {
+          "number": 6,
+          "prompt": "Seidler defended Utzon’s role as architect.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "Utzon 辞职后，Harry Seidler 等人组织抗议，要求恢复 Utzon 的建筑师职位。"
+        },
+        {
+          "number": 7,
+          "prompt": "Utzon went back to Australia in 1973 for the opening of the Opera House.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "原文明确说 Utzon 离开澳大利亚后 “He never returned”，因此没有在 1973 年回去。"
+        },
+        {
+          "number": 8,
+          "prompt": "Final cost: $ ________",
+          "answer": "102 million",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文最后说明歌剧院正式完工时耗资 $102 million。"
+        },
+        {
+          "number": 9,
+          "prompt": "Over a million tiles from ________",
+          "answer": "Sweden",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "瓷砖由瑞典的一家工厂生产，答案是 Sweden。"
+        },
+        {
+          "number": 10,
+          "prompt": "________ from Australia covering the outside walls",
+          "answer": "granite",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "文章说建筑外部大部分覆盖着在澳大利亚开采的 granite（花岗岩）。"
+        },
+        {
+          "number": 11,
+          "prompt": "________ performing-arts companies have their home base at the Opera House",
+          "answer": "four",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文列出 four resident companies，即四个驻场表演艺术团体。"
+        },
+        {
+          "number": 12,
+          "prompt": "A large ________ at the foot of a wide staircase",
+          "answer": "forecourt",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文写到有一个 sizeable outdoor forecourt，台阶从前庭通向主要表演场馆。"
+        },
+        {
+          "number": 13,
+          "prompt": "Openings made the ________ visible from foyers",
+          "answer": "harbour",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "2006 年的改造让观众首次能从剧院门厅看到 harbour（海港）。"
+        }
+      ]
+    },
+    {
+      "id": "rubber",
+      "title": "Rubber",
+      "group": "Reading Passage 1",
+      "text": "The plants that produce rubber are spread right across the globe, and grow in many different habitats. One might think it likely, therefore, that humankind has known about rubber for thousands of years. Yet, unlike other crops of economic importance, rubber led a relatively anonymous life until the last 150 years or so. The Indians of South America appear to be the first people to have understood the properties of rubber, and the Aztecs of what is now Mexico were the first to be recorded using the substance; a wall painting dating back to the sixth century depicts a scene of a tribute offering of crude rubber. With the arrival of Columbus in the Americas and the resulting Spanish influx, further evidence starts to appear concerning the Native American use of rubber. Antonio de Herrera y Tordesillas describes a ritual game played with a rubber ball at the court of the Aztec Emperor Montezuma II, and the Mayan and Toltec people are known to have taken part in similar activities. Rubber was also used to make raincoats, shoes, jars, torches and musical instruments, all of which must have been made from the indigenous Castilla elastica, as the Para rubber plant now favoured for rubber cultivation does not grow in the Mexican region.\n\nThe first description of latex (liquid rubber) extraction was made by Juan de Torquemada, who noted that if a receptacle was not at hand the Native Americans would place the latex on their bodies to allow it to solidify. However, no real interest in rubber was shown by any European until Charles de la Condamine, a French mathematician, published an account of his journey to South America in 1735. The journey was undertaken on behalf of the Paris Academy of Sciences to measure an arc of the meridian line on the equator, but the journey home was to turn out to be more significant than the true purpose of the trip. Condamine explored Brazil and Peru and discovered how the local people used one single piece of coagulated latex to make boots. The boots were impervious to water and, when smoked, looked like real leather. In 1747 the first description of the rubber tree and latex tapping was made by a military engineer and amateur botanist, François Fresneau, who was posted to French Guiana. The publications of Condamine and Fresneau created considerable excitement among French scientists, and an attempt was made to discover a solvent that could turn the crude rubber into a substance for commercial exploitation.\n\nIn 1818 a British medical student named James Syme first used rubber to make waterproof cloth. Another early use of the substance was as an eraser of pencil marks, hence the name ‘rubber’. This was complemented by balloons, rubber bands, braces, boots for the army and other ideas that met with varying degrees of success. In 1820 Thomas Hancock, an English manufacturer of rubber goods such as driving belts, industrial rollers and rubber\n\nhoses, invented a machine he called the ‘masticator’, which chewed up waste strips for re- use. It was discovered that the masticated rubber was more malleable, while maintaining much of its elasticity. In Scotland at the same time, Charles Mackintosh had discovered a way of using rubber as waterproofing material, by a process he patented in 1823. Hancock and Mackintosh joined forces in 1834, and three years later Hancock invented a machine for spreading rubber onto material.\n\nDespite their beneficial qualities, such as waterproofing, rubber goods were still not particularly popular as they had some major flaws, including the fact that they dissolved malodorously. They also became pliant when warm and rigid when cold. Then in 1839 the American Charles Goodyear discovered that it was possible to stabilise rubber by mixing it with sulphur while exposing it to heat — a process he called vulcanisation — and the full versatility of this extraordinary substance became apparent.\n\nRubber goods could now be manufactured which had all the beneficial qualities of the material, such as durability, elasticity and variability, but which were not sticky, soluble or governed by the vagaries of the weather. The economic potential of rubber was now clearly evident. It played an important role in the Industrial Revolution, being employed in the steam engines found in factories, mills, mines and railways. It made a triumphant entrance as a new and innovative material at the Great Exhibition of 1851, where shoes, airbeds, furniture and clothing made out of newly improved rubber were proudly displayed.\n\nOne of the most important rubber inventions was made in 1888, when an Irishman called John Boyd Dunlop produced the first pneumatic tyre. Solid rubber tyres had been used for the previous 18 years, but Dunlop’s new design, which he updated in 1890, immediately became popular. In 1895 Dunlop’s tyres were first used in motor cars, and with the mass production of cars just over the horizon the rubber industry had never looked healthier. The import levels of rubber over the nineteenth century bear witness to its irrepressible rise. In 1830 Britain had imported just 211 kg of crude rubber. This had risen to 10,000 kg in 1857, and by 1874 levels were just under six times as much again.",
+      "questions": [
+        {
+          "number": 1,
+          "prompt": "Rubber plants grow only in certain regions of the world.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章开头说产橡胶的植物遍布全球，并生长在许多不同的栖息地。"
+        },
+        {
+          "number": 2,
+          "prompt": "Rubber was extracted in Mexico as early as the sixth century.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "六世纪壁画描绘的是进贡生橡胶的场景；文章没有说壁画所示的橡胶是在墨西哥当地提取的。"
+        },
+        {
+          "number": 3,
+          "prompt": "Rubber from the Castilla elastica plant is of poorer quality than that from the Para plant.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章只说明两种植物的分布/用途，没有比较它们生产的橡胶质量。"
+        },
+        {
+          "number": 4,
+          "prompt": "A French mathematician inspired real interest in rubber amongst Europeans.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章说欧洲人真正开始对橡胶感兴趣，是在法国数学家 Condamine 于 1735 年发表南美旅行记述之后。"
+        },
+        {
+          "number": 5,
+          "prompt": "The process of vulcanisation was discovered by accident.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章介绍了 Goodyear 发现硫化过程及其方法，但没有说明这是偶然发现。"
+        },
+        {
+          "number": 6,
+          "prompt": "Imports of crude rubber into Britain fell during the nineteenth century.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "数据从 1830 年的 211 kg 上升到 1857 年的 10,000 kg，之后到 1874 年继续大幅增加。"
+        },
+        {
+          "number": 7,
+          "prompt": "In 1818, ______ was produced using rubber.",
+          "answer": "waterproof cloth",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文明确写到 James Syme 于 1818 年首次用橡胶制作 waterproof cloth。"
+        },
+        {
+          "number": 8,
+          "prompt": "A machine was invented for recycling ______ of rubber.",
+          "answer": "waste strips",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "Hancock 的机器用于咀嚼并重新利用 waste strips（废橡胶条）。"
+        },
+        {
+          "number": 9,
+          "prompt": "Rubber could turn either soft or ______ depending on the temperature.",
+          "answer": "rigid",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文说橡胶受热变得 pliant（柔软），遇冷则 rigid（坚硬）。"
+        },
+        {
+          "number": 10,
+          "prompt": "A new process to ______ the substance greatly increased its potential.",
+          "answer": "stabilise",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "Goodyear 通过加硫并加热使橡胶稳定，原文使用的动词是 stabilise。"
+        },
+        {
+          "number": 11,
+          "prompt": "Rubber was used in the creation of the ______ industry during the Industrial Revolution.",
+          "answer": "steam engines",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "文章说橡胶被用于工厂、磨坊、矿山和铁路中的 steam engines。"
+        },
+        {
+          "number": 12,
+          "prompt": "In 1888 the ______ was developed.",
+          "answer": "pneumatic tyre",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "John Boyd Dunlop 于 1888 年制造出第一个 pneumatic tyre（充气轮胎）。"
+        },
+        {
+          "number": 13,
+          "prompt": "A few years later the ______ of the motor car began.",
+          "answer": "mass production",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文说汽车大规模生产即将到来，题目对应 mass production。"
+        }
+      ]
+    },
+    {
+      "id": "advertising-needs-attention",
+      "title": "Advertising Needs Attention",
+      "group": "Reading Passage 1",
+      "text": "Jane Raymond, a consumer psychologist at the University of Wales in Bangor, is carefully holding and gazing at a bottle of Chillz mineral water like a baby. Despite being made of clear plastic, it looks as if it has been carved from ice. This simple feature means shoppers are drawn to this bottle over the others on the shelf and cannot resist picking it up, Raymond says. She studies the subtle factors that motivate us to buy what we buy and advises big companies on how powerful an advertisement is and how it could be designed to stick more firmly in a consumer’s memory. Most of all, she works out how to attract your attention.\n\nIn today’s fast-paced consumer world, attention is in short supply. Whether we are taking our time shopping in a mall, surfing the Internet for information, or just watching television as a form of passive entertainment, consumers are surrounded by messages—one every 15 seconds of our waking lives, according to some estimates. Last year, companies worldwide spent $401 billion on advertising, according to the independent World Advertising Research Centre in the UK. But as the graveyard of failed products shows, they usually get it wrong.\n\nNine out of ten new products meet an early death, says Jamie Rayner, director of research at ID Magasin, a UK consultancy specialising in consumer behaviour. And the reason, he explains, is simple: conventional advertising has ceased to work. Rayner and his colleagues have measured how consumers—particularly regular commuters—react to advertising, and their conclusion should alarm many executives. They used a camera embedded in a pair of glasses worn to and from work to record commuters’ gaze as they glanced at advertisements on their journey. After analysing the recordings and questioning the subjects, they found that most of the advertisements made no impression at all: only about one per cent could be recalled without prompting. It seems that although we may be looking at brands and advertisements all day long, most of the time we’re not taking anything in.\n\nRaymond thinks she knows why. Her move from research in visual processing into consumer psychology began in the early 1990s, when she discovered some strange behaviours in the brain’s attentional system. She showed people a stream of letters and numbers on a screen and asked them to look out for a letter X. When she asked her volunteers afterwards what they had seen, she found that if the X appeared up to half a second or so after the white letter, or vice versa, people failed to see it. She concluded that if something catches your attention, your brain is blind to anything else for a short period\n\nafterwards. She called this effect the “attentional blink.” “In short, the reason most advertising doesn’t work is that we’re in a severe state of attentional overload. Unless advertising is presented in a way the brain can absorb, it is simply not seen,” Raymond says.\n\nSo what does this mean for advertisers? A typical television advertisement consists of a series of attention-grabbing images interspersed with the product. But unless the scenes in the advertisement are cut to take account of attentional blinks, the brain is likely to ignore the information the advertiser wants to get across. The same applies to magazine advertisements, where viewers often register the main image but fail to pick up on the secondary images—the bits advertisers often desperately want us to see. Raymond says advertisers consistently fail to consider how easily the brain misses the point. It’s not that they haven’t realised that the space and time they have to get their message across has shrunk. But advertisers respond by cramming in ever more complex information. Raymond is opposed to this and her advice is simple: deliver your message in a straightforward manner and do so slowly, gently and concisely.\n\nAfter her research on the attentional blink, she wondered whether attention would be linked to other processes in the brain, particularly emotion. Could our attentional state influence whether we like or dislike a brand, for example? Today, companies are hugely interested in the emotional value of their brands as they want their products to make us feel good. It is well known that if something elicits positive emotions then you are more likely to take notice of it. But Raymond’s further research also demonstrates that if people are distracted by an image or a brand when performing an intellectually demanding task, they tend to instantly dislike the brands, regardless of their emotional value. So, for example, if you are reading a web page when a banner advertisement starts flashing, or are watching a film with intrusive product placement, it is probable you will come to dislike the brand whatever it is.\n\nThis contradicts the more-exposure-the-better rule most of the industry follows, says Raymond, and means that advertising can backfire horribly. Advertisers tend to buy as much exposure for a product as they can—through television and radio commercials, billboards, whatever they think will attract their target audiences—but again Raymond has found that this doesn’t necessarily work in their favour. Perhaps the most dangerous time, says Raymond, is the holiday season when advertisers are madly competing to grab people’s attention. “Marketers don’t realise that humans digest information like they do food. Once they are full, if they are shown any more food, they’re disgusted,” she says.",
+      "questions": [
+        {
+          "number": 1,
+          "prompt": "Jane Raymond states that Chillz mineral water is packaged in a way that is unattractive to consumers.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "瓶子看起来像冰雕，文章说这种设计会吸引顾客拿起来看，因此不是“不吸引人”。"
+        },
+        {
+          "number": 2,
+          "prompt": "Consumers are still exposed to more advertising through television commercials than through the medium of the Internet.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章同时提到电视和互联网等场景，但没有比较哪种媒介广告更多。"
+        },
+        {
+          "number": 3,
+          "prompt": "Jamie Rayner says that people are no longer influenced by traditional advertisements.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "Jamie Rayner 认为 conventional advertising has ceased to work，即传统广告已经不起作用。"
+        },
+        {
+          "number": 4,
+          "prompt": "According to Jamie Rayner, the reason that most products are discontinued is that advertising fails to attract consumers.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "他指出十款新产品中九款很快退出市场，原因是传统广告失效；研究中大多数广告没有给消费者留下印象。"
+        },
+        {
+          "number": 5,
+          "prompt": "Jane Raymond believes that commercials should be simpler in their content.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "Raymond 反对广告塞入越来越复杂的信息，建议用直接、缓慢、温和、简洁的方式传递信息。"
+        },
+        {
+          "number": 6,
+          "prompt": "Advertisements showing unfamiliar brands affect a person’s concentration more than ones with familiar brands.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章讨论分心时人们会不喜欢相关品牌，但没有比较陌生品牌和熟悉品牌对注意力的不同影响。"
+        },
+        {
+          "number": 7,
+          "prompt": "Jane Raymond suggests that a product should be advertised in as many ways as possible.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "她认为大量曝光未必有利，过度投放甚至可能产生反效果，与“尽可能多渠道宣传”相反。"
+        },
+        {
+          "number": 8,
+          "prompt": "What group of consumers were specifically targeted in Jamie Rayner’s research?",
+          "answer": "regular commuters",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文说研究特别关注 regular commuters（定期通勤者）对广告的反应。"
+        },
+        {
+          "number": 9,
+          "prompt": "What subject did Jane Raymond study before focusing on the behaviour of consumers?",
+          "answer": "visual processing",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "文章写到她从 visual processing 研究转向 consumer psychology。"
+        },
+        {
+          "number": 10,
+          "prompt": "What important aspect of an advertisement in print do many people fail to notice?",
+          "answer": "secondary images",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "读者往往注意主图，却忽略 secondary images（次要图像）。"
+        },
+        {
+          "number": 11,
+          "prompt": "What do companies today want their products to have in order to make consumers feel positive about themselves?",
+          "answer": "emotional value",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文说公司重视品牌的 emotional value，希望产品让消费者感觉良好。"
+        },
+        {
+          "number": 12,
+          "prompt": "What does Jane Raymond say will annoy someone watching a movie?",
+          "answer": "intrusive product placement",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文举例说观影时被 intrusive product placement（突兀的植入式广告）打扰，会让人反感。"
+        },
+        {
+          "number": 13,
+          "prompt": "According to Jane Raymond, when do advertisers promote their products most fiercely?",
+          "answer": "holiday season",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "她指出 holiday season 是广告商疯狂争夺消费者注意力的时期。"
+        }
+      ]
+    },
+    {
+      "id": "mammoth-kill",
+      "title": "Mammoth Kill",
+      "group": "Reading Passage 2",
+      "text": "Playing Soccer ................................................................................................................ 29\n\nFacial Expression ............................................................................................................ 36\n\nREADING PASSAGE 3 ..................................................................................................... 42\n\nThe Future of the World's Language .............................................................................. 42\n\nDecisions, decisions!....................................................................................................... 49\n\nLiving dunes .................................................................................................................... 57\n\n雅 思 阅 读 超 小 范 围 机 经 ·前 言\n\n各位雅思考生，大家好。\n\n本机经收录了 9 篇十分高频的考场真题。\n\n考 前 可 作 为 3 个 tests 计 时 训 练 ， 请 严 格 计 时 60 分 钟 /test 完 成 ， 确 保 身 体和大脑适应考试时长与强度。\n\n请注意，完成题目之后，每篇文章大家都要做好逐题复盘：定位依据是 否充分？错误选项为何排除？同义替换能否正确？有没有模棱两可的题 目需要仔细斟酌？最终尽量要能用自己的逻辑清晰梳理出解题路径。\n\n祝备考顺利，早日取得理想成绩。\n\n小站教育雅思阅读教研组\n\n机经使用说明\n\n一、分题型突破，掌握各类题型的解题逻辑。\n\n雅思阅读的题型各具特点，解题方法也各不相同。建议在学习和练透每 类题型后，再使用本机经进行套题训练。\n\n二 、 从 “单 篇 精 练 ”进 阶 到 “套 题 计 时 ”。\n\n考 前 务 必 以 Passage 1 + Passage 2 + Passage 3 的 组 合 为 一 套 完 整 测 试 ， 严 格 计 时 60 分 钟 一 次 性 完 成 。 真 实 考 场 中 ， 三 篇 文 章 的 难 度 并 非 百 分 百 完 全 线 性 递 增 （ 有 时 P a s s a g e 2 反 而 比 P a s s a g e 3 更 难 ）， 且 各 篇章的题型组合变化多样，唯有通过整组模拟训练，才能培养出合理分 配 时 间 的 节 奏 感 和 应 对 复 杂 组 合 的 心 理 素 质 。 建 议 考 前 至 少 完 成 15+套 完整的计时模考，确保身体和大脑适应考试时长与强度。\n\n三 、 以 真 题 为 素 材 ， 警 惕 “虚 假 练 习 ”。\n\n完成题目之后，不要急于核对答案就翻篇。每篇文章都应在完成后逐题 复盘：定位依据是否充分？错误选项为何排除？同义替换能否正确？能 用自己的逻辑清晰地向他人讲明白一道题的解题路径，才说明真正掌握 了这道题。请注意保证练一篇要有练习一篇的价值。\n\n机经版本说明\n\n根据预测范围与适用阶段不同，雅思阅读机经主要分为以下三个版本：\n\n一、大范围机经\n\n大范围机经是通过收集真实考试文章篇目、统计高频文章等方式，组合 成 150 篇 的 练 习 素 材 。\n\n适 用 于 考 前 1-2 月 的 练 习 备 考 ， 帮 助 考 生 进 行 系 统 性 复 习 。 掌 握 各 类 题 型、积累学科词汇、熟悉常考话题。\n\n二、小范围机经\n\n小范围机经在大范围机经的基础上，结合近期文章复现情况、高频文章 变 化 ， 进 一 步 缩 小 范 围 ， 筛 选 出 约 5 0 % 篇 目 （ 7 5 篇 ）。\n\n适 用 于 考 前 1-2 周 冲 刺 阶 段 ， 集 中 练 习 重 点 文 章 ， 强 化 时 间 控 制 与 题 型 组合训练。\n\n三、超小范围机经\n\n超小范围机经是在小范围预测基础上，进一步筛选出的极高频篇章。通 过综合分析近期考试重复规律、话题热度，锁定最值得考前抱佛脚的 9 篇核心文章。\n\n适 用 于 考 前 2-3 天 模 拟 考 场 情 况 ， 强 化 训 练 。\n\n本套机经属于超小范围预测版本，共收录 9 篇高频阅读文章。建议考生 根据自身备考进度，先以大范围打底，再逐步缩小至小范围和超小范 围，合理利用本机经进行分层复习。\n\nR E A D I N G PA S S A G E 1\n\nSydney Opera House\n\nSydney Opera House is an example of late modern architecture; it is admired internationally and treasured by the people of Australia.\n\nIn 1956 the Premier of New South Wales, Australia, announced an international competition for the design of an opera house for Sydney. It attracted more than 200 entries from around the world and was won by Jørn Utzon, a relatively little-known architect from Denmark. The story goes that during the judging of the competition, one judge, American architect Eero Saarinen, arrived in Sydney after the other three judges had started assessing the entries. He looked through their rejected entries and stopped at the Utzon design, declaring it to be outstanding.\n\nIt was Utzon’s life and travels that had shaped his design for the Sydney Opera House. Though he had never visited the site, he used his maritime background to study naval charts of Sydney Harbour. His early exposure to shipbuilding provided the inspiration for the design of the roof, which is a series of curved ‘shells’ that look like the sails of a sailing ship billowing in the wind. From his travels to Mexico, he had the idea of placing his building on a wide horizontal platform.\n\nConstruction of the platform began in 1959, and throughout the early 1960s Utzon amended his original designs in order to develop a way to build the large ‘shells’ that cover the two main halls. The construction of the roof brought together some of the world’s best engineers and craftsmen, devising innovative techniques to create a major visual impact in accordance with Utzon’s vision. The design was one of the first examples of the use of computer-aided design for complex shapes.\n\nAlthough Utzon had spectacular plans for the interior, he was unable to realise them. Cost overruns contributed to criticism of the project and, after a change of government, the Minister of Works began questioning Utzon’s schedules and cost estimates. Payments to Utzon were stopped and he was forced to withdraw as chief architect in 1966. Following his resignation, there were protests through the streets led by prominent architect Harry Seidler and others, demanding that Utzon be reinstated as architect. However, Utzon was not reinstated and left Australia in 1966. He never returned, and new architects were appointed to complete the building in his absence. The original cost estimate for the Opera House was $7 million, with the completion date set for 26 January 1963. However, the Opera House was not formally completed until 1973, having cost $102 million.\n\nSince its opening in 1973, Sydney Opera House has earned a reputation as a world-class\n\nperforming-arts centre and become a symbol of both Sydney and Australia. Situated at Bennelong Point on Sydney Harbour, it consists of a series of large precast ‘shells’ made of concrete, each composed of sections of a sphere of 75.2 metres radius, forming the roofs of the structure, set on a monumental platform. The building is 183 metres long and 120 metres wide at its widest point. It is supported on 588 concrete piers, which are sunk approximately 25 metres below sea level.\n\nAlthough the roof structures are commonly referred to as ‘shells’, they are precast concrete panels supported by concrete ribs. The ‘shells’ are covered with 1,056,006 white and cream-coloured tiles manufactured in a factory in Sweden that generally produced stoneware tiles for the paper-mill industry. The design solution and construction of the shell structure took eight years to complete, and the development of the special ceramic tiles took over three years. Apart from the tiles covering the ‘shells’, the building’s exterior is mostly clad with granite quarried in Australia.\n\nContrary to its name, Sydney Opera House includes multiple performance venues. It is among the busiest performing-arts centres in the world, holding over 1,500 performances each year. It hosts a large number of performing-arts companies, including the four resident companies: Opera Australia, the Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra.\n\nWith its grand setting and cathedral-like atmosphere, the Concert Hall is Sydney Opera House’s most prestigious performance space. The largest of all interior venues, it delivers outstanding acoustics thanks to its high ceiling and wood panelling. There is a sizeable outdoor forecourt from which people ascend to the main entrance. The steps, which lead up from the forecourt to the main performance venues, are nearly 100 metres wide.\n\nIn 1999 Utzon was re-engaged to develop a set of design principles to act as a guide for future changes to the building. All of this design work he did from his base in Europe. These principles help to ensure that the building’s architectural integrity is maintained. The first alteration to the exterior was the addition of a new colonnade, which shades nine large glass openings in the previously solid exterior wall. This Utzon-led project, completed in 2006, enabled theatre patrons to see the harbour for the first time from the theatre foyers. The design also incorporates the first public lift and interior escalators to assist less-mobile patrons.\n\nSince 2007, the cultural, heritage and architectural importance of Sydney Opera House has been protected by its inclusion on the World Heritage List.\n\nQuestions 1–7 Do the following statements agree with the information given in Reading Passage 1? In boxes 1–7 on your answer sheet, write TRUE if the statement agrees with the information FALSE if the statement contradicts the information NOT GIVEN if there is no information on this\n\n1 Utzon was famous for his work before he designed the Opera House. 2 Utzon’s design was favoured by the four judges of the competition from the beginning. 3 Utzon’s knowledge of boats gave him the idea for parts of the Opera House. 4 Utzon was impressed by the opera houses he had seen in Mexico. 5 Utzon changed his designs in the 1960s after construction began. 6 Seidler defended Utzon’s role as architect. 7 Utzon went back to Australia in 1973 for the opening of the Opera House.\n\nQuestions 8 – 13 Complete the notes below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer. Write your answers in boxes 8 – 13 on your answer sheet.\n\nSydney Opera House Final cost 8 $ ________ Construction A large platform acting as a base for the building Concrete panels used to make ‘shells’, which are covered in tiles Over a million tiles from 9 ________ 10 ________ from Australia covering the outside walls Use More than 1,500 performances annually 11 ________ performing-arts companies have their home base at the Opera House Outside A large 12 ________ at the foot of a wide staircase Alterations A colonnade was added in 2006 Openings made the 13 ________ visible from foyers",
+      "questions": [
+        {
+          "number": 14,
+          "prompt": "Three theories explain the disappearance of large mammals that inhabited ______ about 11,000 years ago.",
+          "answer": "North America",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "文章开头明确指出，这些巨型哺乳动物曾生活在 North America。"
+        },
+        {
+          "number": 15,
+          "prompt": "The ______ was proposed by Paul S. Martin in the 1960s.",
+          "answer": "overkill model",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "第二段指出，过度捕杀模型（overkill model）由 Paul S. Martin 在 20 世纪 60 年代提出。"
+        },
+        {
+          "number": 16,
+          "prompt": "According to this theory, ______ by people caused mass extinction.",
+          "answer": "hunting",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "该理论认为人类捕猎推动了巨型动物的灭绝。"
+        },
+        {
+          "number": 17,
+          "prompt": "The second theory suggests that humans introduced a ______.",
+          "answer": "deadly disease",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "MacPhee 推测人类可能通过狗或害虫引入致命疾病。"
+        },
+        {
+          "number": 18,
+          "prompt": "So far, this theory lacks any ______.",
+          "answer": "empirical evidence",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文直接说 MacPhee 尚无支持该理论的经验证据。"
+        },
+        {
+          "number": 19,
+          "prompt": "The final theory suggests that the period experienced significant ______.",
+          "answer": "climate instability",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "Graham 将灭绝归因于更新世时期显著的气候不稳定。"
+        },
+        {
+          "number": 20,
+          "prompt": "The climate changes eventually led to the division of the ______ formed by some large mammals.",
+          "answer": "communities",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文说曾经形成群落的物种分裂了，答案为 communities。"
+        },
+        {
+          "number": 21,
+          "prompt": "Who argues that too little archaeological evidence supports the hunting theory?",
+          "answer": "B Ross D. E. MacPhee",
+          "type": "matching",
+          "typeLabel": "人物观点匹配",
+          "explanation": "MacPhee 指出考古记录中只有少量矛头嵌入猛犸象骨骼的例子。",
+          "options": [
+            "A John Alroy",
+            "B Ross D. E. MacPhee",
+            "C Russell W. Graham"
+          ]
+        },
+        {
+          "number": 22,
+          "prompt": "Who states that larger animals need correspondingly larger geographical ranges?",
+          "answer": "C Russell W. Graham",
+          "type": "matching",
+          "typeLabel": "人物观点匹配",
+          "explanation": "Graham 解释说，大型动物需要相应广阔的地理范围。",
+          "options": [
+            "A John Alroy",
+            "B Ross D. E. MacPhee",
+            "C Russell W. Graham"
+          ]
+        },
+        {
+          "number": 23,
+          "prompt": "Who suggests that humans were indirectly responsible for extinctions in different parts of the world?",
+          "answer": "B Ross D. E. MacPhee",
+          "type": "matching",
+          "typeLabel": "人物观点匹配",
+          "explanation": "MacPhee 认为人类可能通过引入疾病间接造成灭绝，并提及世界其他地区的类似灭绝。",
+          "options": [
+            "A John Alroy",
+            "B Ross D. E. MacPhee",
+            "C Russell W. Graham"
+          ]
+        },
+        {
+          "number": 24,
+          "prompt": "Whose computer simulation uses estimates of animal population size to explain extinction?",
+          "answer": "A John Alroy",
+          "type": "matching",
+          "typeLabel": "人物观点匹配",
+          "explanation": "Alroy 通过计算机模拟和人口增长、捕猎数量等假设论证过度捕杀模型。",
+          "options": [
+            "A John Alroy",
+            "B Ross D. E. MacPhee",
+            "C Russell W. Graham"
+          ]
+        },
+        {
+          "number": 25,
+          "prompt": "Who hopes that analysis of animal tissue and DNA may provide evidence for a theory?",
+          "answer": "B Ross D. E. MacPhee",
+          "type": "matching",
+          "typeLabel": "人物观点匹配",
+          "explanation": "MacPhee 希望分析最近动物遗骸的组织和 DNA，以寻找致病微生物。",
+          "options": [
+            "A John Alroy",
+            "B Ross D. E. MacPhee",
+            "C Russell W. Graham"
+          ]
+        },
+        {
+          "number": 26,
+          "prompt": "Who explains that environmental change caused some species communities to split apart?",
+          "answer": "C Russell W. Graham",
+          "type": "matching",
+          "typeLabel": "人物观点匹配",
+          "explanation": "Graham 说栖息地消失后，曾经形成群落的物种分裂。",
+          "options": [
+            "A John Alroy",
+            "B Ross D. E. MacPhee",
+            "C Russell W. Graham"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "playing-soccer",
+      "title": "Playing Soccer",
+      "group": "Reading Passage 2",
+      "text": "Facial Expression ............................................................................................................ 36\n\nREADING PASSAGE 3 ..................................................................................................... 42\n\nThe Future of the World's Language .............................................................................. 42\n\nDecisions, decisions!....................................................................................................... 49\n\nLiving dunes .................................................................................................................... 57\n\n雅 思 阅 读 超 小 范 围 机 经 ·前 言\n\n各位雅思考生，大家好。\n\n本机经收录了 9 篇十分高频的考场真题。\n\n考 前 可 作 为 3 个 tests 计 时 训 练 ， 请 严 格 计 时 60 分 钟 /test 完 成 ， 确 保 身 体和大脑适应考试时长与强度。\n\n请注意，完成题目之后，每篇文章大家都要做好逐题复盘：定位依据是 否充分？错误选项为何排除？同义替换能否正确？有没有模棱两可的题 目需要仔细斟酌？最终尽量要能用自己的逻辑清晰梳理出解题路径。\n\n祝备考顺利，早日取得理想成绩。\n\n小站教育雅思阅读教研组\n\n机经使用说明\n\n一、分题型突破，掌握各类题型的解题逻辑。\n\n雅思阅读的题型各具特点，解题方法也各不相同。建议在学习和练透每 类题型后，再使用本机经进行套题训练。\n\n二 、 从 “单 篇 精 练 ”进 阶 到 “套 题 计 时 ”。\n\n考 前 务 必 以 Passage 1 + Passage 2 + Passage 3 的 组 合 为 一 套 完 整 测 试 ， 严 格 计 时 60 分 钟 一 次 性 完 成 。 真 实 考 场 中 ， 三 篇 文 章 的 难 度 并 非 百 分 百 完 全 线 性 递 增 （ 有 时 P a s s a g e 2 反 而 比 P a s s a g e 3 更 难 ）， 且 各 篇章的题型组合变化多样，唯有通过整组模拟训练，才能培养出合理分 配 时 间 的 节 奏 感 和 应 对 复 杂 组 合 的 心 理 素 质 。 建 议 考 前 至 少 完 成 15+套 完整的计时模考，确保身体和大脑适应考试时长与强度。\n\n三 、 以 真 题 为 素 材 ， 警 惕 “虚 假 练 习 ”。\n\n完成题目之后，不要急于核对答案就翻篇。每篇文章都应在完成后逐题 复盘：定位依据是否充分？错误选项为何排除？同义替换能否正确？能 用自己的逻辑清晰地向他人讲明白一道题的解题路径，才说明真正掌握 了这道题。请注意保证练一篇要有练习一篇的价值。\n\n机经版本说明\n\n根据预测范围与适用阶段不同，雅思阅读机经主要分为以下三个版本：\n\n一、大范围机经\n\n大范围机经是通过收集真实考试文章篇目、统计高频文章等方式，组合 成 150 篇 的 练 习 素 材 。\n\n适 用 于 考 前 1-2 月 的 练 习 备 考 ， 帮 助 考 生 进 行 系 统 性 复 习 。 掌 握 各 类 题 型、积累学科词汇、熟悉常考话题。\n\n二、小范围机经\n\n小范围机经在大范围机经的基础上，结合近期文章复现情况、高频文章 变 化 ， 进 一 步 缩 小 范 围 ， 筛 选 出 约 5 0 % 篇 目 （ 7 5 篇 ）。\n\n适 用 于 考 前 1-2 周 冲 刺 阶 段 ， 集 中 练 习 重 点 文 章 ， 强 化 时 间 控 制 与 题 型 组合训练。\n\n三、超小范围机经\n\n超小范围机经是在小范围预测基础上，进一步筛选出的极高频篇章。通 过综合分析近期考试重复规律、话题热度，锁定最值得考前抱佛脚的 9 篇核心文章。\n\n适 用 于 考 前 2-3 天 模 拟 考 场 情 况 ， 强 化 训 练 。\n\n本套机经属于超小范围预测版本，共收录 9 篇高频阅读文章。建议考生 根据自身备考进度，先以大范围打底，再逐步缩小至小范围和超小范 围，合理利用本机经进行分层复习。\n\nR E A D I N G PA S S A G E 1\n\nSydney Opera House\n\nSydney Opera House is an example of late modern architecture; it is admired internationally and treasured by the people of Australia.\n\nIn 1956 the Premier of New South Wales, Australia, announced an international competition for the design of an opera house for Sydney. It attracted more than 200 entries from around the world and was won by Jørn Utzon, a relatively little-known architect from Denmark. The story goes that during the judging of the competition, one judge, American architect Eero Saarinen, arrived in Sydney after the other three judges had started assessing the entries. He looked through their rejected entries and stopped at the Utzon design, declaring it to be outstanding.\n\nIt was Utzon’s life and travels that had shaped his design for the Sydney Opera House. Though he had never visited the site, he used his maritime background to study naval charts of Sydney Harbour. His early exposure to shipbuilding provided the inspiration for the design of the roof, which is a series of curved ‘shells’ that look like the sails of a sailing ship billowing in the wind. From his travels to Mexico, he had the idea of placing his building on a wide horizontal platform.\n\nConstruction of the platform began in 1959, and throughout the early 1960s Utzon amended his original designs in order to develop a way to build the large ‘shells’ that cover the two main halls. The construction of the roof brought together some of the world’s best engineers and craftsmen, devising innovative techniques to create a major visual impact in accordance with Utzon’s vision. The design was one of the first examples of the use of computer-aided design for complex shapes.\n\nAlthough Utzon had spectacular plans for the interior, he was unable to realise them. Cost overruns contributed to criticism of the project and, after a change of government, the Minister of Works began questioning Utzon’s schedules and cost estimates. Payments to Utzon were stopped and he was forced to withdraw as chief architect in 1966. Following his resignation, there were protests through the streets led by prominent architect Harry Seidler and others, demanding that Utzon be reinstated as architect. However, Utzon was not reinstated and left Australia in 1966. He never returned, and new architects were appointed to complete the building in his absence. The original cost estimate for the Opera House was $7 million, with the completion date set for 26 January 1963. However, the Opera House was not formally completed until 1973, having cost $102 million.\n\nSince its opening in 1973, Sydney Opera House has earned a reputation as a world-class\n\nperforming-arts centre and become a symbol of both Sydney and Australia. Situated at Bennelong Point on Sydney Harbour, it consists of a series of large precast ‘shells’ made of concrete, each composed of sections of a sphere of 75.2 metres radius, forming the roofs of the structure, set on a monumental platform. The building is 183 metres long and 120 metres wide at its widest point. It is supported on 588 concrete piers, which are sunk approximately 25 metres below sea level.\n\nAlthough the roof structures are commonly referred to as ‘shells’, they are precast concrete panels supported by concrete ribs. The ‘shells’ are covered with 1,056,006 white and cream-coloured tiles manufactured in a factory in Sweden that generally produced stoneware tiles for the paper-mill industry. The design solution and construction of the shell structure took eight years to complete, and the development of the special ceramic tiles took over three years. Apart from the tiles covering the ‘shells’, the building’s exterior is mostly clad with granite quarried in Australia.\n\nContrary to its name, Sydney Opera House includes multiple performance venues. It is among the busiest performing-arts centres in the world, holding over 1,500 performances each year. It hosts a large number of performing-arts companies, including the four resident companies: Opera Australia, the Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra.\n\nWith its grand setting and cathedral-like atmosphere, the Concert Hall is Sydney Opera House’s most prestigious performance space. The largest of all interior venues, it delivers outstanding acoustics thanks to its high ceiling and wood panelling. There is a sizeable outdoor forecourt from which people ascend to the main entrance. The steps, which lead up from the forecourt to the main performance venues, are nearly 100 metres wide.\n\nIn 1999 Utzon was re-engaged to develop a set of design principles to act as a guide for future changes to the building. All of this design work he did from his base in Europe. These principles help to ensure that the building’s architectural integrity is maintained. The first alteration to the exterior was the addition of a new colonnade, which shades nine large glass openings in the previously solid exterior wall. This Utzon-led project, completed in 2006, enabled theatre patrons to see the harbour for the first time from the theatre foyers. The design also incorporates the first public lift and interior escalators to assist less-mobile patrons.\n\nSince 2007, the cultural, heritage and architectural importance of Sydney Opera House has been protected by its inclusion on the World Heritage List.\n\nQuestions 1–7 Do the following statements agree with the information given in Reading Passage 1? In boxes 1–7 on your answer sheet, write TRUE if the statement agrees with the information FALSE if the statement contradicts the information NOT GIVEN if there is no information on this\n\n1 Utzon was famous for his work before he designed the Opera House. 2 Utzon’s design was favoured by the four judges of the competition from the beginning. 3 Utzon’s knowledge of boats gave him the idea for parts of the Opera House. 4 Utzon was impressed by the opera houses he had seen in Mexico. 5 Utzon changed his designs in the 1960s after construction began. 6 Seidler defended Utzon’s role as architect. 7 Utzon went back to Australia in 1973 for the opening of the Opera House.\n\nQuestions 8 – 13 Complete the notes below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer. Write your answers in boxes 8 – 13 on your answer sheet.\n\nSydney Opera House Final cost 8 $ ________ Construction A large platform acting as a base for the building Concrete panels used to make ‘shells’, which are covered in tiles Over a million tiles from 9 ________ 10 ________ from Australia covering the outside walls Use More than 1,500 performances annually 11 ________ performing-arts companies have their home base at the Opera House Outside A large 12 ________ at the foot of a wide staircase Alterations A colonnade was added in 2006 Openings made the 13 ________ visible from foyers",
+      "questions": [
+        {
+          "number": 14,
+          "prompt": "Which section contrasts how young players are assigned or learn different playing positions?",
+          "answer": "E",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "E 段比较街头足球由更强球员分配角色，与青少年足球要求每个孩子学习所有位置的不同。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ]
+        },
+        {
+          "number": 15,
+          "prompt": "Which section gives examples outside sport of greater emphasis on individual safety?",
+          "answer": "C",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "C 段把足球中的保护规则与汽车安全带、安全气囊作类比。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ]
+        },
+        {
+          "number": 16,
+          "prompt": "Which section describes how leadership positions on soccer teams are obtained?",
+          "answer": "F",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "F 段说明责任职位需要通过队内竞争赢得，年轻球员必须等待。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ]
+        },
+        {
+          "number": 17,
+          "prompt": "Which section describes urban changes that discourage street soccer?",
+          "answer": "B",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "B 段提到交通拥堵、公共场地用途变化、许可要求和年轻人日程安排。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ]
+        },
+        {
+          "number": 18,
+          "prompt": "Which section mentions the lesson that failure teaches street soccer players?",
+          "answer": "G",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "G 段指出街头足球的输家会学习应对失败，并因此获得韧性。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ]
+        },
+        {
+          "number": 19,
+          "prompt": "Which section explains why youth soccer emphasises the need for coaches?",
+          "answer": "D",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "D 段说一些人认为孩子需要专家指导，以免落后于他人。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G"
+          ]
+        },
+        {
+          "number": 20,
+          "prompt": "Which reason for street soccer's popularity is mentioned? (Choose one of the two correct reasons.)",
+          "answer": "C Elaborate facilities are unnecessary",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "A 段指出街头足球不需要大型场地及正式设施。",
+          "options": [
+            "A Famous players began in street soccer",
+            "B Players can start at a very early age",
+            "C Elaborate facilities are unnecessary",
+            "D Mistakes are never criticised",
+            "E Teams can vary in player numbers"
+          ]
+        },
+        {
+          "number": 21,
+          "prompt": "Which other reason for street soccer's popularity is mentioned? (Choose one of the two correct reasons.)",
+          "answer": "E Teams can vary in player numbers",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "A 段指出街头足球不一定需要标准的 11 人制球队。",
+          "options": [
+            "A Famous players began in street soccer",
+            "B Players can start at a very early age",
+            "C Elaborate facilities are unnecessary",
+            "D Mistakes are never criticised",
+            "E Teams can vary in player numbers"
+          ]
+        },
+        {
+          "number": 22,
+          "prompt": "Which result of the 1960s parenting style is mentioned by Franklin Foer?",
+          "answer": "B Some leagues adopted more restrictive rules",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "C 段提到一些青少年联赛完全禁止头球，属于更严格的比赛规则。",
+          "options": [
+            "A Youth soccer became much more expensive",
+            "B Some leagues adopted more restrictive rules",
+            "C Fewer young people joined teams",
+            "D Players were rewarded simply for playing",
+            "E Equipment advertising targeted parents"
+          ]
+        },
+        {
+          "number": 23,
+          "prompt": "Which other result of the 1960s parenting style is mentioned by Franklin Foer?",
+          "answer": "D Players were rewarded simply for playing",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "C 段指出，无论球队赢了多少场，联盟都会给每位球员参与奖。",
+          "options": [
+            "A Youth soccer became much more expensive",
+            "B Some leagues adopted more restrictive rules",
+            "C Fewer young people joined teams",
+            "D Players were rewarded simply for playing",
+            "E Equipment advertising targeted parents"
+          ]
+        },
+        {
+          "number": 24,
+          "prompt": "A key ______ of youth soccer is that every player should leave with a positive attitude.",
+          "answer": "principle",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "G 段直接称“人人都是赢家，没有输家”是青少年足球的一项指导原则。"
+        },
+        {
+          "number": 25,
+          "prompt": "Regardless of effort, players receive some kind of ______ at the end of a game.",
+          "answer": "reward",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "文章指出，不尽全力与尽全力得到的回报相同。"
+        },
+        {
+          "number": 26,
+          "prompt": "No one keeps a formal ______ of street soccer results.",
+          "answer": "record",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "G 段最后说明街头足球不保留正式比赛记录。"
+        }
+      ]
+    },
+    {
+      "id": "facial-expression",
+      "title": "Facial Expression",
+      "group": "Reading Passage 2",
+      "text": "READING PASSAGE 3 ..................................................................................................... 42\n\nThe Future of the World's Language .............................................................................. 42\n\nDecisions, decisions!....................................................................................................... 49\n\nLiving dunes .................................................................................................................... 57\n\n雅 思 阅 读 超 小 范 围 机 经 ·前 言\n\n各位雅思考生，大家好。\n\n本机经收录了 9 篇十分高频的考场真题。\n\n考 前 可 作 为 3 个 tests 计 时 训 练 ， 请 严 格 计 时 60 分 钟 /test 完 成 ， 确 保 身 体和大脑适应考试时长与强度。\n\n请注意，完成题目之后，每篇文章大家都要做好逐题复盘：定位依据是 否充分？错误选项为何排除？同义替换能否正确？有没有模棱两可的题 目需要仔细斟酌？最终尽量要能用自己的逻辑清晰梳理出解题路径。\n\n祝备考顺利，早日取得理想成绩。\n\n小站教育雅思阅读教研组\n\n机经使用说明\n\n一、分题型突破，掌握各类题型的解题逻辑。\n\n雅思阅读的题型各具特点，解题方法也各不相同。建议在学习和练透每 类题型后，再使用本机经进行套题训练。\n\n二 、 从 “单 篇 精 练 ”进 阶 到 “套 题 计 时 ”。\n\n考 前 务 必 以 Passage 1 + Passage 2 + Passage 3 的 组 合 为 一 套 完 整 测 试 ， 严 格 计 时 60 分 钟 一 次 性 完 成 。 真 实 考 场 中 ， 三 篇 文 章 的 难 度 并 非 百 分 百 完 全 线 性 递 增 （ 有 时 P a s s a g e 2 反 而 比 P a s s a g e 3 更 难 ）， 且 各 篇章的题型组合变化多样，唯有通过整组模拟训练，才能培养出合理分 配 时 间 的 节 奏 感 和 应 对 复 杂 组 合 的 心 理 素 质 。 建 议 考 前 至 少 完 成 15+套 完整的计时模考，确保身体和大脑适应考试时长与强度。\n\n三 、 以 真 题 为 素 材 ， 警 惕 “虚 假 练 习 ”。\n\n完成题目之后，不要急于核对答案就翻篇。每篇文章都应在完成后逐题 复盘：定位依据是否充分？错误选项为何排除？同义替换能否正确？能 用自己的逻辑清晰地向他人讲明白一道题的解题路径，才说明真正掌握 了这道题。请注意保证练一篇要有练习一篇的价值。\n\n机经版本说明\n\n根据预测范围与适用阶段不同，雅思阅读机经主要分为以下三个版本：\n\n一、大范围机经\n\n大范围机经是通过收集真实考试文章篇目、统计高频文章等方式，组合 成 150 篇 的 练 习 素 材 。\n\n适 用 于 考 前 1-2 月 的 练 习 备 考 ， 帮 助 考 生 进 行 系 统 性 复 习 。 掌 握 各 类 题 型、积累学科词汇、熟悉常考话题。\n\n二、小范围机经\n\n小范围机经在大范围机经的基础上，结合近期文章复现情况、高频文章 变 化 ， 进 一 步 缩 小 范 围 ， 筛 选 出 约 5 0 % 篇 目 （ 7 5 篇 ）。\n\n适 用 于 考 前 1-2 周 冲 刺 阶 段 ， 集 中 练 习 重 点 文 章 ， 强 化 时 间 控 制 与 题 型 组合训练。\n\n三、超小范围机经\n\n超小范围机经是在小范围预测基础上，进一步筛选出的极高频篇章。通 过综合分析近期考试重复规律、话题热度，锁定最值得考前抱佛脚的 9 篇核心文章。\n\n适 用 于 考 前 2-3 天 模 拟 考 场 情 况 ， 强 化 训 练 。\n\n本套机经属于超小范围预测版本，共收录 9 篇高频阅读文章。建议考生 根据自身备考进度，先以大范围打底，再逐步缩小至小范围和超小范 围，合理利用本机经进行分层复习。\n\nR E A D I N G PA S S A G E 1\n\nSydney Opera House\n\nSydney Opera House is an example of late modern architecture; it is admired internationally and treasured by the people of Australia.\n\nIn 1956 the Premier of New South Wales, Australia, announced an international competition for the design of an opera house for Sydney. It attracted more than 200 entries from around the world and was won by Jørn Utzon, a relatively little-known architect from Denmark. The story goes that during the judging of the competition, one judge, American architect Eero Saarinen, arrived in Sydney after the other three judges had started assessing the entries. He looked through their rejected entries and stopped at the Utzon design, declaring it to be outstanding.\n\nIt was Utzon’s life and travels that had shaped his design for the Sydney Opera House. Though he had never visited the site, he used his maritime background to study naval charts of Sydney Harbour. His early exposure to shipbuilding provided the inspiration for the design of the roof, which is a series of curved ‘shells’ that look like the sails of a sailing ship billowing in the wind. From his travels to Mexico, he had the idea of placing his building on a wide horizontal platform.\n\nConstruction of the platform began in 1959, and throughout the early 1960s Utzon amended his original designs in order to develop a way to build the large ‘shells’ that cover the two main halls. The construction of the roof brought together some of the world’s best engineers and craftsmen, devising innovative techniques to create a major visual impact in accordance with Utzon’s vision. The design was one of the first examples of the use of computer-aided design for complex shapes.\n\nAlthough Utzon had spectacular plans for the interior, he was unable to realise them. Cost overruns contributed to criticism of the project and, after a change of government, the Minister of Works began questioning Utzon’s schedules and cost estimates. Payments to Utzon were stopped and he was forced to withdraw as chief architect in 1966. Following his resignation, there were protests through the streets led by prominent architect Harry Seidler and others, demanding that Utzon be reinstated as architect. However, Utzon was not reinstated and left Australia in 1966. He never returned, and new architects were appointed to complete the building in his absence. The original cost estimate for the Opera House was $7 million, with the completion date set for 26 January 1963. However, the Opera House was not formally completed until 1973, having cost $102 million.\n\nSince its opening in 1973, Sydney Opera House has earned a reputation as a world-class\n\nperforming-arts centre and become a symbol of both Sydney and Australia. Situated at Bennelong Point on Sydney Harbour, it consists of a series of large precast ‘shells’ made of concrete, each composed of sections of a sphere of 75.2 metres radius, forming the roofs of the structure, set on a monumental platform. The building is 183 metres long and 120 metres wide at its widest point. It is supported on 588 concrete piers, which are sunk approximately 25 metres below sea level.\n\nAlthough the roof structures are commonly referred to as ‘shells’, they are precast concrete panels supported by concrete ribs. The ‘shells’ are covered with 1,056,006 white and cream-coloured tiles manufactured in a factory in Sweden that generally produced stoneware tiles for the paper-mill industry. The design solution and construction of the shell structure took eight years to complete, and the development of the special ceramic tiles took over three years. Apart from the tiles covering the ‘shells’, the building’s exterior is mostly clad with granite quarried in Australia.\n\nContrary to its name, Sydney Opera House includes multiple performance venues. It is among the busiest performing-arts centres in the world, holding over 1,500 performances each year. It hosts a large number of performing-arts companies, including the four resident companies: Opera Australia, the Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra.\n\nWith its grand setting and cathedral-like atmosphere, the Concert Hall is Sydney Opera House’s most prestigious performance space. The largest of all interior venues, it delivers outstanding acoustics thanks to its high ceiling and wood panelling. There is a sizeable outdoor forecourt from which people ascend to the main entrance. The steps, which lead up from the forecourt to the main performance venues, are nearly 100 metres wide.\n\nIn 1999 Utzon was re-engaged to develop a set of design principles to act as a guide for future changes to the building. All of this design work he did from his base in Europe. These principles help to ensure that the building’s architectural integrity is maintained. The first alteration to the exterior was the addition of a new colonnade, which shades nine large glass openings in the previously solid exterior wall. This Utzon-led project, completed in 2006, enabled theatre patrons to see the harbour for the first time from the theatre foyers. The design also incorporates the first public lift and interior escalators to assist less-mobile patrons.\n\nSince 2007, the cultural, heritage and architectural importance of Sydney Opera House has been protected by its inclusion on the World Heritage List.\n\nQuestions 1–7 Do the following statements agree with the information given in Reading Passage 1? In boxes 1–7 on your answer sheet, write TRUE if the statement agrees with the information FALSE if the statement contradicts the information NOT GIVEN if there is no information on this\n\n1 Utzon was famous for his work before he designed the Opera House. 2 Utzon’s design was favoured by the four judges of the competition from the beginning. 3 Utzon’s knowledge of boats gave him the idea for parts of the Opera House. 4 Utzon was impressed by the opera houses he had seen in Mexico. 5 Utzon changed his designs in the 1960s after construction began. 6 Seidler defended Utzon’s role as architect. 7 Utzon went back to Australia in 1973 for the opening of the Opera House.\n\nQuestions 8 – 13 Complete the notes below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer. Write your answers in boxes 8 – 13 on your answer sheet.\n\nSydney Opera House Final cost 8 $ ________ Construction A large platform acting as a base for the building Concrete panels used to make ‘shells’, which are covered in tiles Over a million tiles from 9 ________ 10 ________ from Australia covering the outside walls Use More than 1,500 performances annually 11 ________ performing-arts companies have their home base at the Opera House Outside A large 12 ________ at the foot of a wide staircase Alterations A colonnade was added in 2006 Openings made the 13 ________ visible from foyers",
+      "questions": [
+        {
+          "number": 14,
+          "prompt": "In Ekman's study, fear and surprise were persistently ______.",
+          "answer": "misidentified",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "G 段明确指出，恐惧和惊讶在研究中持续被误认。"
+        },
+        {
+          "number": 15,
+          "prompt": "Some facial expressions correspond to particular ______.",
+          "answer": "emotions",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "研究结论认为，某些面部表情对应特定情绪。"
+        },
+        {
+          "number": 16,
+          "prompt": "This finding applies regardless of ______.",
+          "answer": "cultural background",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "G 段说这一结论不受文化背景影响。"
+        },
+        {
+          "number": 17,
+          "prompt": "It applies whether a culture has been ______.",
+          "answer": "isolated",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文将文化是否孤立列为不影响结论的条件。"
+        },
+        {
+          "number": 18,
+          "prompt": "It also applies whether a culture has been ______ to the mainstream.",
+          "answer": "exposed",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "原文使用 exposed to the mainstream，表示接触主流文化。"
+        },
+        {
+          "number": 19,
+          "prompt": "Which paragraph discusses the difficulty of identifying the actual meaning of facial expressions?",
+          "answer": "C",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "C 段举例说明厌恶和恐惧难以区分，细微面部差异也容易造成误读。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        {
+          "number": 20,
+          "prompt": "Which paragraph first describes the importance of culture in facial expressions?",
+          "answer": "A",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "A 段指出面部表情及其意义在一定程度上会因文化而异。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        {
+          "number": 21,
+          "prompt": "Which paragraph describes data linking blinking rates with election success?",
+          "answer": "D",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "D 段介绍 Joe Teece 关于候选人眨眼频率与选举结果的研究数据。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        {
+          "number": 22,
+          "prompt": "Which paragraph discusses the social features of several facial expressions?",
+          "answer": "H",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "H 段区分愤怒、喜悦等情绪与羞耻、骄傲、轻蔑等具有社会成分的情绪。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        {
+          "number": 23,
+          "prompt": "Which paragraph mentions an indicator of how nervous a person is?",
+          "answer": "D",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "D 段指出眨眼频率可以反映一个人的紧张或放松程度。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        {
+          "number": 24,
+          "prompt": "Which paragraph explains the relationship between emotion and facial expressions?",
+          "answer": "B",
+          "type": "matching",
+          "typeLabel": "段落信息匹配",
+          "explanation": "B 段说明表情通常是不自觉的，并指出主动做出某种表情也可能引发相应情绪。",
+          "options": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        },
+        {
+          "number": 25,
+          "prompt": "Which statement is true according to Ekman's theory? (Select one correct statement.)",
+          "answer": "B Facial expressions may relate to a person's state of mind",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "文章围绕表情与情绪/心理状态之间的联系展开，B 符合相关论述。",
+          "options": [
+            "A Animals have no facial expressions",
+            "B Facial expressions may relate to a person's state of mind",
+            "C Facial expressions are entirely culture-specific",
+            "D Different facial areas convey particular states of mind",
+            "E The mind controls men's expressions more than women's"
+          ]
+        },
+        {
+          "number": 26,
+          "prompt": "Which other statement is true according to Ekman's theory? (Select one correct statement.)",
+          "answer": "D Different facial areas convey particular states of mind",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "H 段末尾指出面部不同部分可以表达特定情绪，对应 D。",
+          "options": [
+            "A Animals have no facial expressions",
+            "B Facial expressions may relate to a person's state of mind",
+            "C Facial expressions are entirely culture-specific",
+            "D Different facial areas convey particular states of mind",
+            "E The mind controls men's expressions more than women's"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "future-world-language",
+      "title": "The Future of the World's Language",
+      "group": "Reading Passage 3",
+      "text": "Decisions, decisions!....................................................................................................... 49\n\nLiving dunes .................................................................................................................... 57\n\n雅 思 阅 读 超 小 范 围 机 经 ·前 言\n\n各位雅思考生，大家好。\n\n本机经收录了 9 篇十分高频的考场真题。\n\n考 前 可 作 为 3 个 tests 计 时 训 练 ， 请 严 格 计 时 60 分 钟 /test 完 成 ， 确 保 身 体和大脑适应考试时长与强度。\n\n请注意，完成题目之后，每篇文章大家都要做好逐题复盘：定位依据是 否充分？错误选项为何排除？同义替换能否正确？有没有模棱两可的题 目需要仔细斟酌？最终尽量要能用自己的逻辑清晰梳理出解题路径。\n\n祝备考顺利，早日取得理想成绩。\n\n小站教育雅思阅读教研组\n\n机经使用说明\n\n一、分题型突破，掌握各类题型的解题逻辑。\n\n雅思阅读的题型各具特点，解题方法也各不相同。建议在学习和练透每 类题型后，再使用本机经进行套题训练。\n\n二 、 从 “单 篇 精 练 ”进 阶 到 “套 题 计 时 ”。\n\n考 前 务 必 以 Passage 1 + Passage 2 + Passage 3 的 组 合 为 一 套 完 整 测 试 ， 严 格 计 时 60 分 钟 一 次 性 完 成 。 真 实 考 场 中 ， 三 篇 文 章 的 难 度 并 非 百 分 百 完 全 线 性 递 增 （ 有 时 P a s s a g e 2 反 而 比 P a s s a g e 3 更 难 ）， 且 各 篇章的题型组合变化多样，唯有通过整组模拟训练，才能培养出合理分 配 时 间 的 节 奏 感 和 应 对 复 杂 组 合 的 心 理 素 质 。 建 议 考 前 至 少 完 成 15+套 完整的计时模考，确保身体和大脑适应考试时长与强度。\n\n三 、 以 真 题 为 素 材 ， 警 惕 “虚 假 练 习 ”。\n\n完成题目之后，不要急于核对答案就翻篇。每篇文章都应在完成后逐题 复盘：定位依据是否充分？错误选项为何排除？同义替换能否正确？能 用自己的逻辑清晰地向他人讲明白一道题的解题路径，才说明真正掌握 了这道题。请注意保证练一篇要有练习一篇的价值。\n\n机经版本说明\n\n根据预测范围与适用阶段不同，雅思阅读机经主要分为以下三个版本：\n\n一、大范围机经\n\n大范围机经是通过收集真实考试文章篇目、统计高频文章等方式，组合 成 150 篇 的 练 习 素 材 。\n\n适 用 于 考 前 1-2 月 的 练 习 备 考 ， 帮 助 考 生 进 行 系 统 性 复 习 。 掌 握 各 类 题 型、积累学科词汇、熟悉常考话题。\n\n二、小范围机经\n\n小范围机经在大范围机经的基础上，结合近期文章复现情况、高频文章 变 化 ， 进 一 步 缩 小 范 围 ， 筛 选 出 约 5 0 % 篇 目 （ 7 5 篇 ）。\n\n适 用 于 考 前 1-2 周 冲 刺 阶 段 ， 集 中 练 习 重 点 文 章 ， 强 化 时 间 控 制 与 题 型 组合训练。\n\n三、超小范围机经\n\n超小范围机经是在小范围预测基础上，进一步筛选出的极高频篇章。通 过综合分析近期考试重复规律、话题热度，锁定最值得考前抱佛脚的 9 篇核心文章。\n\n适 用 于 考 前 2-3 天 模 拟 考 场 情 况 ， 强 化 训 练 。\n\n本套机经属于超小范围预测版本，共收录 9 篇高频阅读文章。建议考生 根据自身备考进度，先以大范围打底，再逐步缩小至小范围和超小范 围，合理利用本机经进行分层复习。\n\nR E A D I N G PA S S A G E 1\n\nSydney Opera House\n\nSydney Opera House is an example of late modern architecture; it is admired internationally and treasured by the people of Australia.\n\nIn 1956 the Premier of New South Wales, Australia, announced an international competition for the design of an opera house for Sydney. It attracted more than 200 entries from around the world and was won by Jørn Utzon, a relatively little-known architect from Denmark. The story goes that during the judging of the competition, one judge, American architect Eero Saarinen, arrived in Sydney after the other three judges had started assessing the entries. He looked through their rejected entries and stopped at the Utzon design, declaring it to be outstanding.\n\nIt was Utzon’s life and travels that had shaped his design for the Sydney Opera House. Though he had never visited the site, he used his maritime background to study naval charts of Sydney Harbour. His early exposure to shipbuilding provided the inspiration for the design of the roof, which is a series of curved ‘shells’ that look like the sails of a sailing ship billowing in the wind. From his travels to Mexico, he had the idea of placing his building on a wide horizontal platform.\n\nConstruction of the platform began in 1959, and throughout the early 1960s Utzon amended his original designs in order to develop a way to build the large ‘shells’ that cover the two main halls. The construction of the roof brought together some of the world’s best engineers and craftsmen, devising innovative techniques to create a major visual impact in accordance with Utzon’s vision. The design was one of the first examples of the use of computer-aided design for complex shapes.\n\nAlthough Utzon had spectacular plans for the interior, he was unable to realise them. Cost overruns contributed to criticism of the project and, after a change of government, the Minister of Works began questioning Utzon’s schedules and cost estimates. Payments to Utzon were stopped and he was forced to withdraw as chief architect in 1966. Following his resignation, there were protests through the streets led by prominent architect Harry Seidler and others, demanding that Utzon be reinstated as architect. However, Utzon was not reinstated and left Australia in 1966. He never returned, and new architects were appointed to complete the building in his absence. The original cost estimate for the Opera House was $7 million, with the completion date set for 26 January 1963. However, the Opera House was not formally completed until 1973, having cost $102 million.\n\nSince its opening in 1973, Sydney Opera House has earned a reputation as a world-class\n\nperforming-arts centre and become a symbol of both Sydney and Australia. Situated at Bennelong Point on Sydney Harbour, it consists of a series of large precast ‘shells’ made of concrete, each composed of sections of a sphere of 75.2 metres radius, forming the roofs of the structure, set on a monumental platform. The building is 183 metres long and 120 metres wide at its widest point. It is supported on 588 concrete piers, which are sunk approximately 25 metres below sea level.\n\nAlthough the roof structures are commonly referred to as ‘shells’, they are precast concrete panels supported by concrete ribs. The ‘shells’ are covered with 1,056,006 white and cream-coloured tiles manufactured in a factory in Sweden that generally produced stoneware tiles for the paper-mill industry. The design solution and construction of the shell structure took eight years to complete, and the development of the special ceramic tiles took over three years. Apart from the tiles covering the ‘shells’, the building’s exterior is mostly clad with granite quarried in Australia.\n\nContrary to its name, Sydney Opera House includes multiple performance venues. It is among the busiest performing-arts centres in the world, holding over 1,500 performances each year. It hosts a large number of performing-arts companies, including the four resident companies: Opera Australia, the Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra.\n\nWith its grand setting and cathedral-like atmosphere, the Concert Hall is Sydney Opera House’s most prestigious performance space. The largest of all interior venues, it delivers outstanding acoustics thanks to its high ceiling and wood panelling. There is a sizeable outdoor forecourt from which people ascend to the main entrance. The steps, which lead up from the forecourt to the main performance venues, are nearly 100 metres wide.\n\nIn 1999 Utzon was re-engaged to develop a set of design principles to act as a guide for future changes to the building. All of this design work he did from his base in Europe. These principles help to ensure that the building’s architectural integrity is maintained. The first alteration to the exterior was the addition of a new colonnade, which shades nine large glass openings in the previously solid exterior wall. This Utzon-led project, completed in 2006, enabled theatre patrons to see the harbour for the first time from the theatre foyers. The design also incorporates the first public lift and interior escalators to assist less-mobile patrons.\n\nSince 2007, the cultural, heritage and architectural importance of Sydney Opera House has been protected by its inclusion on the World Heritage List.\n\nQuestions 1–7 Do the following statements agree with the information given in Reading Passage 1? In boxes 1–7 on your answer sheet, write TRUE if the statement agrees with the information FALSE if the statement contradicts the information NOT GIVEN if there is no information on this\n\n1 Utzon was famous for his work before he designed the Opera House. 2 Utzon’s design was favoured by the four judges of the competition from the beginning. 3 Utzon’s knowledge of boats gave him the idea for parts of the Opera House. 4 Utzon was impressed by the opera houses he had seen in Mexico. 5 Utzon changed his designs in the 1960s after construction began. 6 Seidler defended Utzon’s role as architect. 7 Utzon went back to Australia in 1973 for the opening of the Opera House.\n\nQuestions 8 – 13 Complete the notes below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer. Write your answers in boxes 8 – 13 on your answer sheet.\n\nSydney Opera House Final cost 8 $ ________ Construction A large platform acting as a base for the building Concrete panels used to make ‘shells’, which are covered in tiles Over a million tiles from 9 ________ 10 ________ from Australia covering the outside walls Use More than 1,500 performances annually 11 ________ performing-arts companies have their home base at the Opera House Outside A large 12 ________ at the foot of a wide staircase Alterations A colonnade was added in 2006 Openings made the 13 ________ visible from foyers",
+      "questions": [
+        {
+          "number": 27,
+          "prompt": "Most of the world's languages are spoken by a ______ of people.",
+          "answer": "D minority",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "文章指出 95% 的语言仅由 5% 的人口使用，即由少数人群使用。",
+          "options": [
+            "A similarity",
+            "B significance",
+            "C funding",
+            "D minority",
+            "E education",
+            "F difference",
+            "G economy",
+            "H diversity",
+            "I majority",
+            "J disappearance"
+          ]
+        },
+        {
+          "number": 28,
+          "prompt": "WOLP was established to prevent the ______ of endangered languages.",
+          "answer": "J disappearance",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "WOLP 的目标是阻止语言走向消亡，选 disappearance。",
+          "options": [
+            "A similarity",
+            "B significance",
+            "C funding",
+            "D minority",
+            "E education",
+            "F difference",
+            "G economy",
+            "H diversity",
+            "I majority",
+            "J disappearance"
+          ]
+        },
+        {
+          "number": 29,
+          "prompt": "The project provides communities with ______ to help them record endangered languages.",
+          "answer": "C funding",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "项目通过拨款鼓励社区与人类学家合作记录口头文学。",
+          "options": [
+            "A similarity",
+            "B significance",
+            "C funding",
+            "D minority",
+            "E education",
+            "F difference",
+            "G economy",
+            "H diversity",
+            "I majority",
+            "J disappearance"
+          ]
+        },
+        {
+          "number": 30,
+          "prompt": "The oral tradition has great cultural ______.",
+          "answer": "B significance",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "文章说口头传统是许多社区文化的核心，体现其重要性。",
+          "options": [
+            "A similarity",
+            "B significance",
+            "C funding",
+            "D minority",
+            "E education",
+            "F difference",
+            "G economy",
+            "H diversity",
+            "I majority",
+            "J disappearance"
+          ]
+        },
+        {
+          "number": 31,
+          "prompt": "An important ______ exists between languages with few speakers and languages with celebrated written traditions.",
+          "answer": "F difference",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "题干强调少数土著语言缺乏书面传统，与梵语、希伯来语等形成差异。",
+          "options": [
+            "A similarity",
+            "B significance",
+            "C funding",
+            "D minority",
+            "E education",
+            "F difference",
+            "G economy",
+            "H diversity",
+            "I majority",
+            "J disappearance"
+          ]
+        },
+        {
+          "number": 32,
+          "prompt": "Turin argued that anthropologists and linguists usually think carefully before selecting a research area.",
+          "answer": "FALSE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "Turin 说传统田野调查项目中的选择往往相当随机，与题干相反。"
+        },
+        {
+          "number": 33,
+          "prompt": "Turin concluded that the Thangmi language had few similarities with other languages.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章没有比较 Thangmi 语与其他语言的相似程度。"
+        },
+        {
+          "number": 34,
+          "prompt": "Turin considered his 1,000-page English grammar unsuitable for the Thangmi community.",
+          "answer": "TRUE",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "Turin 说这份英文语法“没人能用”，对他和社区都不够，因此改做三语词汇表。"
+        },
+        {
+          "number": 35,
+          "prompt": "Some Nepalese schools lack resources for language teaching.",
+          "answer": "NOT GIVEN",
+          "type": "tfng",
+          "typeLabel": "TRUE / FALSE / NOT GIVEN",
+          "explanation": "文章提到当地学校使用词典教育儿童，但没有说明学校是否缺乏教学资源。"
+        },
+        {
+          "number": 36,
+          "prompt": "Why does Turin mention PhDs on the apostrophe in French?",
+          "answer": "A Researchers are neglecting important areas of language research",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "他借此批评语言学界投入大量研究，却仍忽视濒危语言和语言多样性这一重要问题。",
+          "options": [
+            "A Researchers are neglecting important areas of language research",
+            "B He compares research methods",
+            "C Research should produce a diverse cultural outlook",
+            "D French research should focus on general aspects"
+          ]
+        },
+        {
+          "number": 37,
+          "prompt": "What is discussed in the paragraph about the revival of Hebrew?",
+          "answer": "A Historical examples show that language revival can be possible",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "该段以希伯来语复兴为例，说明濒危或长期不再使用的语言仍有复兴可能。",
+          "options": [
+            "A Historical examples show that language revival can be possible",
+            "B Communities distrust language revival",
+            "C Research methods have improved language restoration",
+            "D WOLP initiatives are being introduced in Israel"
+          ]
+        },
+        {
+          "number": 38,
+          "prompt": "How does Turin view the prospects of WOLP?",
+          "answer": "D It has a chance to help protect endangered languages",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "他承认项目无法独自让语言存续，但认为记录与提醒社区重视母语仍有帮助。",
+          "options": [
+            "A It will not raise enough funds",
+            "B It will keep languages alive by itself",
+            "C It will be embraced by most people",
+            "D It has a chance to help protect endangered languages"
+          ]
+        },
+        {
+          "number": 39,
+          "prompt": "What is Turin's main point about globalisation?",
+          "answer": "B It has both advantages and disadvantages",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "他提出全球化悖论：全球化既侵蚀语言多样性，也提供记录语言的新工具。",
+          "options": [
+            "A It is the sole cause of endangered languages",
+            "B It has both advantages and disadvantages",
+            "C It should be viewed only critically",
+            "D Identity must always take priority"
+          ]
+        },
+        {
+          "number": 40,
+          "prompt": "What does Turin suggest community members should do?",
+          "answer": "C Become modern without losing their language",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "结尾强调社区成员应继续说自己的语言；变得现代不意味着必须失去母语。",
+          "options": [
+            "A Learn other languages",
+            "B Keep only a sense of identity",
+            "C Become modern without losing their language",
+            "D Join the preservation race but remain realistic"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "decisions-decisions",
+      "title": "Decisions, decisions!",
+      "group": "Reading Passage 3",
+      "text": "Living dunes .................................................................................................................... 57\n\n雅 思 阅 读 超 小 范 围 机 经 ·前 言\n\n各位雅思考生，大家好。\n\n本机经收录了 9 篇十分高频的考场真题。\n\n考 前 可 作 为 3 个 tests 计 时 训 练 ， 请 严 格 计 时 60 分 钟 /test 完 成 ， 确 保 身 体和大脑适应考试时长与强度。\n\n请注意，完成题目之后，每篇文章大家都要做好逐题复盘：定位依据是 否充分？错误选项为何排除？同义替换能否正确？有没有模棱两可的题 目需要仔细斟酌？最终尽量要能用自己的逻辑清晰梳理出解题路径。\n\n祝备考顺利，早日取得理想成绩。\n\n小站教育雅思阅读教研组\n\n机经使用说明\n\n一、分题型突破，掌握各类题型的解题逻辑。\n\n雅思阅读的题型各具特点，解题方法也各不相同。建议在学习和练透每 类题型后，再使用本机经进行套题训练。\n\n二 、 从 “单 篇 精 练 ”进 阶 到 “套 题 计 时 ”。\n\n考 前 务 必 以 Passage 1 + Passage 2 + Passage 3 的 组 合 为 一 套 完 整 测 试 ， 严 格 计 时 60 分 钟 一 次 性 完 成 。 真 实 考 场 中 ， 三 篇 文 章 的 难 度 并 非 百 分 百 完 全 线 性 递 增 （ 有 时 P a s s a g e 2 反 而 比 P a s s a g e 3 更 难 ）， 且 各 篇章的题型组合变化多样，唯有通过整组模拟训练，才能培养出合理分 配 时 间 的 节 奏 感 和 应 对 复 杂 组 合 的 心 理 素 质 。 建 议 考 前 至 少 完 成 15+套 完整的计时模考，确保身体和大脑适应考试时长与强度。\n\n三 、 以 真 题 为 素 材 ， 警 惕 “虚 假 练 习 ”。\n\n完成题目之后，不要急于核对答案就翻篇。每篇文章都应在完成后逐题 复盘：定位依据是否充分？错误选项为何排除？同义替换能否正确？能 用自己的逻辑清晰地向他人讲明白一道题的解题路径，才说明真正掌握 了这道题。请注意保证练一篇要有练习一篇的价值。\n\n机经版本说明\n\n根据预测范围与适用阶段不同，雅思阅读机经主要分为以下三个版本：\n\n一、大范围机经\n\n大范围机经是通过收集真实考试文章篇目、统计高频文章等方式，组合 成 150 篇 的 练 习 素 材 。\n\n适 用 于 考 前 1-2 月 的 练 习 备 考 ， 帮 助 考 生 进 行 系 统 性 复 习 。 掌 握 各 类 题 型、积累学科词汇、熟悉常考话题。\n\n二、小范围机经\n\n小范围机经在大范围机经的基础上，结合近期文章复现情况、高频文章 变 化 ， 进 一 步 缩 小 范 围 ， 筛 选 出 约 5 0 % 篇 目 （ 7 5 篇 ）。\n\n适 用 于 考 前 1-2 周 冲 刺 阶 段 ， 集 中 练 习 重 点 文 章 ， 强 化 时 间 控 制 与 题 型 组合训练。\n\n三、超小范围机经\n\n超小范围机经是在小范围预测基础上，进一步筛选出的极高频篇章。通 过综合分析近期考试重复规律、话题热度，锁定最值得考前抱佛脚的 9 篇核心文章。\n\n适 用 于 考 前 2-3 天 模 拟 考 场 情 况 ， 强 化 训 练 。\n\n本套机经属于超小范围预测版本，共收录 9 篇高频阅读文章。建议考生 根据自身备考进度，先以大范围打底，再逐步缩小至小范围和超小范 围，合理利用本机经进行分层复习。\n\nR E A D I N G PA S S A G E 1\n\nSydney Opera House\n\nSydney Opera House is an example of late modern architecture; it is admired internationally and treasured by the people of Australia.\n\nIn 1956 the Premier of New South Wales, Australia, announced an international competition for the design of an opera house for Sydney. It attracted more than 200 entries from around the world and was won by Jørn Utzon, a relatively little-known architect from Denmark. The story goes that during the judging of the competition, one judge, American architect Eero Saarinen, arrived in Sydney after the other three judges had started assessing the entries. He looked through their rejected entries and stopped at the Utzon design, declaring it to be outstanding.\n\nIt was Utzon’s life and travels that had shaped his design for the Sydney Opera House. Though he had never visited the site, he used his maritime background to study naval charts of Sydney Harbour. His early exposure to shipbuilding provided the inspiration for the design of the roof, which is a series of curved ‘shells’ that look like the sails of a sailing ship billowing in the wind. From his travels to Mexico, he had the idea of placing his building on a wide horizontal platform.\n\nConstruction of the platform began in 1959, and throughout the early 1960s Utzon amended his original designs in order to develop a way to build the large ‘shells’ that cover the two main halls. The construction of the roof brought together some of the world’s best engineers and craftsmen, devising innovative techniques to create a major visual impact in accordance with Utzon’s vision. The design was one of the first examples of the use of computer-aided design for complex shapes.\n\nAlthough Utzon had spectacular plans for the interior, he was unable to realise them. Cost overruns contributed to criticism of the project and, after a change of government, the Minister of Works began questioning Utzon’s schedules and cost estimates. Payments to Utzon were stopped and he was forced to withdraw as chief architect in 1966. Following his resignation, there were protests through the streets led by prominent architect Harry Seidler and others, demanding that Utzon be reinstated as architect. However, Utzon was not reinstated and left Australia in 1966. He never returned, and new architects were appointed to complete the building in his absence. The original cost estimate for the Opera House was $7 million, with the completion date set for 26 January 1963. However, the Opera House was not formally completed until 1973, having cost $102 million.\n\nSince its opening in 1973, Sydney Opera House has earned a reputation as a world-class\n\nperforming-arts centre and become a symbol of both Sydney and Australia. Situated at Bennelong Point on Sydney Harbour, it consists of a series of large precast ‘shells’ made of concrete, each composed of sections of a sphere of 75.2 metres radius, forming the roofs of the structure, set on a monumental platform. The building is 183 metres long and 120 metres wide at its widest point. It is supported on 588 concrete piers, which are sunk approximately 25 metres below sea level.\n\nAlthough the roof structures are commonly referred to as ‘shells’, they are precast concrete panels supported by concrete ribs. The ‘shells’ are covered with 1,056,006 white and cream-coloured tiles manufactured in a factory in Sweden that generally produced stoneware tiles for the paper-mill industry. The design solution and construction of the shell structure took eight years to complete, and the development of the special ceramic tiles took over three years. Apart from the tiles covering the ‘shells’, the building’s exterior is mostly clad with granite quarried in Australia.\n\nContrary to its name, Sydney Opera House includes multiple performance venues. It is among the busiest performing-arts centres in the world, holding over 1,500 performances each year. It hosts a large number of performing-arts companies, including the four resident companies: Opera Australia, the Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra.\n\nWith its grand setting and cathedral-like atmosphere, the Concert Hall is Sydney Opera House’s most prestigious performance space. The largest of all interior venues, it delivers outstanding acoustics thanks to its high ceiling and wood panelling. There is a sizeable outdoor forecourt from which people ascend to the main entrance. The steps, which lead up from the forecourt to the main performance venues, are nearly 100 metres wide.\n\nIn 1999 Utzon was re-engaged to develop a set of design principles to act as a guide for future changes to the building. All of this design work he did from his base in Europe. These principles help to ensure that the building’s architectural integrity is maintained. The first alteration to the exterior was the addition of a new colonnade, which shades nine large glass openings in the previously solid exterior wall. This Utzon-led project, completed in 2006, enabled theatre patrons to see the harbour for the first time from the theatre foyers. The design also incorporates the first public lift and interior escalators to assist less-mobile patrons.\n\nSince 2007, the cultural, heritage and architectural importance of Sydney Opera House has been protected by its inclusion on the World Heritage List.\n\nQuestions 1–7 Do the following statements agree with the information given in Reading Passage 1? In boxes 1–7 on your answer sheet, write TRUE if the statement agrees with the information FALSE if the statement contradicts the information NOT GIVEN if there is no information on this\n\n1 Utzon was famous for his work before he designed the Opera House. 2 Utzon’s design was favoured by the four judges of the competition from the beginning. 3 Utzon’s knowledge of boats gave him the idea for parts of the Opera House. 4 Utzon was impressed by the opera houses he had seen in Mexico. 5 Utzon changed his designs in the 1960s after construction began. 6 Seidler defended Utzon’s role as architect. 7 Utzon went back to Australia in 1973 for the opening of the Opera House.\n\nQuestions 8 – 13 Complete the notes below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer. Write your answers in boxes 8 – 13 on your answer sheet.\n\nSydney Opera House Final cost 8 $ ________ Construction A large platform acting as a base for the building Concrete panels used to make ‘shells’, which are covered in tiles Over a million tiles from 9 ________ 10 ________ from Australia covering the outside walls Use More than 1,500 performances annually 11 ________ performing-arts companies have their home base at the Opera House Outside A large 12 ________ at the foot of a wide staircase Alterations A colonnade was added in 2006 Openings made the 13 ________ visible from foyers",
+      "questions": [
+        {
+          "number": 27,
+          "prompt": "The Gordian knot legend illustrates the idea that",
+          "answer": "B Difficult problems can have easy solutions",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "亚历山大没有解开复杂绳结，而是直接劈开它；故事说明棘手问题可能有简单解决办法。",
+          "options": [
+            "A Anyone can solve a difficult problem",
+            "B Difficult problems can have easy solutions",
+            "C Every problem requires extensive thought",
+            "D People who solve complex problems make good leaders"
+          ]
+        },
+        {
+          "number": 28,
+          "prompt": "The conflict model proposed by Janis and Mann requires that",
+          "answer": "B All important facts should be considered",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "冲突模型强调彻底调查、审视、权衡和复核相关信息与选项。",
+          "options": [
+            "A Opposing political parties must be involved",
+            "B All important facts should be considered",
+            "C People must be encouraged to disagree",
+            "D Similar past situations must be examined"
+          ]
+        },
+        {
+          "number": 29,
+          "prompt": "According to recent thinking reinforced by Malcolm Gladwell, the best decisions",
+          "answer": "C Are made very quickly",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "文章说越来越多研究认为，在许多情境中快速的直觉决策通常更优。",
+          "options": [
+            "A Involve consultation",
+            "B Involve complex thought",
+            "C Are made very quickly",
+            "D Are always the most attractive option"
+          ]
+        },
+        {
+          "number": 30,
+          "prompt": "Dijksterhuis and colleagues claim that",
+          "answer": "B Conscious decision making is negatively affected by task complexity",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "他们认为任务越复杂，有意识决策越会受到认知资源限制，决策质量可能下降。",
+          "options": [
+            "A Cognitive resources improve as tasks become complex",
+            "B Conscious decision making is negatively affected by task complexity",
+            "C Unconscious decision making is simply popular",
+            "D Deliberation without attention describes all decisions"
+          ]
+        },
+        {
+          "number": 31,
+          "prompt": "In the car study, participants doing simple tasks",
+          "answer": "D Made better choices when allowed to concentrate",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "面对四项属性这一简单任务时，允许不受干扰地审慎思考的人更能区分最好和最差的汽车。",
+          "options": [
+            "A Had lengthy discussions",
+            "B Could not decide quickly",
+            "C Could not distinguish between options",
+            "D Made better choices when allowed to concentrate"
+          ]
+        },
+        {
+          "number": 32,
+          "prompt": "Shoppers who spent ______ time buying simple clothing items were more satisfied than those who did not.",
+          "answer": "A more",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "购买衣物时，较少有意识思考的购物者满意度更低，因此花更多时间思考者更满意。",
+          "options": [
+            "A more",
+            "B counterintuitive",
+            "C simple",
+            "D better",
+            "E conscious",
+            "F obvious",
+            "G complex",
+            "H less",
+            "I worse"
+          ]
+        },
+        {
+          "number": 33,
+          "prompt": "When buying furniture, shoppers made ______ purchasing decisions if they did not think too hard.",
+          "answer": "D better",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "家具属于复杂产品，较少有意识思考的购物者反而更满意，说明结果更好。",
+          "options": [
+            "A more",
+            "B counterintuitive",
+            "C simple",
+            "D better",
+            "E conscious",
+            "F obvious",
+            "G complex",
+            "H less",
+            "I worse"
+          ]
+        },
+        {
+          "number": 34,
+          "prompt": "The researchers concluded that ______ decisions in other areas may be best left to the unconscious.",
+          "answer": "G complex",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "研究者推论：更复杂的选择可以交由无意识思考。",
+          "options": [
+            "A more",
+            "B counterintuitive",
+            "C simple",
+            "D better",
+            "E conscious",
+            "F obvious",
+            "G complex",
+            "H less",
+            "I worse"
+          ]
+        },
+        {
+          "number": 35,
+          "prompt": "The writer describes this conclusion as apparently ______ but nevertheless true.",
+          "answer": "B counterintuitive",
+          "type": "mcq",
+          "typeLabel": "词汇选项填空",
+          "explanation": "文章称这一结论 seemingly counter-intuitive，即看似反直觉。",
+          "options": [
+            "A more",
+            "B counterintuitive",
+            "C simple",
+            "D better",
+            "E conscious",
+            "F obvious",
+            "G complex",
+            "H less",
+            "I worse"
+          ]
+        },
+        {
+          "number": 36,
+          "prompt": "Dijksterhuis's findings agree with existing political and management theories.",
+          "answer": "NO",
+          "type": "yesno",
+          "typeLabel": "YES / NO / NOT GIVEN",
+          "explanation": "文章明确说这一激进推论与标准政治和管理理论相矛盾。"
+        },
+        {
+          "number": 37,
+          "prompt": "Some political leaders seem to use deliberation without attention when making complex decisions.",
+          "answer": "YES",
+          "type": "yesno",
+          "typeLabel": "YES / NO / NOT GIVEN",
+          "explanation": "作者推测许多政治领导人已经接受了为复杂问题寻找简单解决方案的做法。"
+        },
+        {
+          "number": 38,
+          "prompt": "All political decisions are complex ones.",
+          "answer": "NOT GIVEN",
+          "type": "yesno",
+          "typeLabel": "YES / NO / NOT GIVEN",
+          "explanation": "文章提出“什么算复杂决策”的问题，但没有说所有政治决策都复杂。"
+        },
+        {
+          "number": 39,
+          "prompt": "We judge political errors according to our own political beliefs.",
+          "answer": "YES",
+          "type": "yesno",
+          "typeLabel": "YES / NO / NOT GIVEN",
+          "explanation": "文章指出，政治决策者犯错时，评价往往与其政治立场及其与我们自身立场的关系有关。"
+        },
+        {
+          "number": 40,
+          "prompt": "Social considerations must be taken into account for an examination of decision making to be useful.",
+          "answer": "YES",
+          "type": "yesno",
+          "typeLabel": "YES / NO / NOT GIVEN",
+          "explanation": "结尾认为决策不仅是心理学问题，也涉及政治、意识形态和群体归属，回避社会考量会使理解偏离启蒙。"
+        }
+      ]
+    },
+    {
+      "id": "living-dunes",
+      "title": "Living dunes",
+      "group": "Reading Passage 3",
+      "text": "雅 思 阅 读 超 小 范 围 机 经 ·前 言\n\n各位雅思考生，大家好。\n\n本机经收录了 9 篇十分高频的考场真题。\n\n考 前 可 作 为 3 个 tests 计 时 训 练 ， 请 严 格 计 时 60 分 钟 /test 完 成 ， 确 保 身 体和大脑适应考试时长与强度。\n\n请注意，完成题目之后，每篇文章大家都要做好逐题复盘：定位依据是 否充分？错误选项为何排除？同义替换能否正确？有没有模棱两可的题 目需要仔细斟酌？最终尽量要能用自己的逻辑清晰梳理出解题路径。\n\n祝备考顺利，早日取得理想成绩。\n\n小站教育雅思阅读教研组\n\n机经使用说明\n\n一、分题型突破，掌握各类题型的解题逻辑。\n\n雅思阅读的题型各具特点，解题方法也各不相同。建议在学习和练透每 类题型后，再使用本机经进行套题训练。\n\n二 、 从 “单 篇 精 练 ”进 阶 到 “套 题 计 时 ”。\n\n考 前 务 必 以 Passage 1 + Passage 2 + Passage 3 的 组 合 为 一 套 完 整 测 试 ， 严 格 计 时 60 分 钟 一 次 性 完 成 。 真 实 考 场 中 ， 三 篇 文 章 的 难 度 并 非 百 分 百 完 全 线 性 递 增 （ 有 时 P a s s a g e 2 反 而 比 P a s s a g e 3 更 难 ）， 且 各 篇章的题型组合变化多样，唯有通过整组模拟训练，才能培养出合理分 配 时 间 的 节 奏 感 和 应 对 复 杂 组 合 的 心 理 素 质 。 建 议 考 前 至 少 完 成 15+套 完整的计时模考，确保身体和大脑适应考试时长与强度。\n\n三 、 以 真 题 为 素 材 ， 警 惕 “虚 假 练 习 ”。\n\n完成题目之后，不要急于核对答案就翻篇。每篇文章都应在完成后逐题 复盘：定位依据是否充分？错误选项为何排除？同义替换能否正确？能 用自己的逻辑清晰地向他人讲明白一道题的解题路径，才说明真正掌握 了这道题。请注意保证练一篇要有练习一篇的价值。\n\n机经版本说明\n\n根据预测范围与适用阶段不同，雅思阅读机经主要分为以下三个版本：\n\n一、大范围机经\n\n大范围机经是通过收集真实考试文章篇目、统计高频文章等方式，组合 成 150 篇 的 练 习 素 材 。\n\n适 用 于 考 前 1-2 月 的 练 习 备 考 ， 帮 助 考 生 进 行 系 统 性 复 习 。 掌 握 各 类 题 型、积累学科词汇、熟悉常考话题。\n\n二、小范围机经\n\n小范围机经在大范围机经的基础上，结合近期文章复现情况、高频文章 变 化 ， 进 一 步 缩 小 范 围 ， 筛 选 出 约 5 0 % 篇 目 （ 7 5 篇 ）。\n\n适 用 于 考 前 1-2 周 冲 刺 阶 段 ， 集 中 练 习 重 点 文 章 ， 强 化 时 间 控 制 与 题 型 组合训练。\n\n三、超小范围机经\n\n超小范围机经是在小范围预测基础上，进一步筛选出的极高频篇章。通 过综合分析近期考试重复规律、话题热度，锁定最值得考前抱佛脚的 9 篇核心文章。\n\n适 用 于 考 前 2-3 天 模 拟 考 场 情 况 ， 强 化 训 练 。\n\n本套机经属于超小范围预测版本，共收录 9 篇高频阅读文章。建议考生 根据自身备考进度，先以大范围打底，再逐步缩小至小范围和超小范 围，合理利用本机经进行分层复习。\n\nR E A D I N G PA S S A G E 1\n\nSydney Opera House\n\nSydney Opera House is an example of late modern architecture; it is admired internationally and treasured by the people of Australia.\n\nIn 1956 the Premier of New South Wales, Australia, announced an international competition for the design of an opera house for Sydney. It attracted more than 200 entries from around the world and was won by Jørn Utzon, a relatively little-known architect from Denmark. The story goes that during the judging of the competition, one judge, American architect Eero Saarinen, arrived in Sydney after the other three judges had started assessing the entries. He looked through their rejected entries and stopped at the Utzon design, declaring it to be outstanding.\n\nIt was Utzon’s life and travels that had shaped his design for the Sydney Opera House. Though he had never visited the site, he used his maritime background to study naval charts of Sydney Harbour. His early exposure to shipbuilding provided the inspiration for the design of the roof, which is a series of curved ‘shells’ that look like the sails of a sailing ship billowing in the wind. From his travels to Mexico, he had the idea of placing his building on a wide horizontal platform.\n\nConstruction of the platform began in 1959, and throughout the early 1960s Utzon amended his original designs in order to develop a way to build the large ‘shells’ that cover the two main halls. The construction of the roof brought together some of the world’s best engineers and craftsmen, devising innovative techniques to create a major visual impact in accordance with Utzon’s vision. The design was one of the first examples of the use of computer-aided design for complex shapes.\n\nAlthough Utzon had spectacular plans for the interior, he was unable to realise them. Cost overruns contributed to criticism of the project and, after a change of government, the Minister of Works began questioning Utzon’s schedules and cost estimates. Payments to Utzon were stopped and he was forced to withdraw as chief architect in 1966. Following his resignation, there were protests through the streets led by prominent architect Harry Seidler and others, demanding that Utzon be reinstated as architect. However, Utzon was not reinstated and left Australia in 1966. He never returned, and new architects were appointed to complete the building in his absence. The original cost estimate for the Opera House was $7 million, with the completion date set for 26 January 1963. However, the Opera House was not formally completed until 1973, having cost $102 million.\n\nSince its opening in 1973, Sydney Opera House has earned a reputation as a world-class\n\nperforming-arts centre and become a symbol of both Sydney and Australia. Situated at Bennelong Point on Sydney Harbour, it consists of a series of large precast ‘shells’ made of concrete, each composed of sections of a sphere of 75.2 metres radius, forming the roofs of the structure, set on a monumental platform. The building is 183 metres long and 120 metres wide at its widest point. It is supported on 588 concrete piers, which are sunk approximately 25 metres below sea level.\n\nAlthough the roof structures are commonly referred to as ‘shells’, they are precast concrete panels supported by concrete ribs. The ‘shells’ are covered with 1,056,006 white and cream-coloured tiles manufactured in a factory in Sweden that generally produced stoneware tiles for the paper-mill industry. The design solution and construction of the shell structure took eight years to complete, and the development of the special ceramic tiles took over three years. Apart from the tiles covering the ‘shells’, the building’s exterior is mostly clad with granite quarried in Australia.\n\nContrary to its name, Sydney Opera House includes multiple performance venues. It is among the busiest performing-arts centres in the world, holding over 1,500 performances each year. It hosts a large number of performing-arts companies, including the four resident companies: Opera Australia, the Australian Ballet, the Sydney Theatre Company and the Sydney Symphony Orchestra.\n\nWith its grand setting and cathedral-like atmosphere, the Concert Hall is Sydney Opera House’s most prestigious performance space. The largest of all interior venues, it delivers outstanding acoustics thanks to its high ceiling and wood panelling. There is a sizeable outdoor forecourt from which people ascend to the main entrance. The steps, which lead up from the forecourt to the main performance venues, are nearly 100 metres wide.\n\nIn 1999 Utzon was re-engaged to develop a set of design principles to act as a guide for future changes to the building. All of this design work he did from his base in Europe. These principles help to ensure that the building’s architectural integrity is maintained. The first alteration to the exterior was the addition of a new colonnade, which shades nine large glass openings in the previously solid exterior wall. This Utzon-led project, completed in 2006, enabled theatre patrons to see the harbour for the first time from the theatre foyers. The design also incorporates the first public lift and interior escalators to assist less-mobile patrons.\n\nSince 2007, the cultural, heritage and architectural importance of Sydney Opera House has been protected by its inclusion on the World Heritage List.\n\nQuestions 1–7 Do the following statements agree with the information given in Reading Passage 1? In boxes 1–7 on your answer sheet, write TRUE if the statement agrees with the information FALSE if the statement contradicts the information NOT GIVEN if there is no information on this\n\n1 Utzon was famous for his work before he designed the Opera House. 2 Utzon’s design was favoured by the four judges of the competition from the beginning. 3 Utzon’s knowledge of boats gave him the idea for parts of the Opera House. 4 Utzon was impressed by the opera houses he had seen in Mexico. 5 Utzon changed his designs in the 1960s after construction began. 6 Seidler defended Utzon’s role as architect. 7 Utzon went back to Australia in 1973 for the opening of the Opera House.\n\nQuestions 8 – 13 Complete the notes below. Choose ONE WORD AND/OR A NUMBER from the passage for each answer. Write your answers in boxes 8 – 13 on your answer sheet.\n\nSydney Opera House Final cost 8 $ ________ Construction A large platform acting as a base for the building Concrete panels used to make ‘shells’, which are covered in tiles Over a million tiles from 9 ________ 10 ________ from Australia covering the outside walls Use More than 1,500 performances annually 11 ________ performing-arts companies have their home base at the Opera House Outside A large 12 ________ at the foot of a wide staircase Alterations A colonnade was added in 2006 Openings made the 13 ________ visible from foyers",
+      "questions": [
+        {
+          "number": 27,
+          "prompt": "Which heading best describes paragraph A?",
+          "answer": "iv A potential threat to industry and communications",
+          "type": "heading_match",
+          "typeLabel": "段落标题匹配",
+          "explanation": "A 段强调沙丘缓慢移动仍可能威胁石油设施和铁路。",
+          "options": [
+            "i Moving rapidly across the desert",
+            "ii Recreating the process in a laboratory",
+            "iii Strange music created by human movement",
+            "iv A potential threat to industry and communications",
+            "v Dunes coming together and re-forming",
+            "vi Needing a specific combination of conditions",
+            "vii A continuous cycle",
+            "viii The commonest type of dune",
+            "ix Old superstitions demystified"
+          ]
+        },
+        {
+          "number": 28,
+          "prompt": "Which heading best describes paragraph B?",
+          "answer": "viii The commonest type of dune",
+          "type": "heading_match",
+          "typeLabel": "段落标题匹配",
+          "explanation": "B 段介绍线性沙丘覆盖了移动沙丘以外的大部分沙覆盖区域，是最常见类型。",
+          "options": [
+            "i Moving rapidly across the desert",
+            "ii Recreating the process in a laboratory",
+            "iii Strange music created by human movement",
+            "iv A potential threat to industry and communications",
+            "v Dunes coming together and re-forming",
+            "vi Needing a specific combination of conditions",
+            "vii A continuous cycle",
+            "viii The commonest type of dune",
+            "ix Old superstitions demystified"
+          ]
+        },
+        {
+          "number": 29,
+          "prompt": "Which heading best describes paragraph C?",
+          "answer": "vi Needing a specific combination of conditions",
+          "type": "heading_match",
+          "typeLabel": "段落标题匹配",
+          "explanation": "C 段指出新月形沙丘需要沙漠边缘、沿海区域和单向风等特定条件形成。",
+          "options": [
+            "i Moving rapidly across the desert",
+            "ii Recreating the process in a laboratory",
+            "iii Strange music created by human movement",
+            "iv A potential threat to industry and communications",
+            "v Dunes coming together and re-forming",
+            "vi Needing a specific combination of conditions",
+            "vii A continuous cycle",
+            "viii The commonest type of dune",
+            "ix Old superstitions demystified"
+          ]
+        },
+        {
+          "number": 30,
+          "prompt": "Which heading best describes paragraph D?",
+          "answer": "vii A continuous cycle",
+          "type": "heading_match",
+          "typeLabel": "段落标题匹配",
+          "explanation": "D 段解释沙粒被风吹上沙丘、滚落、再被掩埋并重复的连续循环。",
+          "options": [
+            "i Moving rapidly across the desert",
+            "ii Recreating the process in a laboratory",
+            "iii Strange music created by human movement",
+            "iv A potential threat to industry and communications",
+            "v Dunes coming together and re-forming",
+            "vi Needing a specific combination of conditions",
+            "vii A continuous cycle",
+            "viii The commonest type of dune",
+            "ix Old superstitions demystified"
+          ]
+        },
+        {
+          "number": 31,
+          "prompt": "Which heading best describes paragraph E?",
+          "answer": "v Dunes coming together and re-forming",
+          "type": "heading_match",
+          "typeLabel": "段落标题匹配",
+          "explanation": "E 段说明两个沙丘相撞后会迅速恢复各自形状。",
+          "options": [
+            "i Moving rapidly across the desert",
+            "ii Recreating the process in a laboratory",
+            "iii Strange music created by human movement",
+            "iv A potential threat to industry and communications",
+            "v Dunes coming together and re-forming",
+            "vi Needing a specific combination of conditions",
+            "vii A continuous cycle",
+            "viii The commonest type of dune",
+            "ix Old superstitions demystified"
+          ]
+        },
+        {
+          "number": 32,
+          "prompt": "Which heading best describes paragraph F?",
+          "answer": "ix Old superstitions demystified",
+          "type": "heading_match",
+          "typeLabel": "段落标题匹配",
+          "explanation": "F 段先介绍当地把沙丘声音归因于幽灵的传说，再给出科学解释。",
+          "options": [
+            "i Moving rapidly across the desert",
+            "ii Recreating the process in a laboratory",
+            "iii Strange music created by human movement",
+            "iv A potential threat to industry and communications",
+            "v Dunes coming together and re-forming",
+            "vi Needing a specific combination of conditions",
+            "vii A continuous cycle",
+            "viii The commonest type of dune",
+            "ix Old superstitions demystified"
+          ]
+        },
+        {
+          "number": 33,
+          "prompt": "Which heading best describes paragraph G?",
+          "answer": "ii Recreating the process in a laboratory",
+          "type": "heading_match",
+          "typeLabel": "段落标题匹配",
+          "explanation": "G 段介绍研究人员把沙子带回实验室并成功复制沙丘歌声。",
+          "options": [
+            "i Moving rapidly across the desert",
+            "ii Recreating the process in a laboratory",
+            "iii Strange music created by human movement",
+            "iv A potential threat to industry and communications",
+            "v Dunes coming together and re-forming",
+            "vi Needing a specific combination of conditions",
+            "vii A continuous cycle",
+            "viii The commonest type of dune",
+            "ix Old superstitions demystified"
+          ]
+        },
+        {
+          "number": 34,
+          "prompt": "What are we told about linear dunes?",
+          "answer": "C They develop in a recognisable shape",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "B 段说线性沙丘形成成长长的弯曲波浪，因此会发展出可辨认的形状。",
+          "options": [
+            "A They form in winds from one direction",
+            "B They can move 100 metres per year",
+            "C They develop in a recognisable shape",
+            "D They make up 20% of the world's deserts"
+          ]
+        },
+        {
+          "number": 35,
+          "prompt": "Bagnold discovered that movement in barchans was caused by",
+          "answer": "B The granular nature of the dunes",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "D 段解释沙丘由颗粒组成，沙粒逐粒移动；不是由沙丘特殊成分或季节性强风造成。",
+          "options": [
+            "A The long straight shape of the dunes",
+            "B The granular nature of the dunes",
+            "C The exceptional weight of individual grains",
+            "D Unusually strong seasonal winds"
+          ]
+        },
+        {
+          "number": 36,
+          "prompt": "Why does Dr Douady compare a barchan dune to a living organism?",
+          "answer": "D Its shape remains recognisable after movement",
+          "type": "mcq",
+          "typeLabel": "选择题",
+          "explanation": "E 段指出沙丘移动甚至相撞后，仍能迅速恢复其独特形状。",
+          "options": [
+            "A It starts small and grows",
+            "B It affects its surroundings",
+            "C It has developed relationships with desert organisms",
+            "D Its shape remains recognisable after movement"
+          ]
+        },
+        {
+          "number": 37,
+          "prompt": "Singing dunes belong to the type known as ______.",
+          "answer": "barchans",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "C、F 段均说明会唱歌的是新月形沙丘（barchans）。"
+        },
+        {
+          "number": 38,
+          "prompt": "Research shows that individual grains have a similar ______.",
+          "answer": "shape",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "G 段说沙粒形状均匀，并因多年相互撞击而变得圆润。"
+        },
+        {
+          "number": 39,
+          "prompt": "Differences in grain size affect the ______ of the song.",
+          "answer": "tone",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "G 段直接指出沙粒尺寸变化会影响声音的音调（tone）。"
+        },
+        {
+          "number": 40,
+          "prompt": "Each grain is coated with a mixture of different ______.",
+          "answer": "minerals",
+          "type": "short",
+          "typeLabel": "填空题",
+          "explanation": "沙漠釉由周围岩石中的多种矿物精确组合而成。"
+        }
+      ]
+    }
+  ]
+}
