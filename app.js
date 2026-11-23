@@ -217,8 +217,7 @@ const skillQuizState = {reading:state.practiceResults?.reading||null,listening:s
 let readingBankCache=null;
 let readingBankLoadStarted=false;
 function getReadingBank(){
- if(readingBankCache)return readingBankCache;
- try{return JSON.parse(localStorage.getItem("ieltsStudio.readingBank")||"null")}catch(e){return null}
+ return readingBankCache&&readingBankCache.schemaVersion==="ieltsStudio.readingBank.v2"&&readingBankCache.source==="ZYZ READING supplied HTML"&&Array.isArray(readingBankCache.passages)&&readingBankCache.passages.length===181?readingBankCache:null;
 }
 function openReadingDatabase(){
  return new Promise((resolve,reject)=>{
@@ -285,7 +284,7 @@ function renderSkillQuiz(skill){
    readingBankLoadStarted=true;
    root.innerHTML='<div class="reading-empty"><h2>正在加载阅读题库…</h2><p>正在读取 181 篇阅读材料，请稍候。</p></div>';
    restoreReadingBank().then(async restored=>{
-    if(!restored){const response=await fetch("./zyz-reading-bank.json",{cache:"no-cache"});if(!response.ok)throw new Error("Reading bank request failed: "+response.status);const data=await response.json();if(!data||!Array.isArray(data.passages)||!data.passages.length)throw new Error("Invalid reading bank");readingBankCache=data;try{await saveReadingBank(data)}catch(storageError){console.warn("IndexedDB persistence unavailable; bank remains loaded for this session",storageError)}}
+    if(!restored||restored.schemaVersion!=="ieltsStudio.readingBank.v2"||restored.source!=="ZYZ READING supplied HTML"||!Array.isArray(restored.passages)||restored.passages.length!==181){const response=await fetch("./zyz-reading-bank.json",{cache:"no-cache"});if(!response.ok)throw new Error("Reading bank request failed: "+response.status);const data=await response.json();if(!data||!Array.isArray(data.passages)||!data.passages.length)throw new Error("Invalid reading bank");readingBankCache=data;try{await saveReadingBank(data)}catch(storageError){console.warn("IndexedDB persistence unavailable; bank remains loaded for this session",storageError)}}
     renderSkillQuiz("reading");
    }).catch(err=>{console.error("Could not load reading bank",err);root.innerHTML='<div class="reading-empty"><h2>题库加载失败</h2><p>无法读取 zyz-reading-bank.json。请刷新页面，或检查网络连接。</p><button class="button button-dark" id="retryReadingLoad">重新加载</button></div>';root.querySelector("#retryReadingLoad")?.addEventListener("click",()=>{readingBankLoadStarted=false;renderSkillQuiz("reading")})});
    return;
