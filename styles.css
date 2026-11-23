@@ -753,3 +753,16 @@ td{background:rgba(250,249,241,.82)!important;color:#4b574b!important;border-col
 .speaking-answer-editor p,.speaking-answer-footer small,.speaking-selected-question p{color:#756d7e!important}
 .speaking-answer-editor textarea{background:#fffef9!important}
 @media(max-width:720px){.sidebar{background:linear-gradient(180deg,#71876b,#60775b)!important}.topbar{background:rgba(250,249,241,.97)!important}}
+
+/* Reading library: replace the bright sage tile with a quiet dusty blue */
+.reading-library-card:nth-child(3n+1){
+  background:#e3eaf1!important;
+  border-color:#d0dbe6!important;
+}
+.reading-library-card:nth-child(3n+1):hover{
+  background:#dbe5ee!important;
+}
+.reading-bank-card:nth-child(4n+3){
+  background:linear-gradient(145deg,#e7eee9 0%,#dce7e0 100%)!important;
+  border-color:#cbd9cf!important;
+}
