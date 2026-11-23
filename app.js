@@ -301,7 +301,7 @@ function renderSkillQuiz(skill){
    state.sessions.push({id:uid(),skill:"Reading",name:passage.title,correct,total:totalMarks,note:"个人阅读题库自动批阅",date:todayISO(),percent:Math.round(correct/totalMarks*100)});
    state.mistakes=state.mistakes||[];
    passage.questions.forEach((q,i)=>{if(!marks[i])state.mistakes.push({id:uid(),skill:"Reading",category:q.typeLabel||q.type||"Reading",question:q.prompt,userAnswer:Array.isArray(chosen[i])?chosen[i].join(" / "):chosen[i],correctAnswer:Array.isArray(q.answers||q.answer)?(q.answers||q.answer).join(" / "):q.answer,source:passage.title,date:todayISO(),note:"来自阅读练习自动批阅"})});
-   markActivity();save();renderSkillQuiz("reading");toast(\`批阅完成：\${correct}/\${totalMarks}，\${Math.round(correct/totalMarks*100)}%\`);
+   markActivity();save();renderSkillQuiz("reading");toast(`批阅完成：${correct}/${totalMarks}，${Math.round(correct/totalMarks*100)}%`);
   };
   return;
  }
