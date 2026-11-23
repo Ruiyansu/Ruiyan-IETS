@@ -195,21 +195,7 @@ function renderDashboardDiagnostic(){if(state.diagnostic){const d=state.diagnost
 
 // ===== IELTS Studio v2: real answerable practice with automatic marking =====
 const skillBanks = {
- reading: {
-  passage: `Urban green spaces are increasingly recognised as essential parts of city infrastructure. Beyond providing places for recreation, parks and community gardens can reduce the urban heat-island effect by offering shade and allowing water to evaporate from vegetation. They may also support biodiversity, particularly when different habitats are connected by green corridors. However, the benefits are not distributed equally. In some cities, new parks have contributed to rising property prices, making nearby housing less affordable for long-term residents. Urban planners therefore argue that green-space projects should be combined with policies that protect existing communities.`,
-  questions: [
-   ["What is the main purpose of the passage?",["To argue that all cities should ban cars","To explain benefits and challenges of urban green spaces","To compare rural and urban populations","To describe the history of public gardens"],1,"The passage discusses environmental and social benefits, as well as unequal effects."],
-   ["According to the passage, how can parks reduce urban heat?",["By increasing traffic flow","By providing shade and supporting evaporation","By replacing public transport","By reflecting all sunlight"],1,"Shade and evaporation from vegetation are explicitly mentioned."],
-   ["What are green corridors intended to do?",["Connect different habitats","Separate residential areas","Increase property prices","Prevent all flooding"],0,"The passage says connected green corridors can support biodiversity."],
-   ["Which social problem may follow the creation of new parks?",["Lower school attendance","Rising housing costs","Reduced biodiversity","A decline in tourism"],1,"New parks may contribute to rising property prices and less affordable housing."],
-   ["The word ‘distributed’ is closest in meaning to:",["shared","measured","removed","delayed"],0,"Here, benefits are not shared equally among residents."],
-   ["The passage suggests that green spaces are:",["Only useful for sport","Part of essential city infrastructure","Too expensive to maintain","Unrelated to public health"],1,"The opening sentence describes them as essential infrastructure."],
-   ["What does ‘They’ in the second sentence refer to?",["City authorities","Community gardens only","Parks and community gardens","Property prices"],2,"The pronoun refers to parks and community gardens."],
-   ["Which statement is NOT supported by the passage?",["Vegetation can help cool cities","Green corridors may help biodiversity","All residents benefit equally from new parks","Housing protection may be needed"],2,"The passage directly says benefits are not distributed equally."],
-   ["What do urban planners recommend?",["Stopping all park construction","Combining green projects with community protections","Building parks only in wealthy areas","Replacing gardens with roads"],1,"The final sentence gives this recommendation."],
-   ["Which title best summarises the passage?",["The End of City Life","Urban Green Spaces: Benefits and Difficulties","A Guide to Buying Property","The History of Urban Transport"],1,"This title covers both the benefits and challenges discussed."]
-  ]
- },
+
  listening: {
   script: `Hello, this is a message for people who have registered for the university study skills workshop. The workshop will take place on Thursday the fourteenth of May, not Wednesday as stated in the first email. Please arrive at the West Building, room 204, by 9:15. The session begins at half past nine and finishes at twelve fifteen. You do not need to bring a laptop, but please bring a notebook. A light lunch will be provided. If you have any questions, contact the organiser, Helen Carter, by email before Monday.`,
   questions: [
