@@ -241,3 +241,86 @@ h1{letter-spacing:-1.1px}
  .reading-library-card{min-height:155px}
  .reading-library-card b{font-size:18px}
 }
+
+
+/* IELTS Studio — bold colour system: colour is the canvas, not decoration */
+:root{
+ --bg:#d8e1f0;--paper:#dfe7f4;--ink:#182944;--muted:#526783;
+ --line:#b8c8dd;--accent:#176f7c;--accent-2:#7564a8;
+ --shadow:0 16px 38px rgba(24,43,73,.13);
+}
+body{
+ background:
+  radial-gradient(ellipse at 8% 4%,rgba(245,174,143,.48),transparent 29%),
+  radial-gradient(ellipse at 92% 13%,rgba(143,137,198,.40),transparent 31%),
+  radial-gradient(ellipse at 78% 92%,rgba(100,177,169,.32),transparent 34%),
+  linear-gradient(135deg,#d8e3f2 0%,#d4dff0 46%,#e8dfe9 100%);
+ color:#182944;
+}
+.sidebar{
+ background:linear-gradient(180deg,#203957 0%,#263b5c 52%,#344363 100%);
+ border-right:1px solid #3e5475;color:#edf3ff;
+ box-shadow:8px 0 28px rgba(25,43,72,.12);
+}
+.sidebar .brand,.sidebar .nav-item{color:#e4ebf8}
+.sidebar .brand small,.sidebar .sidebar-label{color:#aebed8}
+.sidebar .brand-mark{background:linear-gradient(145deg,#f0a887,#d77f75);color:#233650}
+.sidebar .nav-item{border-radius:12px}
+.sidebar .nav-item span{color:#b7c8e2}
+.sidebar .nav-item:hover,.sidebar .nav-item.active{
+ background:linear-gradient(100deg,rgba(113,190,185,.28),rgba(150,139,207,.26));
+ color:#fff;box-shadow:inset 3px 0 #f0a887;
+}
+.sidebar .nav-item.active span{color:#ffc09e}
+.sidebar .sidebar-bottom{border-color:rgba(220,232,250,.18)}
+.topbar{
+ background:rgba(210,222,240,.92)!important;
+ border-bottom:1px solid #b5c6dc!important;
+ backdrop-filter:blur(18px);
+}
+.page-wrap{max-width:1520px}
+.page-heading h1,h1{color:#1c3150}
+.eyebrow{color:#176f7c}
+.panel,.stat-card{
+ background:linear-gradient(145deg,rgba(222,232,246,.97),rgba(207,220,239,.94))!important;
+ border:1px solid rgba(119,145,181,.48)!important;
+ box-shadow:0 15px 34px rgba(35,56,91,.11),inset 0 1px rgba(255,255,255,.48)!important;
+}
+.stat-card:nth-child(1){background:linear-gradient(145deg,#c6e4df,#b5d9d4)!important}
+.stat-card:nth-child(2){background:linear-gradient(145deg,#f4d7c9,#edc8b9)!important}
+.stat-card:nth-child(3){background:linear-gradient(145deg,#d2d2ed,#c4c5e5)!important}
+.stat-card:nth-child(4){background:linear-gradient(145deg,#f0e1b9,#e7d49e)!important}
+.skill-card.listening{background:linear-gradient(135deg,#a9d8cf,#c2e5dc)!important;border:1px solid #8bbeb5}
+.skill-card.reading{background:linear-gradient(135deg,#b9c9ed,#d0d5f0)!important;border:1px solid #9cadd7}
+.skill-card.writing{background:linear-gradient(135deg,#f0c4ae,#f5d8c5)!important;border:1px solid #dfaa92}
+.skill-card.speaking{background:linear-gradient(135deg,#d0c2e8,#e2d7f0)!important;border:1px solid #b9a9d6}
+.button-dark{background:linear-gradient(115deg,#1b6475,#315b87)!important;color:#fff}
+.button-light{background:#c7d5e9!important;color:#263e61!important;border:1px solid #aebfda!important}
+input,textarea,select{
+ background:#e7edf7!important;color:#203754!important;border:1px solid #aebfd7!important;
+}
+input:focus,textarea:focus,select:focus{border-color:#287f91!important;box-shadow:0 0 0 3px rgba(40,127,145,.17)!important}
+.table-wrap th,th{background:#c5d4e8!important;color:#29415f!important}
+td{background:rgba(224,233,245,.55);color:#263e5c!important;border-color:#bac9dc!important}
+.notice{background:#b9ddd5!important;color:#214f51!important}
+.info-grid div{background:#c5d9e9!important}
+.progress-track{background:#bdcce0!important}
+.progress-fill{background:linear-gradient(90deg,#248c8d,#776db5)!important}
+.calendar-day{background:#c4d3e8!important;color:#334c70!important}
+.calendar-day.active{background:#236f7b!important;color:#fff!important}
+.reading-library-card:nth-child(3n+1){background:linear-gradient(145deg,#a9d9d0,#c0e5dc)!important;border-color:#7fbeb2!important}
+.reading-library-card:nth-child(3n+2){background:linear-gradient(145deg,#c2c5e8,#d9d8f0)!important;border-color:#a6a9d4!important}
+.reading-library-card:nth-child(3n){background:linear-gradient(145deg,#f0c5ad,#f4d9c7)!important;border-color:#dfa98f!important}
+.reading-article-pane{background:linear-gradient(160deg,#c8d9ed,#d5e2f1)!important;border-color:#9db4d1!important}
+.reading-questions-pane{background:linear-gradient(160deg,#d9cdec,#e6dcef)!important;border-color:#bca9d4!important}
+.reading-questions-pane .option{background:rgba(244,240,250,.76)!important;border-color:#c8b9dc!important}
+.reading-questions-pane .option:has(input:checked){background:#c8bce4!important;border-color:#8673b4!important}
+.reading-practice-toolbar{background:#c6d5e9!important}
+.reading-result-top{background:linear-gradient(120deg,#c2d9e9,#d8cfea)!important}
+.reading-empty{background:linear-gradient(135deg,#c6d8eb,#d8d2eb)!important;border-color:#aebbd7!important}
+body.reading-page-open #view-reading{background:linear-gradient(135deg,#c7d7eb,#d8d1e8)!important}
+body.reading-page-open .reading-practice-toolbar{background:rgba(198,213,233,.97)!important}
+@media(max-width:720px){
+ .sidebar{background:linear-gradient(180deg,#203957,#344363)!important}
+ .topbar{background:rgba(210,222,240,.96)!important}
+}
