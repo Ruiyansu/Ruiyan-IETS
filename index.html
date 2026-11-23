@@ -93,7 +93,7 @@
         </section>
 
         <section class="view" id="view-listening">
-          <div class="page-heading"><p class="eyebrow">SKILL 01</p><h1>Listening</h1><p class="muted">Build accuracy through focused listening, note-taking and error review.</p></div>
+          <div class="page-heading"><p class="eyebrow">SKILL 01</p><h1>Listening</h1><p class="muted">听力练习 · 录音播放 · 题目作答 · 自动批改 · 错题复盘。当前为可用框架，正式音频和题目后续接入。</p></div>
           <div class="panel skill-test-panel"><div class="panel-heading"><div><p class="eyebrow">AUTOMATICALLY MARKED PRACTICE</p><h2>Listening test</h2></div><span class="pill">10 questions</span></div><p class="muted">先播放英文录音，再回答题目。提交后自动判分并保存成绩。</p><div id="listeningQuiz"></div></div>
           <div class="feature-grid">
             <article class="panel"><span class="feature-icon sage">◖</span><h2>Listening practice log</h2><p class="muted">Record practice sessions from official or personally owned materials.</p><label>Material / test name<input id="listenName" placeholder="e.g. Cambridge IELTS 18, Test 2"></label><div class="two-fields"><label>Correct answers<input id="listenCorrect" type="number" min="0" max="40" placeholder="e.g. 28"></label><label>Total questions<input id="listenTotal" type="number" min="1" max="40" value="40"></label></div><label>What was difficult?<textarea id="listenNote" rows="3" placeholder="e.g. distractors, spelling, map labelling..."></textarea></label><button class="button button-dark" id="saveListening">Save listening session</button></article>
@@ -109,7 +109,7 @@
         </section>
 
         <section class="view" id="view-writing">
-          <div class="page-heading"><p class="eyebrow">SKILL 03</p><h1>Writing studio</h1><p class="muted">Draft, save and review your writing against the four IELTS assessment criteria.</p></div>
+          <div class="page-heading"><p class="eyebrow">SKILL 03</p><h1>Writing studio</h1><p class="muted">写作题目库 · Task 1 / Task 2 · 限时写作 · 草稿保存 · 四项标准自评。</p></div>
           <div class="panel skill-test-panel"><div class="panel-heading"><div><p class="eyebrow">SELF-ASSESSMENT</p><h2>Writing band estimate</h2></div><span class="pill">4 assessment criteria</span></div><p class="muted">完成作文后，根据 IELTS 四项评分标准给自己打分。系统计算练习参考分，不等同于官方考官评分。</p><div id="writingAssessment"></div></div>
           <div class="feature-grid writing-grid">
             <article class="panel"><div class="panel-heading"><h2>Essay workspace</h2><span class="pill">Personal drafts</span></div><label>Task type<select id="essayType"><option>Writing Task 2</option><option>Writing Task 1 — Academic</option><option>Writing Task 1 — General Training</option></select></label><label>Essay question<input id="essayPrompt" placeholder="Paste or type your essay question"></label><label>Your response<textarea id="essayText" rows="12" placeholder="Start writing here..."></textarea></label><div class="editor-footer"><span id="wordCount">0 words</span><button class="button button-dark" id="saveEssay">Save draft</button></div><div class="ai-note"><b>AI feedback: connection required</b><p>This first version saves drafts locally. AI assessment can be enabled later through a secure server-side API; never place a private API key in GitHub Pages code.</p></div></article>
@@ -119,7 +119,7 @@
         </section>
 
         <section class="view" id="view-speaking">
-          <div class="page-heading"><p class="eyebrow">SKILL 04</p><h1>Speaking practice</h1><p class="muted">Build confidence with topic prompts, timed practice and reflection.</p></div>
+          <div class="page-heading"><p class="eyebrow">SKILL 04</p><h1>Speaking practice</h1><p class="muted">Part 1 / 2 / 3 题目分类 · 口语计时 · 练习记录 · 四项标准自评。</p></div>
           <div class="panel skill-test-panel"><div class="panel-heading"><div><p class="eyebrow">SELF-ASSESSMENT</p><h2>Speaking band estimate</h2></div><span class="pill">4 assessment criteria</span></div><p class="muted">练习结束后，根据流利度、词汇、语法和发音给自己打分。此分数是自评参考，不是 AI 或官方评分。</p><div id="speakingAssessment"></div></div>
           <div class="feature-grid">
             <article class="panel"><p class="eyebrow">PRACTICE PROMPT</p><h2 id="speakingPart">Part 1 · Getting to know you</h2><div class="prompt-card" id="speakingPrompt">Do you work or are you a student?</div><button class="button button-light" id="newPrompt">Generate another prompt ↻</button><div class="timer"><strong id="timerDisplay">01:00</strong><small>Practice timer</small><div class="timer-actions"><button class="button button-dark" id="timerStart">Start</button><button class="button button-light" id="timerReset">Reset</button></div></div></article>
