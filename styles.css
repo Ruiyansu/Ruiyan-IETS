@@ -766,3 +766,24 @@ td{background:rgba(250,249,241,.82)!important;color:#4b574b!important;border-col
   background:linear-gradient(145deg,#e7eee9 0%,#dce7e0 100%)!important;
   border-color:#cbd9cf!important;
 }
+
+
+/* Reading library cards — quieter dusty blue accent, replacing the bright sage tile */
+.reading-library-card,
+.reading-library-card:nth-child(3n+1),
+.reading-library-card:nth-child(3n+2),
+.reading-library-card:nth-child(3n){
+  background:#e7edf3!important;
+  border-color:#d4dee8!important;
+  box-shadow:0 4px 12px rgba(74,94,116,.045)!important;
+}
+.reading-library-card:hover,
+.reading-library-card:nth-child(3n+1):hover,
+.reading-library-card:nth-child(3n+2):hover,
+.reading-library-card:nth-child(3n):hover{
+  background:#dfe8f0!important;
+  border-color:#c7d5e2!important;
+}
+.reading-library-card b,.reading-library-card small,.reading-library-card span,.reading-library-card em{
+  color:#465667!important;
+}
