@@ -399,30 +399,69 @@ document.getElementById("writingTimerReset")?.addEventListener("click",()=>{
  clearInterval(writingTimerInterval);writingTimerInterval=null;writingTimerSeconds=document.getElementById("essayType").value.includes("Task 1")?1200:2400;updateWritingTimer();document.getElementById("writingTimerStart").textContent="开始";
 });
 document.getElementById("essayType")?.addEventListener("change",()=>{writingTimerSeconds=document.getElementById("essayType").value.includes("Task 1")?1200:2400;updateWritingTimer()});
-const speakingSection=document.getElementById("view-speaking");
-if(speakingSection&&!document.getElementById("speakingTemplateHub")){
- speakingSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap speaking-template-hub' id='speakingTemplateHub'><div class='roadmap-heading'><div><p class='eyebrow'>SPEAKING PRACTICE TEMPLATES</p><h2>按考试 Part 练习</h2><p>题目分类、练习流程和计时器已经预留，之后可以继续导入题库。</p></div><span class='roadmap-count'>Part 1–3</span></div><div class='speaking-part-grid'><button class='speaking-part-card active' data-speaking-part='1'><b>PART 1</b><strong>Introduction & interview</strong><small>熟悉话题 · 简短自然回答</small></button><button class='speaking-part-card' data-speaking-part='2'><b>PART 2</b><strong>Individual long turn</strong><small>准备 1 分钟 · 连续表达 1–2 分钟</small></button><button class='speaking-part-card' data-speaking-part='3'><b>PART 3</b><strong>Discussion</strong><small>深入讨论 · 解释观点和举例</small></button></div><div class='speaking-library'><div class='speaking-library-head'><h3 id='speakingLibraryTitle'>Part 1 · Question bank</h3><span id='speakingPromptCount'>3 starter prompts</span></div><div id='speakingPromptLibrary' class='speaking-prompt-list'></div></div><div class='speaking-answer-editor'><h3 id='speakingAnswerTitle'>Part 1 · 我的口语答案</h3><div class='speaking-selected-question'><b id='speakingSelectedTitle'>请先选择一道题目</b><p id='speakingSelectedPrompt'>点击上方任意练习卡片，题目会显示在这里。</p></div><p>在下面直接写下你对这道题的回答。每道题分别自动保存。</p><textarea id='speakingAnswerText' placeholder='在这里输入你的英文口语答案……'></textarea><div class='speaking-answer-footer'><small id='speakingAnswerStatus'>自动保存已开启</small><button class='button button-dark' id='saveSpeakingAnswer'>保存本 Part 答案</button></div></div><div class='speaking-tools-row'><div><b id='speakingTimerMode'>Part 1 · 练习计时</b><small id='speakingTimerHint'>建议每题回答 20–30 秒</small></div><strong id='speakingTemplateTimer'>00:30</strong><button class='button button-dark' id='speakingTemplateStart'>开始</button><button class='button button-light' id='speakingTemplateReset'>重置</button></div><p class='template-footnote'>Part 2 先用 1 分钟列关键词，再尝试连续说满 2 分钟。练习后可在下方保存反思。</p></div>");
-}
 const speakingLibrary={
- 1:[["Work or study","Do you work or are you a student?"],["Hometown","What do you like most about your hometown?"],["Daily routine","Which part of your day do you enjoy most?"]],
- 2:[["A skill you would like to learn","Describe a skill you would like to learn. You should say what it is, why you want to learn it, how you would learn it, and explain how this skill might be useful in the future."],["A memorable journey","Describe a journey that you remember well. You should say where you went, who you went with, what happened, and explain why you remember it."],["A person who inspired you","Describe a person who has inspired you. You should say who this person is, how you know them, what they have done, and explain why they inspired you."]],
- 3:[["Technology and communication","How has technology changed the way people communicate? Do these changes have more advantages or disadvantages?"],["Education and work","Should universities focus more on practical skills or academic knowledge? Why?"],["Cities and public spaces","Why are public spaces important in modern cities? How can governments encourage people to use them?"]]
+ 1:[
+ ["Work or study","Do you work or are you a student?"],
+ ["Hometown","What do you like most about your hometown?"],
+ ["Home and accommodation","Do you live in a house or an apartment? What would you like to change about your home?"],
+ ["Daily routine","Which part of your day do you enjoy most?"],
+ ["Reading","Do you often read books? What kind of books do you enjoy?"],
+ ["Music","What kind of music do you usually listen to?"],
+ ["Friends","How often do you meet your friends? What do you usually do together?"],
+ ["Food","What food did you enjoy when you were a child? Do you like cooking?"],
+ ["Weather","What kind of weather do you like most? Does the weather affect your mood?"],
+ ["Transport","How do you usually travel around your city?"],
+ ["Technology","What piece of technology do you use most every day?"],
+ ["Photography","Do you like taking photos? What do you usually take photos of?"],
+ ["Weekends","What do you usually do at weekends?"],
+ ["Learning","Do you prefer learning alone or with other people?"],
+ ["Public places","Is there a public place near your home that you often visit?"]
+ ],
+ 2:[
+ ["A skill you would like to learn","Describe a skill you would like to learn. You should say what it is, why you want to learn it, how you would learn it, and explain how this skill might be useful in the future."],
+ ["A memorable journey","Describe a journey that you remember well. You should say where you went, who you went with, what happened, and explain why you remember it."],
+ ["A person who inspired you","Describe a person who has inspired you. You should say who this person is, how you know them, what they have done, and explain why they inspired you."],
+ ["A useful website","Describe a website you often use. You should say what it is, how you found it, what you use it for, and explain why you find it useful."],
+ ["A memorable event","Describe an event that you attended and enjoyed. You should say what it was, where it took place, who you went with, and explain why you enjoyed it."],
+ ["A place you would like to visit","Describe a place you would like to visit in the future. You should say where it is, what you know about it, who you would go with, and explain why you want to visit it."],
+ ["A book or story","Describe a book or story that you enjoyed. You should say what it is about, when you read it, who recommended it, and explain why you liked it."],
+ ["A time you helped someone","Describe a time when you helped another person. You should say who you helped, what the problem was, what you did, and explain how you felt."],
+ ["An important decision","Describe an important decision you made. You should say what the decision was, when you made it, what the result was, and explain why it was important."],
+ ["A creative person","Describe someone you know who is creative. You should say who the person is, what they create, how you know about their work, and explain why you think they are creative."]
+ ],
+ 3:[
+ ["Technology and communication","How has technology changed the way people communicate? Do these changes have more advantages or disadvantages?"],
+ ["Education and work","Should universities focus more on practical skills or academic knowledge? Why?"],
+ ["Cities and public spaces","Why are public spaces important in modern cities? How can governments encourage people to use them?"],
+ ["Work-life balance","Why do some people find it difficult to maintain a good work-life balance? What can employers do to help?"],
+ ["Advertising and consumer behaviour","How does advertising influence people's decisions? Should advertising aimed at children be restricted?"],
+ ["Online learning","Can online learning replace traditional classroom education? What are its main advantages and disadvantages?"],
+ ["Tourism","How can tourism benefit local communities? What problems can mass tourism create?"],
+ ["Social relationships","Has modern technology made friendships stronger or weaker? Why?"],
+ ["The environment","Who should take more responsibility for protecting the environment: individuals or governments?"],
+ ["Culture and tradition","Why is it important to preserve traditional culture? Can traditions change over time?"],
+ ["Public transport","How can governments persuade more people to use public transport?"],
+ ["Children and creativity","Why is creativity important for children? How can schools encourage it?"]
+ ]
 };
 let activeSpeakingPart=1,speakingTemplateSeconds=30,speakingTemplateInterval=null;
 function renderSpeakingLibrary(){
- const items=speakingLibrary[activeSpeakingPart];document.getElementById("speakingLibraryTitle").textContent="Part "+activeSpeakingPart+" · Question bank";document.getElementById("speakingPromptCount").textContent=items.length+" starter prompts";
- document.getElementById("speakingPromptLibrary").innerHTML=items.map((p,i)=>"<button class='speaking-prompt-item' data-speaking-prompt='"+i+"'><span>0"+(i+1)+"</span><b>"+escapeHTML(p[0])+"</b><small>"+escapeHTML(p[1])+"</small><em>Use this question →</em></button>").join("");
+ const items=speakingLibrary[activeSpeakingPart];
+ document.getElementById("speakingLibraryTitle").textContent="Part "+activeSpeakingPart+" · 题目列表";
+ document.getElementById("speakingPromptCount").textContent=items.length+" 道练习题";
+ document.getElementById("speakingPromptLibrary").innerHTML=items.map((p,i)=>"<button class='speaking-prompt-item' data-speaking-prompt='"+i+"'><span>"+String(i+1).padStart(2,"0")+"</span><b>"+escapeHTML(p[0])+"</b><small>"+escapeHTML(p[1])+"</small><em>打开笔记 →</em></button>").join("");
  document.querySelectorAll("[data-speaking-prompt]").forEach(btn=>btn.onclick=()=>{
   activeSpeakingPrompt=Number(btn.dataset.speakingPrompt);
-  document.querySelectorAll("[data-speaking-prompt]").forEach(x=>x.classList.toggle("selected",x===btn));
   renderSpeakingAnswerEditor();
-  document.getElementById("speakingAnswerText").focus();
-  document.getElementById("speakingAnswerText").scrollIntoView({behavior:"smooth",block:"center"});
+  document.getElementById("speakingTemplateHub").hidden=true;
+  document.getElementById("speakingAnswerPage").hidden=false;
+  window.scrollTo({top:0,behavior:"smooth"});
  });
 }
 let activeSpeakingPrompt=0;
 document.querySelectorAll("[data-speaking-part]").forEach(btn=>btn.addEventListener("click",()=>{
  activeSpeakingPart=Number(btn.dataset.speakingPart);activeSpeakingPrompt=0;
+ document.getElementById("speakingTemplateHub").hidden=false;document.getElementById("speakingAnswerPage").hidden=true;
  document.querySelectorAll(".speaking-part-card").forEach(x=>x.classList.toggle("active",x===btn));
  renderSpeakingLibrary();renderSpeakingAnswerEditor();
 }));
@@ -432,18 +471,19 @@ function renderSpeakingAnswerEditor(){
  const key="part"+activeSpeakingPart+"_q"+activeSpeakingPrompt;
  const saved=state.speakingDrafts[key]??(activeSpeakingPrompt===0?(state.speakingDrafts["part"+activeSpeakingPart]||""):"");
  area.value=saved;
- document.getElementById("speakingAnswerTitle").textContent="Part "+activeSpeakingPart+" · 我的口语答案";
+ document.getElementById("speakingAnswerTitle").textContent="Part "+activeSpeakingPart+" · 我的笔记";
  document.getElementById("speakingSelectedTitle").textContent=p[0];
  document.getElementById("speakingSelectedPrompt").textContent=p[1];
  document.getElementById("speakingAnswerStatus").textContent=saved?"已载入这道题上次保存的答案":"这道题还没有答案";
 }
+document.getElementById("backToSpeakingQuestions")?.addEventListener("click",()=>{document.getElementById("speakingAnswerPage").hidden=true;document.getElementById("speakingTemplateHub").hidden=false;window.scrollTo({top:0,behavior:"smooth"})});
 document.getElementById("speakingAnswerText")?.addEventListener("input",e=>{
  state.speakingDrafts["part"+activeSpeakingPart+"_q"+activeSpeakingPrompt]=e.target.value;
  try{localStorage.setItem(STORE_KEY,JSON.stringify(state));document.getElementById("speakingAnswerStatus").textContent="已自动保存 · "+new Date().toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"})}catch(err){document.getElementById("speakingAnswerStatus").textContent="自动保存失败，请点击保存按钮"}
 });
 document.getElementById("saveSpeakingAnswer")?.addEventListener("click",()=>{
  const area=document.getElementById("speakingAnswerText");state.speakingDrafts["part"+activeSpeakingPart+"_q"+activeSpeakingPrompt]=area.value;
- try{localStorage.setItem(STORE_KEY,JSON.stringify(state));toast("Part "+activeSpeakingPart+" 的口语答案已保存")}catch(e){toast("保存失败，请导出学习数据")}
+ try{localStorage.setItem(STORE_KEY,JSON.stringify(state));toast("Part "+activeSpeakingPart+" 的笔记已保存")}catch(e){toast("保存失败，请导出学习数据")}
 });
 renderSpeakingLibrary();renderSpeakingAnswerEditor();updateWritingTimer();
 
