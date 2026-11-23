@@ -310,4 +310,121 @@ renderSkillQuiz('reading');renderSkillQuiz('listening');
 const essayTextEl=document.getElementById('essayText');
 if(essayTextEl){const draft=JSON.parse(localStorage.getItem('ieltsStudio.pendingEssay')||'null');if(draft&&!essayTextEl.value){document.getElementById('essayType').value=draft.type||'Writing Task 2';document.getElementById('essayPrompt').value=draft.prompt||'';essayTextEl.value=draft.text||'';document.getElementById('wordCount').textContent=(draft.text||'').trim().split(/\s+/).filter(Boolean).length+' words';}essayTextEl.addEventListener('input',()=>{localStorage.setItem('ieltsStudio.pendingEssay',JSON.stringify({type:document.getElementById('essayType').value,prompt:document.getElementById('essayPrompt').value,text:essayTextEl.value}));});}
 
+
+// ===== IELTS Studio: skill templates and built-in core vocabulary =====
+const coreIELTSWords=[
+["analyse","分析；细致研究","Researchers have analysed the effects of social media on young people.","analyse data · analyse the results","Education"],
+["approach","方法；途径","A balanced approach to education can benefit all students.","a practical approach · adopt an approach","Education"],
+["assess","评估；评价","It is important to assess students' progress regularly.","assess performance · assess the impact","Education"],
+["attain","达到；获得","Many graduates find it difficult to attain their career goals.","attain a goal · attain a high level","Work"],
+["beneficial","有益的","Regular exercise is beneficial to physical and mental health.","highly beneficial · beneficial effects","Health"],
+["challenge","挑战；难题","Rising living costs present a serious challenge for families.","face a challenge · pose a challenge","Society"],
+["contribute","促成；贡献","Public transport can contribute to a reduction in traffic congestion.","contribute to growth · make a contribution","Society"],
+["crucial","至关重要的","Early childhood education plays a crucial role in development.","a crucial role · crucial factor","Education"],
+["decline","下降；减少","The number of people using printed newspapers has declined.","a sharp decline · decline in numbers","Technology"],
+["demonstrate","表明；证明；展示","The findings demonstrate a clear link between sleep and concentration.","clearly demonstrate · demonstrate that","Education"],
+["diverse","多样的","Large cities often have diverse communities and cultures.","a diverse range · culturally diverse","Culture"],
+["efficient","高效的","An efficient public transport system can reduce commuting time.","highly efficient · energy-efficient","Technology"],
+["emerge","出现；显现","New forms of online communication continue to emerge.","emerge as · emerging trend","Technology"],
+["enable","使能够","Digital tools enable students to access learning materials remotely.","enable someone to do · enable access","Education"],
+["establish","建立；确立","The study aims to establish whether the policy has been effective.","establish a relationship · establish a system","Society"],
+["evidence","证据；依据","There is growing evidence that green spaces improve wellbeing.","strong evidence · evidence suggests that","Education"],
+["expenditure","支出；开支","Public expenditure on healthcare has increased in recent years.","government expenditure · household expenditure","Economy"],
+["factor","因素","Cost is an important factor when people choose where to live.","key factor · contributing factor","Society"],
+["fluctuate","波动","House prices tend to fluctuate depending on market conditions.","fluctuate significantly · fluctuate between","Economy"],
+["impact","影响","Technology has had a profound impact on the way people work.","have an impact on · negative impact","Technology"],
+["implement","实施；执行","Local authorities need to implement effective recycling policies.","implement a policy · implement changes","Environment"],
+["increasingly","越来越；日益","People are increasingly concerned about air quality.","increasingly important · increasingly popular","Society"],
+["indicate","表明；显示","The results indicate that online learning can be effective.","indicate a trend · figures indicate that","Education"],
+["inequality","不平等","Access to quality education can help reduce social inequality.","income inequality · reduce inequality","Society"],
+["innovative","创新的","Innovative solutions are needed to address urban problems.","innovative approach · innovative technology","Technology"],
+["maintain","维持；保持","It can be difficult to maintain a healthy work-life balance.","maintain standards · maintain a balance","Work"],
+["majority","大多数","The majority of participants preferred flexible working hours.","the vast majority · majority of people","Society"],
+["mitigate","减轻；缓解","Planting trees can help mitigate the effects of urban heat.","mitigate the risk · mitigate the impact","Environment"],
+["obtain","获得；取得","Students can obtain reliable information from academic sources.","obtain information · obtain permission","Education"],
+["participate","参与","Young people should be encouraged to participate in community activities.","participate in a discussion · active participation","Society"],
+["perceive","看待；认为","People may perceive the same issue in different ways.","be perceived as · perceive something as","Culture"],
+["priority","优先事项","Improving public healthcare should be a national priority.","top priority · give priority to","Health"],
+["reliable","可靠的","It is essential to use reliable sources when conducting research.","reliable information · reliable evidence","Education"],
+["significant","显著的；重要的","There has been a significant increase in renewable energy use.","significant change · significant difference","Environment"],
+["strategy","策略；方法","A clear strategy is needed to improve students' writing skills.","effective strategy · long-term strategy","Education"],
+["sustainable","可持续的","Cities need to develop more sustainable transport systems.","sustainable development · sustainable energy","Environment"],
+["tend","往往；倾向于","People tend to spend more time online than in the past.","tend to do · tend to be","Society"],
+["transform","彻底改变","The internet has transformed the way people access information.","transform the way · be transformed by","Technology"],
+["vary","变化；不同","The quality of public services can vary between regions.","vary considerably · vary from ... to ...","Society"],
+["widespread","广泛的","Smartphone use has become widespread across different age groups.","widespread use · widespread concern","Technology"],
+["consequence","结果；后果","One possible consequence of longer working hours is increased stress.","as a consequence · serious consequences","Work"],
+["consume","消费；消耗","Modern households consume large amounts of energy.","consume resources · consumer behaviour","Environment"],
+["regulate","监管；调节","Governments need to regulate online platforms more effectively.","regulate an industry · government regulation","Technology"],
+["urbanisation","城市化","Rapid urbanisation can place pressure on housing and infrastructure.","rapid urbanisation · urban development","Environment"],
+["wellbeing","幸福感；身心健康","Flexible working arrangements may improve employees' wellbeing.","mental wellbeing · overall wellbeing","Health"],
+["conventional","传统的；常规的","Some students prefer conventional classroom teaching.","conventional methods · conventional approach","Education"],
+["withdraw","撤回；退出","Some participants decided to withdraw from the research project.","withdraw from a course · withdraw support","Education"],
+["therefore","因此","Housing is expensive; therefore, many people live farther from work.","therefore, it is important · and therefore","Writing"]
+];
+if(!state.vocabSeedVersion){
+ const existing=new Set((state.words||[]).map(w=>String(w.word||"").toLowerCase()));
+ coreIELTSWords.forEach(x=>{if(!existing.has(x[0].toLowerCase()))state.words.push({id:uid(),word:x[0],meaning:x[1],example:x[2],collocation:x[3],topic:x[4],created:todayISO(),due:todayISO(),interval:0,mastered:false,source:"IELTS Studio core vocabulary"})});
+ state.vocabSeedVersion=1;try{localStorage.setItem(STORE_KEY,JSON.stringify(state))}catch(e){}
+}
+const listeningSection=document.getElementById("view-listening");
+if(listeningSection&&!document.getElementById("listeningRoadmap")){
+ listeningSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap listening-roadmap' id='listeningRoadmap'><div class='roadmap-heading'><div><p class='eyebrow'>LISTENING TEST STRUCTURE</p><h2>四个 Section，逐步练习</h2><p>后续按真实题目逐段替换录音、题型和答案；当前示例只用于测试页面流程。</p></div><span class='roadmap-count'>4 sections</span></div><div class='roadmap-steps'><article><b>01</b><strong>Everyday conversation</strong><small>日常对话 · 表格/信息填空</small></article><article><b>02</b><strong>Everyday monologue</strong><small>生活场景独白 · 选择/匹配</small></article><article><b>03</b><strong>Academic discussion</strong><small>学术讨论 · 多人交流</small></article><article><b>04</b><strong>Academic lecture</strong><small>学术讲座 · 笔记/摘要填空</small></article></div><p class='roadmap-note'>录音区、题目区、答案解析和练习记录已经预留。正式音频与题目后续接入。</p></div>");
+}
+const writingSection=document.getElementById("view-writing");
+if(writingSection&&!document.getElementById("writingTemplateHub")){
+ writingSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap writing-template-hub' id='writingTemplateHub'><div class='roadmap-heading'><div><p class='eyebrow'>WRITING PRACTICE TEMPLATES</p><h2>选择任务，开始写作</h2><p>先把 Task 1 / Task 2 的题型和练习流程搭好；下面是原创示例题，后续可直接替换成你的正式题目。</p></div><span class='roadmap-count'>Task 1 + Task 2</span></div><div class='writing-template-grid'><article class='writing-template-card'><span class='template-tag'>TASK 1 · ACADEMIC</span><h3>Charts, graphs & tables</h3><p>描述数据、比较趋势、概括主要特征。</p><button class='button button-light' data-writing-preset='academic'>载入示例题目</button></article><article class='writing-template-card'><span class='template-tag'>TASK 1 · GENERAL</span><h3>Letter writing</h3><p>根据情境写正式、半正式或非正式信件。</p><button class='button button-light' data-writing-preset='general'>载入示例题目</button></article><article class='writing-template-card'><span class='template-tag'>TASK 2</span><h3>Essay writing</h3><p>观点讨论、利弊分析、问题解决和双边讨论。</p><button class='button button-light' data-writing-preset='task2'>载入示例题目</button></article></div><div class='writing-tools-row'><div><b>写作计时器</b><small>Task 1 建议 20 分钟 · Task 2 建议 40 分钟</small></div><strong id='writingTimerDisplay'>40:00</strong><button class='button button-dark' id='writingTimerStart'>开始</button><button class='button button-light' id='writingTimerReset'>重置</button></div><p class='template-footnote'>草稿保存在当前浏览器；自评仅用于学习追踪，不等于官方评分或 AI 批改。</p></div>");
+}
+const writingPresets={
+ academic:{type:"Writing Task 1 — Academic",prompt:"The chart below shows the percentage of people using different forms of transport to commute to work in a city between 2000 and 2020. Summarise the information by selecting and reporting the main features, and make comparisons where relevant."},
+ general:{type:"Writing Task 1 — General Training",prompt:"You recently moved to a new neighbourhood and would like to join a local sports centre. Write a letter to the manager. In your letter, explain why you are writing, describe the facilities you are interested in, and ask about membership options."},
+ task2:{type:"Writing Task 2",prompt:"Some people believe that governments should spend more money on public transport, while others think that building more roads is a better solution to traffic congestion. Discuss both views and give your own opinion."}
+};
+document.querySelectorAll("[data-writing-preset]").forEach(btn=>btn.addEventListener("click",()=>{
+ const p=writingPresets[btn.dataset.writingPreset];document.getElementById("essayType").value=p.type;document.getElementById("essayPrompt").value=p.prompt;document.getElementById("essayText").focus();toast("示例题目已载入，可以开始写作");
+}));
+let writingTimerSeconds=2400,writingTimerInterval=null;
+function updateWritingTimer(){const el=document.getElementById("writingTimerDisplay");if(el)el.textContent=String(Math.floor(writingTimerSeconds/60)).padStart(2,"0")+":"+String(writingTimerSeconds%60).padStart(2,"0")}
+document.getElementById("writingTimerStart")?.addEventListener("click",()=>{
+ const btn=document.getElementById("writingTimerStart");
+ if(writingTimerInterval){clearInterval(writingTimerInterval);writingTimerInterval=null;btn.textContent="继续";return}
+ btn.textContent="暂停";writingTimerInterval=setInterval(()=>{writingTimerSeconds--;updateWritingTimer();if(writingTimerSeconds<=0){clearInterval(writingTimerInterval);writingTimerInterval=null;btn.textContent="开始";toast("写作时间结束")}},1000);
+});
+document.getElementById("writingTimerReset")?.addEventListener("click",()=>{
+ clearInterval(writingTimerInterval);writingTimerInterval=null;writingTimerSeconds=document.getElementById("essayType").value.includes("Task 1")?1200:2400;updateWritingTimer();document.getElementById("writingTimerStart").textContent="开始";
+});
+document.getElementById("essayType")?.addEventListener("change",()=>{writingTimerSeconds=document.getElementById("essayType").value.includes("Task 1")?1200:2400;updateWritingTimer()});
+const speakingSection=document.getElementById("view-speaking");
+if(speakingSection&&!document.getElementById("speakingTemplateHub")){
+ speakingSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap speaking-template-hub' id='speakingTemplateHub'><div class='roadmap-heading'><div><p class='eyebrow'>SPEAKING PRACTICE TEMPLATES</p><h2>按考试 Part 练习</h2><p>题目分类、练习流程和计时器已经预留，之后可以继续导入题库。</p></div><span class='roadmap-count'>Part 1–3</span></div><div class='speaking-part-grid'><button class='speaking-part-card active' data-speaking-part='1'><b>PART 1</b><strong>Introduction & interview</strong><small>熟悉话题 · 简短自然回答</small></button><button class='speaking-part-card' data-speaking-part='2'><b>PART 2</b><strong>Individual long turn</strong><small>准备 1 分钟 · 连续表达 1–2 分钟</small></button><button class='speaking-part-card' data-speaking-part='3'><b>PART 3</b><strong>Discussion</strong><small>深入讨论 · 解释观点和举例</small></button></div><div class='speaking-library'><div class='speaking-library-head'><h3 id='speakingLibraryTitle'>Part 1 · Question bank</h3><span id='speakingPromptCount'>3 starter prompts</span></div><div id='speakingPromptLibrary' class='speaking-prompt-list'></div></div><div class='speaking-tools-row'><div><b id='speakingTimerMode'>Part 1 · 练习计时</b><small id='speakingTimerHint'>建议每题回答 20–30 秒</small></div><strong id='speakingTemplateTimer'>00:30</strong><button class='button button-dark' id='speakingTemplateStart'>开始</button><button class='button button-light' id='speakingTemplateReset'>重置</button></div><p class='template-footnote'>Part 2 先用 1 分钟列关键词，再尝试连续说满 2 分钟。练习后可在下方保存反思。</p></div>");
+}
+const speakingLibrary={
+ 1:[["Work or study","Do you work or are you a student?"],["Hometown","What do you like most about your hometown?"],["Daily routine","Which part of your day do you enjoy most?"]],
+ 2:[["A skill you would like to learn","Describe a skill you would like to learn. You should say what it is, why you want to learn it, how you would learn it, and explain how this skill might be useful in the future."],["A memorable journey","Describe a journey that you remember well. You should say where you went, who you went with, what happened, and explain why you remember it."],["A person who inspired you","Describe a person who has inspired you. You should say who this person is, how you know them, what they have done, and explain why they inspired you."]],
+ 3:[["Technology and communication","How has technology changed the way people communicate? Do these changes have more advantages or disadvantages?"],["Education and work","Should universities focus more on practical skills or academic knowledge? Why?"],["Cities and public spaces","Why are public spaces important in modern cities? How can governments encourage people to use them?"]]
+};
+let activeSpeakingPart=1,speakingTemplateSeconds=30,speakingTemplateInterval=null;
+function renderSpeakingLibrary(){
+ const items=speakingLibrary[activeSpeakingPart];document.getElementById("speakingLibraryTitle").textContent="Part "+activeSpeakingPart+" · Question bank";document.getElementById("speakingPromptCount").textContent=items.length+" starter prompts";
+ document.getElementById("speakingPromptLibrary").innerHTML=items.map((p,i)=>"<button class='speaking-prompt-item' data-speaking-prompt='"+i+"'><span>0"+(i+1)+"</span><b>"+escapeHTML(p[0])+"</b><small>"+escapeHTML(p[1])+"</small><em>Use this question →</em></button>").join("");
+ document.querySelectorAll("[data-speaking-prompt]").forEach(btn=>btn.onclick=()=>{
+  const p=items[Number(btn.dataset.speakingPrompt)];document.getElementById("speakingPart").textContent="Part "+activeSpeakingPart+" · "+p[0];document.getElementById("speakingPrompt").textContent=p[1];document.getElementById("speakingPartSelect").value="Part "+activeSpeakingPart;document.getElementById("speakingTopic").value=p[0];toast("题目已载入到练习卡片");
+ });
+}
+document.querySelectorAll("[data-speaking-part]").forEach(btn=>btn.addEventListener("click",()=>{
+ activeSpeakingPart=Number(btn.dataset.speakingPart);document.querySelectorAll(".speaking-part-card").forEach(x=>x.classList.toggle("active",x===btn));
+ const cfg={1:[30,"建议每题回答 20–30 秒"],2:[120,"先准备 1 分钟，再连续表达 1–2 分钟"],3:[90,"解释观点、给出原因并补充例子"]}[activeSpeakingPart];
+ speakingTemplateSeconds=cfg[0];document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(cfg[0]/60)).padStart(2,"0")+":"+String(cfg[0]%60).padStart(2,"0");document.getElementById("speakingTimerHint").textContent=cfg[1];document.getElementById("speakingTimerMode").textContent="Part "+activeSpeakingPart+" · 练习计时";
+ clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;document.getElementById("speakingTemplateStart").textContent="开始";renderSpeakingLibrary();
+}));
+document.getElementById("speakingTemplateStart")?.addEventListener("click",()=>{
+ const btn=document.getElementById("speakingTemplateStart");
+ if(speakingTemplateInterval){clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;btn.textContent="继续";return}
+ btn.textContent="暂停";speakingTemplateInterval=setInterval(()=>{speakingTemplateSeconds--;document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(speakingTemplateSeconds/60)).padStart(2,"0")+":"+String(speakingTemplateSeconds%60).padStart(2,"0");if(speakingTemplateSeconds<=0){clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;btn.textContent="开始";toast("口语练习时间结束")}},1000);
+});
+document.getElementById("speakingTemplateReset")?.addEventListener("click",()=>{
+ clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;speakingTemplateSeconds=activeSpeakingPart===1?30:activeSpeakingPart===2?120:90;document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(speakingTemplateSeconds/60)).padStart(2,"0")+":"+String(speakingTemplateSeconds%60).padStart(2,"0");document.getElementById("speakingTemplateStart").textContent="开始";
+});
+renderSpeakingLibrary();updateWritingTimer();
+
 renderAll();renderDashboardDiagnostic();
