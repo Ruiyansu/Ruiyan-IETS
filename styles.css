@@ -424,3 +424,109 @@ body.reading-page-open .reading-practice-toolbar{background:rgba(198,213,233,.97
 .reading-library-card small{grid-column:2;grid-row:2;font-size:11px;color:#687b96}
 .reading-library-card em{grid-column:3;grid-row:1/3;align-self:center;margin:0;padding:0;color:#526d9b;font-size:12px;white-space:nowrap}
 @media(max-width:620px){.reading-part-tabs{gap:2px}.reading-part-tab{padding:9px 11px;gap:6px}.reading-library-card{grid-template-columns:1fr auto;row-gap:5px;padding:13px 12px}.reading-library-card span{grid-column:1;grid-row:1}.reading-library-card b{grid-column:1;grid-row:2}.reading-library-card small{grid-column:1;grid-row:3}.reading-library-card em{grid-column:2;grid-row:1/4;font-size:11px}}
+
+
+/* IELTS Studio — user-selected blue / butter yellow / golden yellow / orange palette */
+:root{
+  --bg:#fff9d9;
+  --paper:#fffde9;
+  --ink:#25345f;
+  --muted:#53618a;
+  --line:#e8d99c;
+  --accent:#536fce;
+  --accent-2:#e9a943;
+  --shadow:0 14px 34px rgba(65,76,139,.12);
+}
+body{
+  color:#25345f!important;
+  background:linear-gradient(145deg,#fffde0 0%,#fff8c9 48%,#ffedb5 100%)!important;
+}
+.sidebar{
+  background:linear-gradient(180deg,#829af2 0%,#718be8 58%,#657cda 100%)!important;
+  border-right:1px solid #637bd2!important;
+  color:#202e5a!important;
+}
+.sidebar .brand,.sidebar .nav-item{color:#202e5a!important}
+.sidebar .brand small,.sidebar .sidebar-label{color:#34477e!important}
+.sidebar .brand-mark{background:#fff4bd!important;color:#31447b!important}
+.sidebar .nav-item span{color:#34477e!important}
+.sidebar .nav-item:hover,.sidebar .nav-item.active{
+  background:rgba(255,250,211,.72)!important;
+  color:#24345f!important;
+  box-shadow:inset 4px 0 #f3b84f!important;
+}
+.sidebar .nav-item.active span{color:#24345f!important}
+.sidebar .sidebar-bottom{border-color:rgba(38,54,104,.22)!important}
+.sidebar .storage-note b{color:#202e5a!important}
+.sidebar .storage-note small{color:#34477e!important}
+.sidebar .text-button{color:#263866!important}
+.sidebar .text-button:hover{color:#111f4b!important}
+.topbar{
+  background:rgba(255,252,218,.94)!important;
+  border-color:#e6d68f!important;
+}
+.breadcrumb,.today-label{color:#59658d!important}
+.breadcrumb b{color:#25345f!important}
+.avatar{background:#f9df7b!important;color:#293866!important}
+.page-heading h1,h1{color:#25345f!important}
+h2,h3,.panel-heading h2{color:#293762!important}
+.eyebrow{color:#536fce!important}
+.muted,.body-copy{color:#53618a!important}
+.panel,.stat-card{
+  background:linear-gradient(145deg,rgba(255,253,225,.98),rgba(255,246,194,.97))!important;
+  border:1px solid #e8d78f!important;
+  box-shadow:0 13px 30px rgba(84,82,132,.09),inset 0 1px rgba(255,255,255,.7)!important;
+}
+.stat-card:nth-child(1){background:linear-gradient(145deg,#fff4b8,#ffed9d)!important}
+.stat-card:nth-child(2){background:linear-gradient(145deg,#ffe7a0,#f9d978)!important}
+.stat-card:nth-child(3){background:linear-gradient(145deg,#e3e8ff,#d3dcff)!important}
+.stat-card:nth-child(4){background:linear-gradient(145deg,#ffdfa0,#f8c36d)!important}
+.stat-label,.stat-card small{color:#53618a!important}
+.stat-card strong{color:#25345f!important}
+.skill-card.listening{background:linear-gradient(135deg,#fff5bd,#ffed9d)!important;border-color:#ead77e!important}
+.skill-card.reading{background:linear-gradient(135deg,#829af2,#a8b8ff)!important;border-color:#7188df!important}
+.skill-card.writing{background:linear-gradient(135deg,#f9df7b,#f6bf62)!important;border-color:#e7b64e!important}
+.skill-card.speaking{background:linear-gradient(135deg,#fffbd7,#ffedb0)!important;border-color:#e9d98f!important}
+.skill-card b,.skill-card small,.skill-link{color:#293762!important}
+.button-dark{background:linear-gradient(115deg,#536fce,#405bb5)!important;color:#fff!important}
+.button-dark:hover{background:linear-gradient(115deg,#405bb5,#344c9f)!important}
+.button-light{background:#fff2b9!important;color:#293762!important;border:1px solid #e5ce70!important}
+.pill{background:#f9df7b!important;color:#3d4470!important}
+label{color:#394875!important}
+input:not([type=checkbox]),textarea,select{
+  background:#fffef1!important;color:#25345f!important;border-color:#e0d28e!important;
+}
+input::placeholder,textarea::placeholder{color:#7880a0!important}
+input:focus,textarea:focus,select:focus{border-color:#657fe0!important;box-shadow:0 0 0 3px rgba(101,127,224,.16)!important}
+.question p,.mock-question,.mock-question b{color:#293762!important}
+.option{background:rgba(255,254,239,.82)!important;color:#293762!important;border-color:#e6d99f!important}
+.option:has(input:checked){background:#fff0ad!important;border-color:#d8b84c!important}
+.notice{background:#fff0ad!important;color:#3f4a72!important}
+.notice b{color:#293762!important}
+.info-grid div{background:#fff4bd!important}
+.info-grid b,.info-grid small{color:#394875!important}
+.table-wrap th,th{background:#f9df7b!important;color:#3b4775!important}
+td{background:rgba(255,253,230,.68)!important;color:#35436f!important;border-color:#eadfae!important}
+.reading-library-card{background:rgba(255,248,202,.9)!important;color:#293762!important;border-color:#e8d98d!important}
+.reading-library-card:nth-child(3n+1){background:linear-gradient(110deg,#fff4b8,#ffed9d)!important}
+.reading-library-card:nth-child(3n+2){background:linear-gradient(110deg,#e0e7ff,#cdd8ff)!important}
+.reading-library-card:nth-child(3n){background:linear-gradient(110deg,#ffe6a0,#f7c36b)!important}
+.reading-library-card b,.reading-library-card small,.reading-library-card span,.reading-library-card em{color:#293762!important}
+.reading-article-pane{background:linear-gradient(145deg,#fff9d6,#fff0b0)!important}
+.reading-questions-pane{background:linear-gradient(145deg,#e6eaff,#d9e0ff)!important}
+.reading-questions-pane .option{background:rgba(255,255,246,.86)!important}
+.reading-practice-toolbar{background:#fff0ad!important}
+.reading-result-top{background:linear-gradient(120deg,#fff0ad,#e0e7ff)!important}
+.reading-task-heading{background:#fff0ad!important;color:#394875!important;border-color:#e4ce73!important}
+.reading-task-heading small{color:#53618a!important}
+.empty-state,.empty-table{color:#59658d!important}
+.text-button{color:#4a62b9!important}
+.progress-track{background:#f1e6b5!important}
+.progress-fill{background:linear-gradient(90deg,#829af2,#f4bd58)!important}
+.calendar-day{background:#fff0ad!important;color:#394875!important}
+.calendar-day.active{background:#829af2!important;color:#fff!important}
+.footer{color:#59658d!important;border-color:#e8d99c!important}
+@media(max-width:720px){
+  .sidebar{background:linear-gradient(180deg,#829af2,#657cda)!important}
+  .topbar{background:rgba(255,252,218,.97)!important}
+}
