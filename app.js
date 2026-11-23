@@ -401,7 +401,7 @@ document.getElementById("writingTimerReset")?.addEventListener("click",()=>{
 document.getElementById("essayType")?.addEventListener("change",()=>{writingTimerSeconds=document.getElementById("essayType").value.includes("Task 1")?1200:2400;updateWritingTimer()});
 const speakingSection=document.getElementById("view-speaking");
 if(speakingSection&&!document.getElementById("speakingTemplateHub")){
- speakingSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap speaking-template-hub' id='speakingTemplateHub'><div class='roadmap-heading'><div><p class='eyebrow'>SPEAKING PRACTICE TEMPLATES</p><h2>按考试 Part 练习</h2><p>题目分类、练习流程和计时器已经预留，之后可以继续导入题库。</p></div><span class='roadmap-count'>Part 1–3</span></div><div class='speaking-part-grid'><button class='speaking-part-card active' data-speaking-part='1'><b>PART 1</b><strong>Introduction & interview</strong><small>熟悉话题 · 简短自然回答</small></button><button class='speaking-part-card' data-speaking-part='2'><b>PART 2</b><strong>Individual long turn</strong><small>准备 1 分钟 · 连续表达 1–2 分钟</small></button><button class='speaking-part-card' data-speaking-part='3'><b>PART 3</b><strong>Discussion</strong><small>深入讨论 · 解释观点和举例</small></button></div><div class='speaking-library'><div class='speaking-library-head'><h3 id='speakingLibraryTitle'>Part 1 · Question bank</h3><span id='speakingPromptCount'>3 starter prompts</span></div><div id='speakingPromptLibrary' class='speaking-prompt-list'></div></div><div class='speaking-answer-editor'><h3 id='speakingAnswerTitle'>Part 1 · 我的口语答案</h3><p>在这里直接记录你对当前 Part 题目的回答。内容会自动保存在这台设备的浏览器里，切换 Part 后也会保留。</p><textarea id='speakingAnswerText' placeholder='Type or paste your speaking answer here...'></textarea><div class='speaking-answer-footer'><small id='speakingAnswerStatus'>自动保存已开启</small><button class='button button-dark' id='saveSpeakingAnswer'>保存本 Part 答案</button></div></div><div class='speaking-tools-row'><div><b id='speakingTimerMode'>Part 1 · 练习计时</b><small id='speakingTimerHint'>建议每题回答 20–30 秒</small></div><strong id='speakingTemplateTimer'>00:30</strong><button class='button button-dark' id='speakingTemplateStart'>开始</button><button class='button button-light' id='speakingTemplateReset'>重置</button></div><p class='template-footnote'>Part 2 先用 1 分钟列关键词，再尝试连续说满 2 分钟。练习后可在下方保存反思。</p></div>");
+ speakingSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap speaking-template-hub' id='speakingTemplateHub'><div class='roadmap-heading'><div><p class='eyebrow'>SPEAKING PRACTICE TEMPLATES</p><h2>按考试 Part 练习</h2><p>题目分类、练习流程和计时器已经预留，之后可以继续导入题库。</p></div><span class='roadmap-count'>Part 1–3</span></div><div class='speaking-part-grid'><button class='speaking-part-card active' data-speaking-part='1'><b>PART 1</b><strong>Introduction & interview</strong><small>熟悉话题 · 简短自然回答</small></button><button class='speaking-part-card' data-speaking-part='2'><b>PART 2</b><strong>Individual long turn</strong><small>准备 1 分钟 · 连续表达 1–2 分钟</small></button><button class='speaking-part-card' data-speaking-part='3'><b>PART 3</b><strong>Discussion</strong><small>深入讨论 · 解释观点和举例</small></button></div><div class='speaking-library'><div class='speaking-library-head'><h3 id='speakingLibraryTitle'>Part 1 · Question bank</h3><span id='speakingPromptCount'>3 starter prompts</span></div><div id='speakingPromptLibrary' class='speaking-prompt-list'></div></div><div class='speaking-answer-editor'><h3 id='speakingAnswerTitle'>Part 1 · 我的口语答案</h3><div class='speaking-selected-question'><b id='speakingSelectedTitle'>请先选择一道题目</b><p id='speakingSelectedPrompt'>点击上方任意练习卡片，题目会显示在这里。</p></div><p>在下面直接写下你对这道题的回答。每道题分别自动保存。</p><textarea id='speakingAnswerText' placeholder='在这里输入你的英文口语答案……'></textarea><div class='speaking-answer-footer'><small id='speakingAnswerStatus'>自动保存已开启</small><button class='button button-dark' id='saveSpeakingAnswer'>保存本 Part 答案</button></div></div><div class='speaking-tools-row'><div><b id='speakingTimerMode'>Part 1 · 练习计时</b><small id='speakingTimerHint'>建议每题回答 20–30 秒</small></div><strong id='speakingTemplateTimer'>00:30</strong><button class='button button-dark' id='speakingTemplateStart'>开始</button><button class='button button-light' id='speakingTemplateReset'>重置</button></div><p class='template-footnote'>Part 2 先用 1 分钟列关键词，再尝试连续说满 2 分钟。练习后可在下方保存反思。</p></div>");
 }
 const speakingLibrary={
  1:[["Work or study","Do you work or are you a student?"],["Hometown","What do you like most about your hometown?"],["Daily routine","Which part of your day do you enjoy most?"]],
@@ -413,36 +413,36 @@ function renderSpeakingLibrary(){
  const items=speakingLibrary[activeSpeakingPart];document.getElementById("speakingLibraryTitle").textContent="Part "+activeSpeakingPart+" · Question bank";document.getElementById("speakingPromptCount").textContent=items.length+" starter prompts";
  document.getElementById("speakingPromptLibrary").innerHTML=items.map((p,i)=>"<button class='speaking-prompt-item' data-speaking-prompt='"+i+"'><span>0"+(i+1)+"</span><b>"+escapeHTML(p[0])+"</b><small>"+escapeHTML(p[1])+"</small><em>Use this question →</em></button>").join("");
  document.querySelectorAll("[data-speaking-prompt]").forEach(btn=>btn.onclick=()=>{
-  const p=items[Number(btn.dataset.speakingPrompt)];document.getElementById("speakingPart").textContent="Part "+activeSpeakingPart+" · "+p[0];document.getElementById("speakingPrompt").textContent=p[1];document.getElementById("speakingPartSelect").value="Part "+activeSpeakingPart;document.getElementById("speakingTopic").value=p[0];toast("题目已载入到练习卡片");
+  activeSpeakingPrompt=Number(btn.dataset.speakingPrompt);
+  document.querySelectorAll("[data-speaking-prompt]").forEach(x=>x.classList.toggle("selected",x===btn));
+  renderSpeakingAnswerEditor();
+  document.getElementById("speakingAnswerText").focus();
+  document.getElementById("speakingAnswerText").scrollIntoView({behavior:"smooth",block:"center"});
  });
 }
+let activeSpeakingPrompt=0;
 document.querySelectorAll("[data-speaking-part]").forEach(btn=>btn.addEventListener("click",()=>{
- activeSpeakingPart=Number(btn.dataset.speakingPart);document.querySelectorAll(".speaking-part-card").forEach(x=>x.classList.toggle("active",x===btn));
- const cfg={1:[30,"建议每题回答 20–30 秒"],2:[120,"先准备 1 分钟，再连续表达 1–2 分钟"],3:[90,"解释观点、给出原因并补充例子"]}[activeSpeakingPart];
- speakingTemplateSeconds=cfg[0];document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(cfg[0]/60)).padStart(2,"0")+":"+String(cfg[0]%60).padStart(2,"0");document.getElementById("speakingTimerHint").textContent=cfg[1];document.getElementById("speakingTimerMode").textContent="Part "+activeSpeakingPart+" · 练习计时";
- clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;document.getElementById("speakingTemplateStart").textContent="开始";renderSpeakingLibrary();renderSpeakingAnswerEditor();
+ activeSpeakingPart=Number(btn.dataset.speakingPart);activeSpeakingPrompt=0;
+ document.querySelectorAll(".speaking-part-card").forEach(x=>x.classList.toggle("active",x===btn));
+ renderSpeakingLibrary();renderSpeakingAnswerEditor();
 }));
-document.getElementById("speakingTemplateStart")?.addEventListener("click",()=>{
- const btn=document.getElementById("speakingTemplateStart");
- if(speakingTemplateInterval){clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;btn.textContent="继续";return}
- btn.textContent="暂停";speakingTemplateInterval=setInterval(()=>{speakingTemplateSeconds--;document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(speakingTemplateSeconds/60)).padStart(2,"0")+":"+String(speakingTemplateSeconds%60).padStart(2,"0");if(speakingTemplateSeconds<=0){clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;btn.textContent="开始";toast("口语练习时间结束")}},1000);
-});
-document.getElementById("speakingTemplateReset")?.addEventListener("click",()=>{
- clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;speakingTemplateSeconds=activeSpeakingPart===1?30:activeSpeakingPart===2?120:90;document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(speakingTemplateSeconds/60)).padStart(2,"0")+":"+String(speakingTemplateSeconds%60).padStart(2,"0");document.getElementById("speakingTemplateStart").textContent="开始";
-});
-
 function renderSpeakingAnswerEditor(){
  const area=document.getElementById("speakingAnswerText");if(!area)return;
- const key="part"+activeSpeakingPart;area.value=state.speakingDrafts[key]||"";
+ const items=speakingLibrary[activeSpeakingPart],p=items[activeSpeakingPrompt]||items[0];
+ const key="part"+activeSpeakingPart+"_q"+activeSpeakingPrompt;
+ const saved=state.speakingDrafts[key]??(activeSpeakingPrompt===0?(state.speakingDrafts["part"+activeSpeakingPart]||""):"");
+ area.value=saved;
  document.getElementById("speakingAnswerTitle").textContent="Part "+activeSpeakingPart+" · 我的口语答案";
- document.getElementById("speakingAnswerStatus").textContent=area.value?"已载入上次保存的内容":"自动保存已开启";
+ document.getElementById("speakingSelectedTitle").textContent=p[0];
+ document.getElementById("speakingSelectedPrompt").textContent=p[1];
+ document.getElementById("speakingAnswerStatus").textContent=saved?"已载入这道题上次保存的答案":"这道题还没有答案";
 }
 document.getElementById("speakingAnswerText")?.addEventListener("input",e=>{
- state.speakingDrafts["part"+activeSpeakingPart]=e.target.value;
+ state.speakingDrafts["part"+activeSpeakingPart+"_q"+activeSpeakingPrompt]=e.target.value;
  try{localStorage.setItem(STORE_KEY,JSON.stringify(state));document.getElementById("speakingAnswerStatus").textContent="已自动保存 · "+new Date().toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"})}catch(err){document.getElementById("speakingAnswerStatus").textContent="自动保存失败，请点击保存按钮"}
 });
 document.getElementById("saveSpeakingAnswer")?.addEventListener("click",()=>{
- const area=document.getElementById("speakingAnswerText");state.speakingDrafts["part"+activeSpeakingPart]=area.value;
+ const area=document.getElementById("speakingAnswerText");state.speakingDrafts["part"+activeSpeakingPart+"_q"+activeSpeakingPrompt]=area.value;
  try{localStorage.setItem(STORE_KEY,JSON.stringify(state));toast("Part "+activeSpeakingPart+" 的口语答案已保存")}catch(e){toast("保存失败，请导出学习数据")}
 });
 renderSpeakingLibrary();renderSpeakingAnswerEditor();updateWritingTimer();
