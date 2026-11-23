@@ -227,29 +227,80 @@ const skillBanks = {
  }
 };
 const skillQuizState = {reading:state.practiceResults?.reading||null,listening:state.practiceResults?.listening||null};
-function renderSkillQuiz(skill){
- const root=document.getElementById(skill+'Quiz'); if(!root)return;
- const bank=skillBanks[skill];
- const prior=skillQuizState[skill];
- if(prior && prior.submitted){root.innerHTML=`<div class="quiz-result"><div class="info-grid"><div><b>${prior.correct}/${bank.questions.length}</b><small>答对题数</small></div><div><b>${Math.round(prior.correct/bank.questions.length*100)}%</b><small>正确率</small></div><div><b>${prior.raw}/40</b><small>折算答对数</small></div></div><h3>答案解析</h3>${bank.questions.map((q,i)=>`<div class="question"><b>${i+1}. ${escapeHTML(q[0])}</b><p class="small">${prior.answers[i]===q[2]?'✓ 回答正确':'✕ 你的答案：'+escapeHTML(q[1][prior.answers[i]]||'未作答')+'；正确答案：'+escapeHTML(q[1][q[2]])}</p><p class="small muted">${escapeHTML(q[3])}</p></div>`).join('')}<button class="button button-dark" id="retry-${skill}">再做一次</button></div>`;
-  document.getElementById('retry-'+skill).onclick=()=>{skillQuizState[skill]=null;state.practiceResults=state.practiceResults||{};state.practiceResults[skill]=null;state.practiceDrafts[skill]={};save();renderSkillQuiz(skill)};return;}
- const answers=prior?.answers||state.practiceDrafts?.[skill]||{};
- let html='';
- if(skill==='reading') html+=`<div class="reading-passage"><h3>Reading passage</h3><p>${escapeHTML(bank.passage)}</p></div>`;
- if(skill==='listening') html+=`<div class="audio-box"><p>先听录音，建议不要边听边看文字稿。</p><button class="button button-light" id="playListening">▶ 播放 / 重播听力材料</button><span class="small muted">浏览器语音合成 · 可重复播放</span></div>`;
- html+=bank.questions.map((q,i)=>`<div class="question quiz-question"><b>${i+1}. ${escapeHTML(q[0])}</b>${q[1].map((o,j)=>`<label class="option"><input type="radio" name="${skill}-${i}" value="${j}" ${Number(answers[i])===j?'checked':''}><span>${String.fromCharCode(65+j)}. ${escapeHTML(o)}</span></label>`).join('')}</div>`).join('');
- html+=`<button class="button button-dark" id="submit-${skill}">提交答案并查看成绩</button>`;
- root.innerHTML=html;
- root.querySelectorAll('input[type=radio]').forEach(el=>el.addEventListener('change',()=>{const m=el.name.match(/-(\d+)$/);if(!m)return;state.practiceDrafts[skill]=state.practiceDrafts[skill]||{};state.practiceDrafts[skill][m[1]]=Number(el.value);try{localStorage.setItem(STORE_KEY,JSON.stringify(state));}catch(e){}}));
- if(skill==='listening')document.getElementById('playListening').onclick=()=>{if(!('speechSynthesis' in window)){toast('当前浏览器不支持语音播放');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(bank.script);u.lang='en-GB';u.rate=.88;speechSynthesis.speak(u)};
- document.getElementById('submit-'+skill).onclick=()=>{
-  const chosen=bank.questions.map((q,i)=>{const el=document.querySelector(`input[name="${skill}-${i}"]:checked`);return el?Number(el.value):null});
-  if(chosen.some(x=>x===null)){toast('还有题目没有作答，请完成全部 10 题');return}
-  const correct=chosen.filter((a,i)=>a===bank.questions[i][2]).length;
-  const record={id:uid(),skill:skill==='reading'?'Reading':'Listening',name:skill==='reading'?'IELTS Studio Reading Practice 01':'IELTS Studio Listening Practice 01',correct,total:10,note:'自动判分练习',date:todayISO(),percent:correct*10};
-  state.sessions.push(record);markActivity();skillQuizState[skill]={submitted:true,correct,answers:chosen,raw:correct*4};state.practiceResults=state.practiceResults||{};state.practiceResults[skill]=skillQuizState[skill];state.practiceDrafts[skill]={};save();renderSkillQuiz(skill);toast(`完成！答对 ${correct}/10，正确率 ${correct*10}%`);
- };
+
+// Reading data is imported by the owner into this browser; copyrighted passage text is
+// deliberately not committed to this public repository.
+function getReadingBank(){try{return JSON.parse(localStorage.getItem("ieltsStudio.readingBank")||"null")}catch(e){return null}}
+function normAnswer(v){return String(v??"").trim().toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:]/g,"").replace(/\\s+/g," ")}
+function answerMatches(user, q){
+ const accepted=[q.answer,...(q.acceptable||[])].filter(x=>x!==undefined&&x!==null).map(normAnswer);
+ return accepted.includes(normAnswer(user));
 }
+function readingQuestionHTML(q,i,answer){
+ const id="rq-"+i, type=q.type||"short";
+ const label=q.number||i+1;
+ if(type==="mcq"||type==="multiple_choice"||type==="matching"||type==="heading_match"){
+  const opts=q.options||[];
+  return `<div class="question quiz-question" data-q="${i}"><span class="question-tag">${escapeHTML(q.typeLabel||({mcq:"选择题",multiple_choice:"选择题",matching:"匹配题",heading_match:"段落标题匹配"}[type]||"匹配题"))}</span><b>${escapeHTML(label+". "+q.prompt)}</b><div class="answer-options">${opts.map((o,j)=>{const val=typeof o==="string"?o:(o.value||o.label||o.text||"");return `<label class="option"><input type="radio" name="${id}" value="${escapeHTML(val)}" ${normAnswer(answer)===normAnswer(val)?"checked":""}><span>${escapeHTML(val)}</span></label>`}).join("")}</div></div>`;
+ }
+ if(type==="tfng"||type==="true_false_not_given")return `<div class="question quiz-question"><span class="question-tag">TRUE / FALSE / NOT GIVEN</span><b>${escapeHTML(label+". "+q.prompt)}</b><div class="answer-options">${["TRUE","FALSE","NOT GIVEN"].map(v=>`<label class="option"><input type="radio" name="${id}" value="${v}" ${normAnswer(answer)===normAnswer(v)?"checked":""}><span>${v}</span></label>`).join("")}</div></div>`;
+ if(type==="yesno"||type==="yes_no_not_given")return `<div class="question quiz-question"><span class="question-tag">YES / NO / NOT GIVEN</span><b>${escapeHTML(label+". "+q.prompt)}</b><div class="answer-options">${["YES","NO","NOT GIVEN"].map(v=>`<label class="option"><input type="radio" name="${id}" value="${v}" ${normAnswer(answer)===normAnswer(v)?"checked":""}><span>${v}</span></label>`).join("")}</div></div>`;
+ return `<div class="question quiz-question"><span class="question-tag">${escapeHTML(q.typeLabel||"填空题")}</span><label class="reading-answer-label"><b>${escapeHTML(label+". "+q.prompt)}</b><input type="text" data-reading-answer="${i}" value="${escapeHTML(answer||"")}" placeholder="Type your answer here"></label></div>`;
+}
+function renderSkillQuiz(skill){
+ const root=document.getElementById(skill+"Quiz"); if(!root)return;
+ if(skill==="reading"){
+  const bank=getReadingBank();
+  if(!bank||!Array.isArray(bank.passages)||!bank.passages.length){
+   root.innerHTML=`<div class="reading-empty"><div class="reading-empty-icon">▤</div><h2>导入你的 PDF 阅读题库</h2><p>阅读练习会采用左侧文章、右侧题目的双栏布局。题库文件只保存在当前浏览器，不会上传到公开 GitHub。</p><label class="button button-dark import-reading-label" for="readingBankFile">选择阅读题库 JSON</label><input id="readingBankFile" type="file" accept="application/json,.json" hidden><small>题库需包含 passages 数组；支持选择、判断、填空、匹配等题型。</small></div>`;
+   const picker=document.getElementById("readingBankFile");
+   picker.onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data.passages)||!data.passages.length)throw new Error("Invalid format");localStorage.setItem("ieltsStudio.readingBank",JSON.stringify(data));state.practiceResults.reading=null;skillQuizState.reading=null;renderSkillQuiz("reading");toast("阅读题库已导入到本浏览器")}catch(err){toast("导入失败：请检查题库 JSON 格式")}e.target.value=""};
+   return;
+  }
+  const passageIndex=Number(localStorage.getItem("ieltsStudio.activePassage")||0);
+  const passage=bank.passages[Math.min(Math.max(0,passageIndex),bank.passages.length-1)];
+  const result=state.practiceResults?.["reading:"+passage.id];
+  if(result?.submitted){
+   const total=passage.questions.length, pct=Math.round(result.correct/total*100);
+   root.innerHTML=`<div class="reading-result"><div class="reading-result-top"><div><p class="eyebrow">MARKING COMPLETE</p><h2>${escapeHTML(passage.title)}</h2><p class="muted">已完成批阅，逐题核对你的答案。</p></div><div class="reading-score"><strong>${result.correct}/${total}</strong><span>${pct}% 正确率</span></div></div><div class="reading-review-list">${passage.questions.map((q,i)=>{const ok=result.marks[i],u=result.answers[i]??"";return `<article class="reading-review-item ${ok?"is-correct":"is-wrong"}"><div class="review-status">${ok?"✓ 正确":"✕ 错误"}</div><b>${escapeHTML((q.number||i+1)+". "+q.prompt)}</b><p>你的答案：${escapeHTML(u||"未作答")}　·　正确答案：${escapeHTML(q.answer??"")}</p>${q.explanation?`<small>${escapeHTML(q.explanation)}</small>`:""}</article>`}).join("")}</div><button class="button button-dark" id="readingRetry">重新练习</button><button class="button button-light" id="readingBackList">返回文章列表</button></div>`;
+   document.getElementById("readingRetry").onclick=()=>{delete state.practiceResults["reading:"+passage.id];save();renderSkillQuiz("reading")};
+   document.getElementById("readingBackList").onclick=()=>{localStorage.removeItem("ieltsStudio.activePassage");renderSkillQuiz("reading")};
+   return;
+  }
+  if(!localStorage.getItem("ieltsStudio.activePassage")){
+   root.innerHTML=`<div class="reading-library-head"><div><p class="eyebrow">YOUR READING LIBRARY</p><h2>阅读题库</h2><p class="muted">共 ${bank.passages.length} 篇文章 · 选择一篇开始练习</p></div><button class="button button-light" id="replaceReadingBank">更换题库</button></div><div class="reading-library-grid">${bank.passages.map((p,i)=>`<button class="reading-library-card" data-passage="${i}"><span>PASSAGE ${String(i+1).padStart(2,"0")}</span><b>${escapeHTML(p.title)}</b><small>${p.questions.length} 道题 · ${escapeHTML(p.group||"Reading practice")}</small><em>开始练习 →</em></button>`).join("")}</div>`;
+   root.querySelectorAll("[data-passage]").forEach(b=>b.onclick=()=>{localStorage.setItem("ieltsStudio.activePassage",b.dataset.passage);renderSkillQuiz("reading")});
+   document.getElementById("replaceReadingBank").onclick=()=>{localStorage.removeItem("ieltsStudio.readingBank");renderSkillQuiz("reading")};
+   return;
+  }
+  const answers=state.practiceDrafts?.["reading:"+passage.id]||{};
+  root.innerHTML=`<div class="reading-practice-toolbar"><button class="text-button" id="readingBack">← 返回文章列表</button><span>${escapeHTML(passage.title)}</span><span>${passage.questions.length} 题</span></div><div class="reading-split"><article class="reading-article-pane"><div class="reading-pane-title"><p class="eyebrow">READING PASSAGE</p><h2>${escapeHTML(passage.title)}</h2></div><div class="reading-article-text">${escapeHTML(passage.text).replace(/\\n/g,"<br><br>")}</div></article><section class="reading-questions-pane"><div class="reading-pane-title"><p class="eyebrow">QUESTIONS</p><h2>答题区</h2><p class="muted">按题目要求选择或填写答案，完成后统一提交批阅。</p></div><div class="reading-question-list">${passage.questions.map((q,i)=>readingQuestionHTML(q,i,answers[i])).join("")}</div><button class="button button-dark reading-submit" id="submit-reading">提交答案并批阅</button></section></div>`;
+  document.getElementById("readingBack").onclick=()=>{localStorage.removeItem("ieltsStudio.activePassage");renderSkillQuiz("reading")};
+  root.querySelectorAll("input[name^='rq-']").forEach(el=>el.onchange=()=>saveReadingDraft(passage,el.name.slice(3),el.value));
+  root.querySelectorAll("[data-reading-answer]").forEach(el=>el.oninput=()=>saveReadingDraft(passage,el.dataset.readingAnswer,el.value));
+  document.getElementById("submit-reading").onclick=()=>{
+   const chosen=passage.questions.map((q,i)=>{const radio=root.querySelector(`input[name="rq-${i}"]:checked`),input=root.querySelector(`[data-reading-answer="${i}"]`);return radio?radio.value:(input?.value.trim()||"")});
+   const marks=passage.questions.map((q,i)=>answerMatches(chosen[i],q));
+   const correct=marks.filter(Boolean).length;
+   state.practiceResults=state.practiceResults||{};state.practiceResults["reading:"+passage.id]={submitted:true,correct,answers:chosen,marks};
+   state.sessions.push({id:uid(),skill:"Reading",name:passage.title,correct,total:passage.questions.length,note:"PDF 阅读题库自动批阅",date:todayISO(),percent:Math.round(correct/passage.questions.length*100)});
+   state.mistakes=state.mistakes||[];
+   passage.questions.forEach((q,i)=>{if(!marks[i])state.mistakes.push({id:uid(),skill:"Reading",category:q.typeLabel||q.type||"Reading",question:q.prompt,userAnswer:chosen[i],correctAnswer:q.answer,source:passage.title,date:todayISO(),note:"来自阅读练习自动批阅"})});
+   markActivity();save();renderSkillQuiz("reading");toast(`批阅完成：${correct}/${passage.questions.length}，${Math.round(correct/passage.questions.length*100)}%`);
+  };
+  return;
+ }
+ const bank=skillBanks[skill],prior=skillQuizState[skill];
+ if(prior&&prior.submitted){root.innerHTML=`<div class="quiz-result"><div class="info-grid"><div><b>${prior.correct}/${bank.questions.length}</b><small>答对题数</small></div><div><b>${Math.round(prior.correct/bank.questions.length*100)}%</b><small>正确率</small></div><div><b>${prior.raw}/40</b><small>折算答对数</small></div></div><h3>答案解析</h3>${bank.questions.map((q,i)=>`<div class="question"><b>${i+1}. ${escapeHTML(q[0])}</b><p class="small">${prior.answers[i]===q[2]?'✓ 回答正确':'✕ 你的答案：'+escapeHTML(q[1][prior.answers[i]]||'未作答')+'；正确答案：'+escapeHTML(q[1][q[2]])}</p><p class="small muted">${escapeHTML(q[3])}</p></div>`).join('')}<button class="button button-dark" id="retry-${skill}">再做一次</button></div>`;document.getElementById('retry-'+skill).onclick=()=>{skillQuizState[skill]=null;state.practiceResults[skill]=null;state.practiceDrafts[skill]={};save();renderSkillQuiz(skill)};return;}
+ const answers=prior?.answers||state.practiceDrafts?.[skill]||{};
+ let html=`<div class="audio-box"><p>先听录音，建议不要边听边看文字稿。</p><button class="button button-light" id="playListening">▶ 播放 / 重播听力材料</button><span class="small muted">浏览器语音合成 · 可重复播放</span></div>`;
+ html+=bank.questions.map((q,i)=>`<div class="question quiz-question"><b>${i+1}. ${escapeHTML(q[0])}</b>${q[1].map((o,j)=>`<label class="option"><input type="radio" name="${skill}-${i}" value="${j}" ${Number(answers[i])===j?'checked':''}><span>${String.fromCharCode(65+j)}. ${escapeHTML(o)}</span></label>`).join('')}</div>`).join('');
+ html+=`<button class="button button-dark" id="submit-${skill}">提交答案并查看成绩</button>`;root.innerHTML=html;
+ root.querySelectorAll('input[type=radio]').forEach(el=>el.addEventListener('change',()=>{const m=el.name.match(/-(\\d+)$/);if(!m)return;state.practiceDrafts[skill]=state.practiceDrafts[skill]||{};state.practiceDrafts[skill][m[1]]=Number(el.value);try{localStorage.setItem(STORE_KEY,JSON.stringify(state));}catch(e){}}));
+ document.getElementById('playListening').onclick=()=>{if(!('speechSynthesis'in window)){toast('当前浏览器不支持语音播放');return}speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(bank.script);u.lang='en-GB';u.rate=.88;speechSynthesis.speak(u)};
+ document.getElementById('submit-'+skill).onclick=()=>{const chosen=bank.questions.map((q,i)=>{const el=document.querySelector(`input[name="${skill}-${i}"]:checked`);return el?Number(el.value):null});if(chosen.some(x=>x===null)){toast('还有题目没有作答，请完成全部题目');return}const correct=chosen.filter((a,i)=>a===bank.questions[i][2]).length;state.sessions.push({id:uid(),skill:'Listening',name:'IELTS Studio Listening Practice 01',correct,total:bank.questions.length,note:'自动判分练习',date:todayISO(),percent:Math.round(correct/bank.questions.length*100)});markActivity();skillQuizState[skill]={submitted:true,correct,answers:chosen,raw:correct*4};state.practiceResults[skill]=skillQuizState[skill];state.practiceDrafts[skill]={};save();renderSkillQuiz(skill);toast(`完成！答对 ${correct}/${bank.questions.length}`);};
+}
+function saveReadingDraft(passage,index,value){state.practiceDrafts=state.practiceDrafts||{};const key="reading:"+passage.id;state.practiceDrafts[key]=state.practiceDrafts[key]||{};state.practiceDrafts[key][index]=value;try{localStorage.setItem(STORE_KEY,JSON.stringify(state))}catch(e){}}
 function assessmentMarkup(kind,labels){return `<div class="score-fields">${labels.map((x,i)=>`<label>${x}<select id="${kind}Band${i}">${Array.from({length:19},(_,j)=>j*.5).map(v=>`<option value="${v}" ${v===5?'selected':''}>${v.toFixed(1)}</option>`).join('')}</select></label>`).join('')}</div><label>练习名称<input id="${kind}Name" placeholder="例如：Task 2 — Education / Speaking Part 2"></label><button class="button button-dark" id="save${kind}Assessment">计算并保存自评分</button><div id="${kind}AssessmentResult"></div>`}
 const writingRoot=document.getElementById('writingAssessment'); if(writingRoot)writingRoot.innerHTML=assessmentMarkup('Writing',['Task Response / Achievement','Coherence & Cohesion','Lexical Resource','Grammar Range & Accuracy']);
 const speakingRoot=document.getElementById('speakingAssessment'); if(speakingRoot)speakingRoot.innerHTML=assessmentMarkup('Speaking',['Fluency & Coherence','Lexical Resource','Grammar Range & Accuracy','Pronunciation']);
