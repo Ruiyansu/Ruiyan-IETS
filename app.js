@@ -251,6 +251,9 @@ async function clearReadingBank(){
  try{const db=await openReadingDatabase();await new Promise((resolve,reject)=>{const tx=db.transaction("readingBank","readwrite");tx.objectStore("readingBank").delete("main");tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>{db.close();reject(tx.error)}})}catch(e){}
  readingBankCache=null;localStorage.removeItem("ieltsStudio.readingBank");
 }
+function normAnswer(value){return String(value??"").normalize("NFKC").toLowerCase().trim().replace(/[’‘]/g,"'").replace(/[.,;:!?]/g,"").replace(/\\s+/g," ")}
+function answerMatches(value,q){const expected=Array.isArray(q.answers)?q.answers:(Array.isArray(q.answer)?q.answer:[q.answer]);const accepted=[...expected,...(Array.isArray(q.acceptable)?q.acceptable:[])].filter(v=>v!==undefined&&v!==null).map(normAnswer);if(Array.isArray(value)){const actual=value.map(normAnswer).filter(Boolean).sort(),target=expected.map(normAnswer).filter(Boolean).sort();return actual.length===target.length&&actual.every((v,i)=>v===target[i])}return accepted.includes(normAnswer(value))}
+function readingPart(p){const match=String(p.group||"").match(/passage\\s*(1|2|3)/i);return match?"P"+match[1]:"P1"}
 function readingQuestionHTML(q,i,answer){
  const id="rq-"+i, type=q.type||"short";
  const label=q.number||i+1;
@@ -280,8 +283,11 @@ function renderSkillQuiz(skill){
   const bank=getReadingBank();
   if(!bank&&!readingBankLoadStarted){
    readingBankLoadStarted=true;
-   root.innerHTML='<div class="reading-empty"><h2>正在读取你的个人题库…</h2><p>首次打开可能需要几秒钟。</p></div>';
-   restoreReadingBank().then(()=>renderSkillQuiz("reading")).catch(()=>{readingBankLoadStarted=true;renderSkillQuiz("reading")});
+   root.innerHTML='<div class="reading-empty"><h2>正在加载阅读题库…</h2><p>正在读取 181 篇阅读材料，请稍候。</p></div>';
+   restoreReadingBank().then(async restored=>{
+    if(!restored){const response=await fetch("./zyz-reading-bank.json",{cache:"no-cache"});if(!response.ok)throw new Error("Reading bank request failed: "+response.status);const data=await response.json();if(!data||!Array.isArray(data.passages)||!data.passages.length)throw new Error("Invalid reading bank");readingBankCache=data;try{await saveReadingBank(data)}catch(storageError){console.warn("IndexedDB persistence unavailable; bank remains loaded for this session",storageError)}}
+    renderSkillQuiz("reading");
+   }).catch(err=>{console.error("Could not load reading bank",err);root.innerHTML='<div class="reading-empty"><h2>题库加载失败</h2><p>无法读取 zyz-reading-bank.json。请刷新页面，或检查网络连接。</p><button class="button button-dark" id="retryReadingLoad">重新加载</button></div>';root.querySelector("#retryReadingLoad")?.addEventListener("click",()=>{readingBankLoadStarted=false;renderSkillQuiz("reading")})});
    return;
   }
   if(!bank||!Array.isArray(bank.passages)||!bank.passages.length){
@@ -304,9 +310,13 @@ function renderSkillQuiz(skill){
   }
   if(!localStorage.getItem("ieltsStudio.activePassage")){
    document.body.classList.remove("reading-page-open");
-   root.innerHTML=`<div class="reading-library-head"><div><p class="eyebrow">YOUR READING LIBRARY</p><h2>阅读题库</h2><p class="muted">共 ${bank.passages.length} 篇文章 · ${bank.passages.reduce((n,p)=>n+(p.scoreCount||p.questions.length),0)} 个答题点 · 选择一篇开始练习</p></div><button class="button button-light" id="replaceReadingBank">更换题库</button></div><div class="reading-library-grid">${bank.passages.map((p,i)=>`<button class="reading-library-card" data-passage="${i}"><span>${"P"+((p.group||"Reading Passage 1").match(/Passage\s*(\d)/i)?.[1]||"1")}</span><b>${escapeHTML(p.title)}</b><small>${p.scoreCount||p.questions.length} 道题 · ${(p.group||"").replace(/Reading\s*/i,"")}</small><em>开始练习 →</em></button>`).join("")}</div>`;
+   const selectedPart=localStorage.getItem("ieltsStudio.readingPart")||"P1";
+   const passages=bank.passages.map((p,i)=>({p,i})).filter(({p})=>readingPart(p)===selectedPart);
+   const totalQuestions=bank.passages.reduce((n,p)=>n+(p.scoreCount||p.questions.length),0);
+   const counts=["P1","P2","P3"].map(part=>bank.passages.filter(p=>readingPart(p)===part).length);
+   root.innerHTML='<div class="reading-library-head"><div><p class="eyebrow">YOUR READING LIBRARY</p><h2>阅读题库</h2><p class="muted">共 '+bank.passages.length+' 篇文章 · '+totalQuestions+' 个答题点 · 按考试 Part 分类练习</p></div><div class="reading-library-total"><strong>'+passages.length+'</strong><span>'+selectedPart+' 文章</span></div></div><nav class="reading-part-tabs" aria-label="阅读文章分类"><button type="button" class="reading-part-tab '+(selectedPart==="P1"?"active":"") +'" data-part="P1">P1 <small>'+counts[0]+' 篇</small></button><button type="button" class="reading-part-tab '+(selectedPart==="P2"?"active":"") +'" data-part="P2">P2 <small>'+counts[1]+' 篇</small></button><button type="button" class="reading-part-tab '+(selectedPart==="P3"?"active":"") +'" data-part="P3">P3 <small>'+counts[2]+' 篇</small></button></nav><div class="reading-library-grid">'+passages.map(({p,i})=>'<button class="reading-library-card" data-passage="'+i+'"><span>'+readingPart(p)+' · '+escapeHTML(p.catalogPassageId||"Practice")+'</span><b>'+escapeHTML(p.title)+'</b><small>'+(p.scoreCount||p.questions.length)+' 道题 · 难度 '+escapeHTML(p.difficulty??"—")+' · '+escapeHTML(p.frequency||"")+'</small><em>开始练习 →</em></button>').join("")+'</div>';
+   root.querySelectorAll("[data-part]").forEach(b=>b.onclick=()=>{localStorage.setItem("ieltsStudio.readingPart",b.dataset.part);renderSkillQuiz("reading")});
    root.querySelectorAll("[data-passage]").forEach(b=>b.onclick=()=>{localStorage.setItem("ieltsStudio.activePassage",b.dataset.passage);renderSkillQuiz("reading")});
-   document.getElementById("replaceReadingBank").onclick=async()=>{await clearReadingBank();readingBankLoadStarted=true;renderSkillQuiz("reading")};
    return;
   }
   const answers=state.practiceDrafts?.["reading:"+passage.id]||{};
