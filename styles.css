@@ -168,3 +168,76 @@ body.reading-page-open .reading-review-item.is-wrong{background:#ffe0e2;border-c
  body.reading-page-open .reading-article-text{max-height:48vh;min-height:300px}
  body.reading-page-open .reading-question-list{max-height:none;min-height:0}
 }
+
+
+/* IELTS Studio — warmer, more playful learning-space refresh */
+:root{
+ --bg:#e9eef7;--paper:#f8f9fd;--ink:#202d49;--muted:#63718c;
+ --accent:#287f91;--coral:#e58b70;--lilac:#8e82bd;--gold:#d5a64c;
+}
+body{
+ background:
+ radial-gradient(ellipse at 8% 7%,rgba(255,202,170,.38),transparent 27%),
+ radial-gradient(ellipse at 88% 10%,rgba(181,174,224,.35),transparent 30%),
+ radial-gradient(ellipse at 75% 90%,rgba(159,211,202,.24),transparent 28%),
+ linear-gradient(135deg,#eef1f8 0%,#e8edf6 55%,#f4eee9 100%);
+}
+.page-wrap{max-width:1500px}
+h1{letter-spacing:-1.1px}
+.eyebrow{color:#287f91;font-weight:800}
+.panel,.stat-card{
+ border-radius:20px;
+ box-shadow:0 14px 35px rgba(42,55,91,.09),0 2px 6px rgba(42,55,91,.035);
+}
+.panel{background:rgba(250,251,255,.88)}
+.stat-card{position:relative;overflow:hidden;background:linear-gradient(145deg,#fff,#f1f4fb)}
+.stat-card:after{
+ content:"";position:absolute;width:84px;height:84px;border-radius:28px;
+ right:-25px;top:-28px;transform:rotate(28deg);background:rgba(140,157,205,.12)
+}
+.stat-card:nth-child(2):after{background:rgba(229,139,112,.16)}
+.stat-card:nth-child(3):after{background:rgba(80,164,155,.15)}
+.stat-card:nth-child(4):after{background:rgba(213,166,76,.16)}
+.skill-card{border-radius:19px;transition:transform .2s,box-shadow .2s;position:relative;overflow:hidden}
+.skill-card:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(42,55,91,.12)}
+.skill-card.listening{background:linear-gradient(145deg,#d7eee9,#e6f4f0)}
+.skill-card.reading{background:linear-gradient(145deg,#dce7fb,#e9e9f8)}
+.skill-card.writing{background:linear-gradient(145deg,#fae4d9,#f8eee4)}
+.skill-card.speaking{background:linear-gradient(145deg,#e8e0f5,#f2ebf8)}
+.skill-card b{font-size:17px}
+.button{border-radius:12px;transition:transform .16s,filter .16s}
+.button:hover{transform:translateY(-1px);filter:brightness(1.03)}
+.button-dark{background:linear-gradient(120deg,#236c7c,#347f91)}
+.button-light{background:#e7edf8;color:#344e77;border:1px solid #d2dced}
+.reading-library-card{
+ min-height:190px;border-radius:20px;padding:22px;
+ box-shadow:0 10px 24px rgba(43,59,91,.08);
+ transition:transform .2s,box-shadow .2s;
+}
+.reading-library-card:nth-child(3n+1){background:linear-gradient(145deg,#d9eee9,#c9e4df);border-color:#a9d0c8}
+.reading-library-card:nth-child(3n+2){background:linear-gradient(145deg,#e5e1f4,#d8d5ec);border-color:#c1b9df}
+.reading-library-card:nth-child(3n){background:linear-gradient(145deg,#f8e5d9,#f1d8cb);border-color:#e5c0ad}
+.reading-library-card:hover{transform:translateY(-5px) rotate(-.25deg);box-shadow:0 16px 30px rgba(43,59,91,.14)}
+.reading-library-card span{
+ display:inline-flex;align-items:center;justify-content:center;
+ min-width:62px;padding:7px 11px;border-radius:9px;
+ background:rgba(255,255,255,.62);color:#315b72;font-size:11px;letter-spacing:.8px
+}
+.reading-library-card b{font-size:20px;margin:15px 0 8px}
+.reading-library-card small{font-size:13px;color:#53647c}
+.reading-library-card em{color:#286e7d}
+.reading-practice-toolbar{padding:9px 13px;border-radius:14px;background:rgba(255,255,255,.58)}
+.reading-article-pane,.reading-questions-pane{border-radius:18px}
+.reading-article-pane{background:linear-gradient(160deg,#e4edf8,#e1eaf5)}
+.reading-questions-pane{background:linear-gradient(160deg,#f0eafa,#e9e5f5)}
+.reading-pane-title{padding:22px 23px}
+.reading-pane-title .eyebrow{letter-spacing:1.3px}
+.reading-question-list{padding-left:22px;padding-right:22px}
+.reading-questions-pane .question-tag{border-radius:8px;padding:6px 10px}
+.reading-submit{border-radius:12px}
+.reading-result-top{background:linear-gradient(120deg,#e0edf8,#eee8f7);border-radius:18px}
+.reading-score{background:linear-gradient(145deg,#d3ebe6,#c6e2dc);border:1px solid #a8d4ca}
+@media(max-width:720px){
+ .reading-library-card{min-height:155px}
+ .reading-library-card b{font-size:18px}
+}
