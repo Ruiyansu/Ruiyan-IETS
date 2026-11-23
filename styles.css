@@ -380,7 +380,7 @@ body.reading-page-open .reading-practice-toolbar{background:rgba(198,213,233,.97
 #view-speaking .speaking-prompt-item.selected{border-color:#398b91;background:#c9e4e4;box-shadow:inset 0 0 0 1px rgba(40,112,121,.16)}
 .speaking-selected-question{padding:14px 16px;margin:12px 0;border-radius:11px;background:rgba(255,255,255,.56);border-left:4px solid #438f98}
 .speaking-selected-question b{display:block;color:#203958;font-size:13px;margin-bottom:7px}
-.speaking-selected-question p{margin:0;color:#435d77;font-size:12px;line-height:1.75}
+.speaking-selected-question p{margin:0;color:#435d77;font-size:12px;line-height:1.75};white-space:pre-line
 
 
 /* Speaking: show the question bank first, then a separate notes page */
