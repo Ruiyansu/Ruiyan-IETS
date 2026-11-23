@@ -381,3 +381,15 @@ body.reading-page-open .reading-practice-toolbar{background:rgba(198,213,233,.97
 .speaking-selected-question{padding:14px 16px;margin:12px 0;border-radius:11px;background:rgba(255,255,255,.56);border-left:4px solid #438f98}
 .speaking-selected-question b{display:block;color:#203958;font-size:13px;margin-bottom:7px}
 .speaking-selected-question p{margin:0;color:#435d77;font-size:12px;line-height:1.75}
+
+
+/* Speaking: show the question bank first, then a separate notes page */
+#speakingTemplateHub[hidden],#speakingAnswerPage[hidden]{display:none!important}
+#speakingTemplateHub{display:block!important}
+#view-speaking .speaking-prompt-list{grid-template-columns:repeat(2,minmax(0,1fr))}
+#view-speaking .speaking-prompt-item{cursor:pointer;min-height:125px}
+#view-speaking .speaking-prompt-item>small{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+#speakingAnswerPage{min-height:65vh}
+#speakingAnswerPage>textarea{min-height:360px}
+#speakingAnswerPage>#backToSpeakingQuestions{margin-bottom:18px}
+@media(max-width:620px){#view-speaking .speaking-prompt-list{grid-template-columns:1fr}#speakingAnswerPage>textarea{min-height:260px}}
