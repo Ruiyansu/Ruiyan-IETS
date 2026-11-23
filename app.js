@@ -219,6 +219,11 @@ const skillQuizState = {reading:state.practiceResults?.reading||null,listening:s
 function getReadingBank(){try{return JSON.parse(localStorage.getItem("ieltsStudio.readingBank")||"null")}catch(e){return null}}
 function normAnswer(v){return String(v??"").trim().toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:]/g,"").replace(/\\s+/g," ")}
 function answerMatches(user, q){
+ if(Array.isArray(q.answers)||Array.isArray(q.answer)){
+  const expected=q.answers||q.answer;
+  const actual=Array.isArray(user)?user:[user];
+  return expected.length===actual.length&&expected.every((v,i)=>[v,...((q.acceptable||[])[i]||[])].map(normAnswer).includes(normAnswer(actual[i])));
+ }
  const accepted=[q.answer,...(q.acceptable||[])].filter(x=>x!==undefined&&x!==null).map(normAnswer);
  return accepted.includes(normAnswer(user));
 }
@@ -231,6 +236,10 @@ function readingQuestionHTML(q,i,answer){
  }
  if(type==="tfng"||type==="true_false_not_given")return `<div class="question quiz-question"><span class="question-tag">TRUE / FALSE / NOT GIVEN</span><b>${escapeHTML(label+". "+q.prompt)}</b><div class="answer-options">${["TRUE","FALSE","NOT GIVEN"].map(v=>`<label class="option"><input type="radio" name="${id}" value="${v}" ${normAnswer(answer)===normAnswer(v)?"checked":""}><span>${v}</span></label>`).join("")}</div></div>`;
  if(type==="yesno"||type==="yes_no_not_given")return `<div class="question quiz-question"><span class="question-tag">YES / NO / NOT GIVEN</span><b>${escapeHTML(label+". "+q.prompt)}</b><div class="answer-options">${["YES","NO","NOT GIVEN"].map(v=>`<label class="option"><input type="radio" name="${id}" value="${v}" ${normAnswer(answer)===normAnswer(v)?"checked":""}><span>${v}</span></label>`).join("")}</div></div>`;
+ if((type==="multi_gap"||type==="completion"||type==="table_completion"||type==="note_completion"||type==="summary_completion")&&Array.isArray(q.blanks)){
+  const vals=Array.isArray(answer)?answer:[];
+  return `<div class="question quiz-question"><span class="question-tag">${escapeHTML(q.typeLabel||"多空填空题")}</span><b>${escapeHTML(label+". "+q.prompt)}</b>${q.blanks.map((hint,j)=>`<label class="reading-answer-label"><b>${escapeHTML(typeof hint==="string"?hint:(hint.label||("空格 "+(j+1))))}</b><input type="text" data-reading-answer="${i}-${j}" value="${escapeHTML(vals[j]||"")}" placeholder="Answer ${j+1}"></label>`).join("")}</div>`;
+ }
  return `<div class="question quiz-question"><span class="question-tag">${escapeHTML(q.typeLabel||"填空题")}</span><label class="reading-answer-label"><b>${escapeHTML(label+". "+q.prompt)}</b><input type="text" data-reading-answer="${i}" value="${escapeHTML(answer||"")}" placeholder="Type your answer here"></label></div>`;
 }
 function renderSkillQuiz(skill){
@@ -248,7 +257,7 @@ function renderSkillQuiz(skill){
   const result=state.practiceResults?.["reading:"+passage.id];
   if(result?.submitted){
    const total=passage.questions.length, pct=Math.round(result.correct/total*100);
-   root.innerHTML=`<div class="reading-result"><div class="reading-result-top"><div><p class="eyebrow">MARKING COMPLETE</p><h2>${escapeHTML(passage.title)}</h2><p class="muted">已完成批阅，逐题核对你的答案。</p></div><div class="reading-score"><strong>${result.correct}/${total}</strong><span>${pct}% 正确率</span></div></div><div class="reading-review-list">${passage.questions.map((q,i)=>{const ok=result.marks[i],u=result.answers[i]??"";return `<article class="reading-review-item ${ok?"is-correct":"is-wrong"}"><div class="review-status">${ok?"✓ 正确":"✕ 错误"}</div><b>${escapeHTML((q.number||i+1)+". "+q.prompt)}</b><p>你的答案：${escapeHTML(u||"未作答")}　·　正确答案：${escapeHTML(q.answer??"")}</p>${q.explanation?`<small>${escapeHTML(q.explanation)}</small>`:""}</article>`}).join("")}</div><button class="button button-dark" id="readingRetry">重新练习</button><button class="button button-light" id="readingBackList">返回文章列表</button></div>`;
+   root.innerHTML=`<div class="reading-result"><div class="reading-result-top"><div><p class="eyebrow">MARKING COMPLETE</p><h2>${escapeHTML(passage.title)}</h2><p class="muted">已完成批阅，逐题核对你的答案。</p></div><div class="reading-score"><strong>${result.correct}/${total}</strong><span>${pct}% 正确率</span></div></div><div class="reading-review-list">${passage.questions.map((q,i)=>{const ok=result.marks[i],u=result.answers[i]??"";return `<article class="reading-review-item ${ok?"is-correct":"is-wrong"}"><div class="review-status">${ok?"✓ 正确":"✕ 错误"}</div><b>${escapeHTML((q.number||i+1)+". "+q.prompt)}</b><p>你的答案：${escapeHTML(Array.isArray(u)?u.join(" / "):(u||"未作答"))}　·　正确答案：${escapeHTML(Array.isArray(q.answers||q.answer)?(q.answers||q.answer).join(" / "):(q.answer??""))}</p>${q.explanation?`<small>${escapeHTML(q.explanation)}</small>`:""}</article>`}).join("")}</div><button class="button button-dark" id="readingRetry">重新练习</button><button class="button button-light" id="readingBackList">返回文章列表</button></div>`;
    document.getElementById("readingRetry").onclick=()=>{delete state.practiceResults["reading:"+passage.id];save();renderSkillQuiz("reading")};
    document.getElementById("readingBackList").onclick=()=>{localStorage.removeItem("ieltsStudio.activePassage");renderSkillQuiz("reading")};
    return;
@@ -265,13 +274,13 @@ function renderSkillQuiz(skill){
   root.querySelectorAll("input[name^='rq-']").forEach(el=>el.onchange=()=>saveReadingDraft(passage,el.name.slice(3),el.value));
   root.querySelectorAll("[data-reading-answer]").forEach(el=>el.oninput=()=>saveReadingDraft(passage,el.dataset.readingAnswer,el.value));
   document.getElementById("submit-reading").onclick=()=>{
-   const chosen=passage.questions.map((q,i)=>{const radio=root.querySelector(`input[name="rq-${i}"]:checked`),input=root.querySelector(`[data-reading-answer="${i}"]`);return radio?radio.value:(input?.value.trim()||"")});
+   const chosen=passage.questions.map((q,i)=>{const radio=root.querySelector(`input[name="rq-${i}"]:checked`),multi=q.blanks?.map((_,j)=>root.querySelector(`[data-reading-answer="${i}-${j}"]`)?.value.trim()||""),input=root.querySelector(`[data-reading-answer="${i}"]`);return radio?radio.value:(multi||input?.value.trim()||"")});
    const marks=passage.questions.map((q,i)=>answerMatches(chosen[i],q));
    const correct=marks.filter(Boolean).length;
    state.practiceResults=state.practiceResults||{};state.practiceResults["reading:"+passage.id]={submitted:true,correct,answers:chosen,marks};
    state.sessions.push({id:uid(),skill:"Reading",name:passage.title,correct,total:passage.questions.length,note:"PDF 阅读题库自动批阅",date:todayISO(),percent:Math.round(correct/passage.questions.length*100)});
    state.mistakes=state.mistakes||[];
-   passage.questions.forEach((q,i)=>{if(!marks[i])state.mistakes.push({id:uid(),skill:"Reading",category:q.typeLabel||q.type||"Reading",question:q.prompt,userAnswer:chosen[i],correctAnswer:q.answer,source:passage.title,date:todayISO(),note:"来自阅读练习自动批阅"})});
+   passage.questions.forEach((q,i)=>{if(!marks[i])state.mistakes.push({id:uid(),skill:"Reading",category:q.typeLabel||q.type||"Reading",question:q.prompt,userAnswer:Array.isArray(chosen[i])?chosen[i].join(" / "):chosen[i],correctAnswer:Array.isArray(q.answers||q.answer)?(q.answers||q.answer).join(" / "):q.answer,source:passage.title,date:todayISO(),note:"来自阅读练习自动批阅"})});
    markActivity();save();renderSkillQuiz("reading");toast(`批阅完成：${correct}/${passage.questions.length}，${Math.round(correct/passage.questions.length*100)}%`);
   };
   return;
