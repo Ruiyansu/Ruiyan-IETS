@@ -86,7 +86,6 @@ function saveSession(skill,name,correct,total,note){
  state.sessions.push({id:uid(),skill,name:name.trim(),correct,total,note,date:todayISO()});markActivity();save();toast(`${skill} session saved`);
 }
 document.getElementById("saveListening").onclick=()=>saveSession("Listening",document.getElementById("listenName").value,Number(document.getElementById("listenCorrect").value),Number(document.getElementById("listenTotal").value),document.getElementById("listenNote").value);
-document.getElementById("saveReading").onclick=()=>saveSession("Reading",document.getElementById("readName").value,Number(document.getElementById("readCorrect").value),Number(document.getElementById("readTotal").value),document.getElementById("readNote").value);
 function renderSessions(){
  ["Listening","Reading"].forEach(skill=>{
   const arr=[...state.sessions].filter(s=>s.skill===skill).reverse(),id=skill==="Listening"?"listeningHistory":"readingHistory";
