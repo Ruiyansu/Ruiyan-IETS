@@ -251,9 +251,9 @@ async function clearReadingBank(){
  try{const db=await openReadingDatabase();await new Promise((resolve,reject)=>{const tx=db.transaction("readingBank","readwrite");tx.objectStore("readingBank").delete("main");tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>{db.close();reject(tx.error)}})}catch(e){}
  readingBankCache=null;localStorage.removeItem("ieltsStudio.readingBank");
 }
-function normAnswer(value){return String(value??"").normalize("NFKC").toLowerCase().trim().replace(/[’‘]/g,"'").replace(/[.,;:!?]/g,"").replace(/\\s+/g," ")}
+function normAnswer(value){return String(value??"").normalize("NFKC").toLowerCase().trim().replace(/[’‘]/g,"'").replace(/[.,;:!?]/g,"").replace(/\s+/g," ")}
 function answerMatches(value,q){const expected=Array.isArray(q.answers)?q.answers:(Array.isArray(q.answer)?q.answer:[q.answer]);const accepted=[...expected,...(Array.isArray(q.acceptable)?q.acceptable:[])].filter(v=>v!==undefined&&v!==null).map(normAnswer);if(Array.isArray(value)){const actual=value.map(normAnswer).filter(Boolean).sort(),target=expected.map(normAnswer).filter(Boolean).sort();return actual.length===target.length&&actual.every((v,i)=>v===target[i])}return accepted.includes(normAnswer(value))}
-function readingPart(p){const match=String(p.group||"").match(/passage\\s*(1|2|3)/i);return match?"P"+match[1]:"P1"}
+function readingPart(p){const match=String(p.group||"").match(/passage\s*(1|2|3)/i);return match?"P"+match[1]:"P1"}
 function readingQuestionHTML(q,i,answer){
  const id="rq-"+i, type=q.type||"short";
  const label=q.number||i+1;
