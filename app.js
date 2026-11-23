@@ -217,6 +217,11 @@ const skillQuizState = {reading:state.practiceResults?.reading||null,listening:s
 function getReadingBank(){try{return JSON.parse(localStorage.getItem("ieltsStudio.readingBank")||"null")}catch(e){return null}}
 function normAnswer(v){return String(v??"").trim().toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:]/g,"").replace(/\s+/g," ")}
 function answerMatches(user, q){
+ if(q.type==="multi_select"||q.unorderedTextSet){
+  const expected=(q.answers||q.answer||[]).map(normAnswer).sort();
+  const actual=(Array.isArray(user)?user:[user]).map(normAnswer).sort();
+  return expected.length===actual.length&&expected.every((v,i)=>v===actual[i]);
+ }
  if(Array.isArray(q.answers)||Array.isArray(q.answer)){
   const expected=q.answers||q.answer;
   const actual=Array.isArray(user)?user:[user];
@@ -228,6 +233,14 @@ function answerMatches(user, q){
 function readingQuestionHTML(q,i,answer){
  const id="rq-"+i, type=q.type||"short";
  const label=q.number||i+1;
+ if(type==="multi_select"){
+  const selected=Array.isArray(answer)?answer:[];
+  return '<div class="question quiz-question" data-q="'+i+'"><span class="question-tag">'+escapeHTML(q.typeLabel||"多项选择")+'</span><b>'+escapeHTML(label+". "+q.prompt)+'</b><div class="answer-options">'+(q.options||[]).map(o=>{const val=typeof o==="string"?o:(o.value||o.label||o.text||"");return '<label class="option"><input type="checkbox" name="'+id+'" value="'+escapeHTML(val)+'" '+(selected.some(v=>normAnswer(v)===normAnswer(val))?"checked":"")+'><span>'+escapeHTML(val)+'</span></label>'}).join("")+'</div><small class="muted">请选择 '+(q.requiredSelections||"指定数量")+' 项</small></div>';
+ }
+ if(type==="matching"){
+  const opts=q.options||[];
+  return '<div class="question quiz-question" data-q="'+i+'"><span class="question-tag">'+escapeHTML(q.typeLabel||"匹配题")+'</span><label class="reading-answer-label"><b>'+escapeHTML(label+". "+q.prompt)+'</b><select name="'+id+'"><option value="">请选择</option>'+opts.map(o=>{const val=typeof o==="string"?o:(o.value||o.label||o.text||"");return '<option value="'+escapeHTML(val)+'" '+(normAnswer(answer)===normAnswer(val)?"selected":"")+'>'+escapeHTML(val)+'</option>'}).join("")+'</select></label></div>';
+ }
  if(type==="mcq"||type==="multiple_choice"||type==="matching"||type==="heading_match"){
   const opts=q.options||[];
   return `<div class="question quiz-question" data-q="${i}"><span class="question-tag">${escapeHTML(q.typeLabel||({mcq:"选择题",multiple_choice:"选择题",matching:"匹配题",heading_match:"段落标题匹配"}[type]||"匹配题"))}</span><b>${escapeHTML(label+". "+q.prompt)}</b><div class="answer-options">${opts.map((o,j)=>{const val=typeof o==="string"?o:(o.value||o.label||o.text||"");return `<label class="option"><input type="radio" name="${id}" value="${escapeHTML(val)}" ${normAnswer(answer)===normAnswer(val)?"checked":""}><span>${escapeHTML(val)}</span></label>`}).join("")}</div></div>`;
@@ -246,7 +259,7 @@ function renderSkillQuiz(skill){
   const bank=getReadingBank();
   if(!bank||!Array.isArray(bank.passages)||!bank.passages.length){
    document.body.classList.remove("reading-page-open");
-   root.innerHTML=`<div class="reading-empty"><div class="reading-empty-icon">▤</div><h2>导入你的 PDF 阅读题库</h2><p>阅读练习会采用左侧文章、右侧题目的双栏布局。题库文件只保存在当前浏览器，不会上传到公开 GitHub。</p><label class="button button-dark import-reading-label" for="readingBankFile">选择阅读题库 JSON</label><input id="readingBankFile" type="file" accept="application/json,.json" hidden><small>题库需包含 passages 数组；支持选择、判断、填空、匹配等题型。</small></div>`;
+   root.innerHTML=`<div class="reading-empty"><div class="reading-empty-icon">▤</div><h2>导入个人阅读题库</h2><p>导入个人题库 JSON 后，文章和练习会保存在当前浏览器中，不会上传到 GitHub。</p><label class="button button-dark import-reading-label" for="readingBankFile">选择阅读题库 JSON</label><input id="readingBankFile" type="file" accept="application/json,.json" hidden><small>题库需包含 passages 数组；支持选择、判断、填空、匹配等题型。</small></div>`;
    const picker=document.getElementById("readingBankFile");
    picker.onchange=async e=>{const f=e.target.files?.[0];if(!f)return;try{const data=JSON.parse(await f.text());if(!Array.isArray(data.passages)||!data.passages.length)throw new Error("Invalid format");localStorage.setItem("ieltsStudio.readingBank",JSON.stringify(data));state.practiceResults.reading=null;skillQuizState.reading=null;renderSkillQuiz("reading");toast("阅读题库已导入到本浏览器")}catch(err){toast("导入失败：请检查题库 JSON 格式")}e.target.value=""};
    return;
@@ -256,7 +269,7 @@ function renderSkillQuiz(skill){
   const result=state.practiceResults?.["reading:"+passage.id];
   if(result?.submitted){
    document.body.classList.add("reading-page-open");
-   const total=passage.questions.length, pct=Math.round(result.correct/total*100);
+   const total=passage.questions.reduce((n,q)=>n+(q.marks||1),0), pct=Math.round(result.correct/total*100);
    root.innerHTML=`<div class="reading-result"><div class="reading-result-top"><div><p class="eyebrow">MARKING COMPLETE</p><h2>${escapeHTML(passage.title)}</h2><p class="muted">已完成批阅，逐题核对你的答案。</p></div><div class="reading-score"><strong>${result.correct}/${total}</strong><span>${pct}% 正确率</span></div></div><div class="reading-review-list">${passage.questions.map((q,i)=>{const ok=result.marks[i],u=result.answers[i]??"";return `<article class="reading-review-item ${ok?"is-correct":"is-wrong"}"><div class="review-status">${ok?"✓ 正确":"✕ 错误"}</div><b>${escapeHTML((q.number||i+1)+". "+q.prompt)}</b><p>你的答案：${escapeHTML(Array.isArray(u)?u.join(" / "):(u||"未作答"))}　·　正确答案：${escapeHTML(Array.isArray(q.answers||q.answer)?(q.answers||q.answer).join(" / "):(q.answer??""))}</p>${q.explanation?`<small>${escapeHTML(q.explanation)}</small>`:""}</article>`}).join("")}</div><button class="button button-dark" id="readingRetry">重新练习</button><button class="button button-light" id="readingBackList">返回文章列表</button></div>`;
    document.getElementById("readingRetry").onclick=()=>{delete state.practiceResults["reading:"+passage.id];save();renderSkillQuiz("reading")};
    document.getElementById("readingBackList").onclick=()=>{localStorage.removeItem("ieltsStudio.activePassage");document.body.classList.remove("reading-page-open");renderSkillQuiz("reading")};
@@ -264,21 +277,21 @@ function renderSkillQuiz(skill){
   }
   if(!localStorage.getItem("ieltsStudio.activePassage")){
    document.body.classList.remove("reading-page-open");
-   root.innerHTML=`<div class="reading-library-head"><div><p class="eyebrow">YOUR READING LIBRARY</p><h2>阅读题库</h2><p class="muted">共 ${bank.passages.length} 篇文章 · 选择一篇开始练习</p></div><button class="button button-light" id="replaceReadingBank">更换题库</button></div><div class="reading-library-grid">${bank.passages.map((p,i)=>`<button class="reading-library-card" data-passage="${i}"><span>${"P"+((p.group||"Reading Passage 1").match(/Passage\s*(\d)/i)?.[1]||"1")}</span><b>${escapeHTML(p.title)}</b><small>${p.questions.length} 道题 · ${(p.group||"").replace(/Reading\s*/i,"")}</small><em>开始练习 →</em></button>`).join("")}</div>`;
+   root.innerHTML=`<div class="reading-library-head"><div><p class="eyebrow">YOUR READING LIBRARY</p><h2>阅读题库</h2><p class="muted">共 \${bank.passages.length} 篇文章 · \${bank.passages.reduce((n,p)=>n+p.questions.length,0)} 道练习题 · 选择一篇开始练习</p></div><button class="button button-light" id="replaceReadingBank">更换题库</button></div><div class="reading-library-grid">${bank.passages.map((p,i)=>`<button class="reading-library-card" data-passage="${i}"><span>${"P"+((p.group||"Reading Passage 1").match(/Passage\s*(\d)/i)?.[1]||"1")}</span><b>${escapeHTML(p.title)}</b><small>${p.questions.length} 道题 · ${(p.group||"").replace(/Reading\s*/i,"")}</small><em>开始练习 →</em></button>`).join("")}</div>`;
    root.querySelectorAll("[data-passage]").forEach(b=>b.onclick=()=>{localStorage.setItem("ieltsStudio.activePassage",b.dataset.passage);renderSkillQuiz("reading")});
    document.getElementById("replaceReadingBank").onclick=()=>{localStorage.removeItem("ieltsStudio.readingBank");renderSkillQuiz("reading")};
    return;
   }
   const answers=state.practiceDrafts?.["reading:"+passage.id]||{};
   document.body.classList.add("reading-page-open");
-  root.innerHTML=`<div class="reading-practice-toolbar"><button class="text-button" id="readingBack">← 返回文章列表</button><span>${escapeHTML(passage.title)}</span><span>${passage.questions.length} 题</span></div><div class="reading-split"><article class="reading-article-pane"><div class="reading-pane-title"><p class="eyebrow">READING PASSAGE</p><h2>${escapeHTML(passage.title)}</h2></div><div class="reading-article-text">${escapeHTML(passage.text).replace(/\\n/g,"<br><br>")}</div></article><section class="reading-questions-pane"><div class="reading-pane-title"><p class="eyebrow">QUESTIONS</p><h2>答题区</h2><p class="muted">按题目要求选择或填写答案，完成后统一提交批阅。</p></div><div class="reading-question-list">${passage.questions.map((q,i)=>readingQuestionHTML(q,i,answers[i])).join("")}</div><button class="button button-dark reading-submit" id="submit-reading">提交答案并批阅</button></section></div>`;
+  root.innerHTML=`<div class="reading-practice-toolbar"><button class="text-button" id="readingBack">← 返回文章列表</button><span>${escapeHTML(passage.title)}</span><span>${passage.questions.length} 题</span></div><div class="reading-split"><article class="reading-article-pane"><div class="reading-pane-title"><p class="eyebrow">READING PASSAGE</p><h2>${escapeHTML(passage.title)}</h2></div><div class="reading-article-text">${escapeHTML(passage.text).replace(/\\n/g,"<br><br>")}</div></article><section class="reading-questions-pane"><div class="reading-pane-title"><p class="eyebrow">QUESTIONS</p><h2>答题区</h2><p class="muted">按题目要求选择或填写答案，完成后统一提交批阅。</p></div><div class="reading-question-list">\${passage.questions.map((q,i)=>{const group=(passage.taskGroups||[]).find(g=>g.id===q.taskId);const prev=passage.questions[i-1];const heading=!prev||prev.taskId!==q.taskId?'<div class="reading-task-heading"><b>'+escapeHTML(group?.heading||q.typeLabel||"Questions")+'</b>'+(group?.instructions||[]).map(x=>'<small>'+escapeHTML(x)+'</small>').join('')+'</div>':'';const prepared={...q,options:q.options||passage.optionSets?.[q.optionSet]||[]};return heading+readingQuestionHTML(prepared,i,answers[i])}).join("")}</div><button class="button button-dark reading-submit" id="submit-reading">提交答案并批阅</button></section></div>`;
   document.getElementById("readingBack").onclick=()=>{localStorage.removeItem("ieltsStudio.activePassage");document.body.classList.remove("reading-page-open");renderSkillQuiz("reading")};
   root.querySelectorAll("input[name^='rq-']").forEach(el=>el.onchange=()=>saveReadingDraft(passage,el.name.slice(3),el.value));
   root.querySelectorAll("[data-reading-answer]").forEach(el=>el.oninput=()=>saveReadingDraft(passage,el.dataset.readingAnswer,el.value));
   document.getElementById("submit-reading").onclick=()=>{
-   const chosen=passage.questions.map((q,i)=>{const radio=root.querySelector(`input[name="rq-${i}"]:checked`),multi=q.blanks?.map((_,j)=>root.querySelector(`[data-reading-answer="${i}-${j}"]`)?.value.trim()||""),input=root.querySelector(`[data-reading-answer="${i}"]`);return radio?radio.value:(multi||input?.value.trim()||"")});
+   const chosen=passage.questions.map((q,i)=>{const name="rq-"+i,checked=[...root.querySelectorAll('input[name="'+name+'"]:checked')].map(el=>el.value),select=root.querySelector('select[name="'+name+'"]'),radio=root.querySelector('input[name="'+name+'"]:checked'),multi=q.blanks?.map((_,j)=>root.querySelector('[data-reading-answer="'+i+'-'+j+'"]')?.value.trim()||""),input=root.querySelector('[data-reading-answer="'+i+'"]');return q.type==="multi_select"?checked:(multi||(select?.value||radio?.value||input?.value.trim()||""))});
    const marks=passage.questions.map((q,i)=>answerMatches(chosen[i],q));
-   const correct=marks.filter(Boolean).length;
+   const correct=marks.reduce((sum,ok,i)=>sum+(ok?(passage.questions[i].marks||1):0),0);
    state.practiceResults=state.practiceResults||{};state.practiceResults["reading:"+passage.id]={submitted:true,correct,answers:chosen,marks};
    state.sessions.push({id:uid(),skill:"Reading",name:passage.title,correct,total:passage.questions.length,note:"PDF 阅读题库自动批阅",date:todayISO(),percent:Math.round(correct/passage.questions.length*100)});
    state.mistakes=state.mistakes||[];
