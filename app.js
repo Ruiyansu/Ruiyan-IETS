@@ -22,6 +22,10 @@ function loadState(){
   return {tasks:defaultTasks.map(x=>({...x})),words:seedWords,mistakes:[],exams:[],sessions:[],essays:[],speaking:[],activityDays:[],practiceResults:{},practiceDrafts:{}};
 }
 let state=loadState();
+state.speakingDrafts=state.speakingDrafts||{};
+state.tasks=(state.tasks||[]).filter(t=>!String(t.title||"").toLowerCase().includes("listening"));
+try{localStorage.setItem(STORE_KEY,JSON.stringify(state))}catch(e){}
+
 function save(){try{localStorage.setItem(STORE_KEY,JSON.stringify(state));}catch(e){console.error("Save failed",e);toast("本地保存失败，请导出备份并检查浏览器存储空间");}renderAll()}
 function toast(msg){const el=document.getElementById("toast");el.textContent=msg;el.classList.add("show");setTimeout(()=>el.classList.remove("show"),2200)}
 function escapeHTML(s=""){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
@@ -105,9 +109,10 @@ let timerSeconds=60,timerInterval=null;
 function updateTimer(){document.getElementById("timerDisplay").textContent=`${String(Math.floor(timerSeconds/60)).padStart(2,"0")}:${String(timerSeconds%60).padStart(2,"0")}`}
 document.getElementById("timerStart").onclick=()=>{if(timerInterval){clearInterval(timerInterval);timerInterval=null;document.getElementById("timerStart").textContent="Resume";return}document.getElementById("timerStart").textContent="Pause";timerInterval=setInterval(()=>{timerSeconds--;updateTimer();if(timerSeconds<=0){clearInterval(timerInterval);timerInterval=null;document.getElementById("timerStart").textContent="Start";toast("Speaking timer finished")}},1000)};
 document.getElementById("timerReset").onclick=()=>{clearInterval(timerInterval);timerInterval=null;timerSeconds=60;updateTimer();document.getElementById("timerStart").textContent="Start"};
+const IELTS_VOCAB_TARGET=4000;
 function renderWords(){
  const q=(document.getElementById("wordSearch").value||"").toLowerCase(),arr=state.words.filter(w=>(w.word+" "+w.meaning+" "+w.topic).toLowerCase().includes(q));
- document.getElementById("vocabTotal").textContent=state.words.length;document.getElementById("vocabDue").textContent=state.words.filter(w=>!w.mastered&&(!w.due||w.due<=todayISO())).length;document.getElementById("vocabMastered").textContent=state.words.filter(w=>w.mastered).length;document.getElementById("dashWords").textContent=state.words.length;
+ document.getElementById("vocabTotal").textContent=IELTS_VOCAB_TARGET.toLocaleString("en-GB");document.getElementById("vocabDue").textContent=state.words.filter(w=>!w.mastered&&(!w.due||w.due<=todayISO())).length;const masteredCount=state.words.filter(w=>w.mastered).length;document.getElementById("vocabMastered").textContent=masteredCount.toLocaleString("en-GB")+" / "+IELTS_VOCAB_TARGET.toLocaleString("en-GB");document.getElementById("dashWords").textContent=masteredCount.toLocaleString("en-GB")+" / 4,000";
  document.getElementById("wordTable").innerHTML=arr.length?`<table><thead><tr><th>WORD</th><th>MEANING</th><th>TOPIC</th><th>REVIEW</th><th></th></tr></thead><tbody>${arr.map(w=>`<tr><td><b>${escapeHTML(w.word)}</b><br><small>${escapeHTML(w.example||"")}${w.collocation?"<br><small>常见搭配："+escapeHTML(w.collocation)+"</small>":""}</small></td><td>${escapeHTML(w.meaning)}</td><td>${escapeHTML(w.topic)}</td><td>${w.mastered?"Mastered":w.due||"Due now"}</td><td><button class="text-button" data-delete-word="${w.id}">Delete</button></td></tr>`).join("")}</tbody></table>`:'<div class="empty-table">No matching words.</div>';
  document.querySelectorAll("[data-delete-word]").forEach(b=>b.onclick=()=>{state.words=state.words.filter(w=>w.id!==b.dataset.deleteWord);save()});
  renderReview();
@@ -396,7 +401,7 @@ document.getElementById("writingTimerReset")?.addEventListener("click",()=>{
 document.getElementById("essayType")?.addEventListener("change",()=>{writingTimerSeconds=document.getElementById("essayType").value.includes("Task 1")?1200:2400;updateWritingTimer()});
 const speakingSection=document.getElementById("view-speaking");
 if(speakingSection&&!document.getElementById("speakingTemplateHub")){
- speakingSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap speaking-template-hub' id='speakingTemplateHub'><div class='roadmap-heading'><div><p class='eyebrow'>SPEAKING PRACTICE TEMPLATES</p><h2>按考试 Part 练习</h2><p>题目分类、练习流程和计时器已经预留，之后可以继续导入题库。</p></div><span class='roadmap-count'>Part 1–3</span></div><div class='speaking-part-grid'><button class='speaking-part-card active' data-speaking-part='1'><b>PART 1</b><strong>Introduction & interview</strong><small>熟悉话题 · 简短自然回答</small></button><button class='speaking-part-card' data-speaking-part='2'><b>PART 2</b><strong>Individual long turn</strong><small>准备 1 分钟 · 连续表达 1–2 分钟</small></button><button class='speaking-part-card' data-speaking-part='3'><b>PART 3</b><strong>Discussion</strong><small>深入讨论 · 解释观点和举例</small></button></div><div class='speaking-library'><div class='speaking-library-head'><h3 id='speakingLibraryTitle'>Part 1 · Question bank</h3><span id='speakingPromptCount'>3 starter prompts</span></div><div id='speakingPromptLibrary' class='speaking-prompt-list'></div></div><div class='speaking-tools-row'><div><b id='speakingTimerMode'>Part 1 · 练习计时</b><small id='speakingTimerHint'>建议每题回答 20–30 秒</small></div><strong id='speakingTemplateTimer'>00:30</strong><button class='button button-dark' id='speakingTemplateStart'>开始</button><button class='button button-light' id='speakingTemplateReset'>重置</button></div><p class='template-footnote'>Part 2 先用 1 分钟列关键词，再尝试连续说满 2 分钟。练习后可在下方保存反思。</p></div>");
+ speakingSection.querySelector(".page-heading").insertAdjacentHTML("afterend","<div class='skill-roadmap speaking-template-hub' id='speakingTemplateHub'><div class='roadmap-heading'><div><p class='eyebrow'>SPEAKING PRACTICE TEMPLATES</p><h2>按考试 Part 练习</h2><p>题目分类、练习流程和计时器已经预留，之后可以继续导入题库。</p></div><span class='roadmap-count'>Part 1–3</span></div><div class='speaking-part-grid'><button class='speaking-part-card active' data-speaking-part='1'><b>PART 1</b><strong>Introduction & interview</strong><small>熟悉话题 · 简短自然回答</small></button><button class='speaking-part-card' data-speaking-part='2'><b>PART 2</b><strong>Individual long turn</strong><small>准备 1 分钟 · 连续表达 1–2 分钟</small></button><button class='speaking-part-card' data-speaking-part='3'><b>PART 3</b><strong>Discussion</strong><small>深入讨论 · 解释观点和举例</small></button></div><div class='speaking-library'><div class='speaking-library-head'><h3 id='speakingLibraryTitle'>Part 1 · Question bank</h3><span id='speakingPromptCount'>3 starter prompts</span></div><div id='speakingPromptLibrary' class='speaking-prompt-list'></div></div><div class='speaking-answer-editor'><h3 id='speakingAnswerTitle'>Part 1 · 我的口语答案</h3><p>在这里直接记录你对当前 Part 题目的回答。内容会自动保存在这台设备的浏览器里，切换 Part 后也会保留。</p><textarea id='speakingAnswerText' placeholder='Type or paste your speaking answer here...'></textarea><div class='speaking-answer-footer'><small id='speakingAnswerStatus'>自动保存已开启</small><button class='button button-dark' id='saveSpeakingAnswer'>保存本 Part 答案</button></div></div><div class='speaking-tools-row'><div><b id='speakingTimerMode'>Part 1 · 练习计时</b><small id='speakingTimerHint'>建议每题回答 20–30 秒</small></div><strong id='speakingTemplateTimer'>00:30</strong><button class='button button-dark' id='speakingTemplateStart'>开始</button><button class='button button-light' id='speakingTemplateReset'>重置</button></div><p class='template-footnote'>Part 2 先用 1 分钟列关键词，再尝试连续说满 2 分钟。练习后可在下方保存反思。</p></div>");
 }
 const speakingLibrary={
  1:[["Work or study","Do you work or are you a student?"],["Hometown","What do you like most about your hometown?"],["Daily routine","Which part of your day do you enjoy most?"]],
@@ -415,7 +420,7 @@ document.querySelectorAll("[data-speaking-part]").forEach(btn=>btn.addEventListe
  activeSpeakingPart=Number(btn.dataset.speakingPart);document.querySelectorAll(".speaking-part-card").forEach(x=>x.classList.toggle("active",x===btn));
  const cfg={1:[30,"建议每题回答 20–30 秒"],2:[120,"先准备 1 分钟，再连续表达 1–2 分钟"],3:[90,"解释观点、给出原因并补充例子"]}[activeSpeakingPart];
  speakingTemplateSeconds=cfg[0];document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(cfg[0]/60)).padStart(2,"0")+":"+String(cfg[0]%60).padStart(2,"0");document.getElementById("speakingTimerHint").textContent=cfg[1];document.getElementById("speakingTimerMode").textContent="Part "+activeSpeakingPart+" · 练习计时";
- clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;document.getElementById("speakingTemplateStart").textContent="开始";renderSpeakingLibrary();
+ clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;document.getElementById("speakingTemplateStart").textContent="开始";renderSpeakingLibrary();renderSpeakingAnswerEditor();
 }));
 document.getElementById("speakingTemplateStart")?.addEventListener("click",()=>{
  const btn=document.getElementById("speakingTemplateStart");
@@ -425,6 +430,21 @@ document.getElementById("speakingTemplateStart")?.addEventListener("click",()=>{
 document.getElementById("speakingTemplateReset")?.addEventListener("click",()=>{
  clearInterval(speakingTemplateInterval);speakingTemplateInterval=null;speakingTemplateSeconds=activeSpeakingPart===1?30:activeSpeakingPart===2?120:90;document.getElementById("speakingTemplateTimer").textContent=String(Math.floor(speakingTemplateSeconds/60)).padStart(2,"0")+":"+String(speakingTemplateSeconds%60).padStart(2,"0");document.getElementById("speakingTemplateStart").textContent="开始";
 });
-renderSpeakingLibrary();updateWritingTimer();
+
+function renderSpeakingAnswerEditor(){
+ const area=document.getElementById("speakingAnswerText");if(!area)return;
+ const key="part"+activeSpeakingPart;area.value=state.speakingDrafts[key]||"";
+ document.getElementById("speakingAnswerTitle").textContent="Part "+activeSpeakingPart+" · 我的口语答案";
+ document.getElementById("speakingAnswerStatus").textContent=area.value?"已载入上次保存的内容":"自动保存已开启";
+}
+document.getElementById("speakingAnswerText")?.addEventListener("input",e=>{
+ state.speakingDrafts["part"+activeSpeakingPart]=e.target.value;
+ try{localStorage.setItem(STORE_KEY,JSON.stringify(state));document.getElementById("speakingAnswerStatus").textContent="已自动保存 · "+new Date().toLocaleTimeString("zh-CN",{hour:"2-digit",minute:"2-digit"})}catch(err){document.getElementById("speakingAnswerStatus").textContent="自动保存失败，请点击保存按钮"}
+});
+document.getElementById("saveSpeakingAnswer")?.addEventListener("click",()=>{
+ const area=document.getElementById("speakingAnswerText");state.speakingDrafts["part"+activeSpeakingPart]=area.value;
+ try{localStorage.setItem(STORE_KEY,JSON.stringify(state));toast("Part "+activeSpeakingPart+" 的口语答案已保存")}catch(e){toast("保存失败，请导出学习数据")}
+});
+renderSpeakingLibrary();renderSpeakingAnswerEditor();updateWritingTimer();
 
 renderAll();renderDashboardDiagnostic();
