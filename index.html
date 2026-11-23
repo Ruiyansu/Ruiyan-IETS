@@ -18,7 +18,6 @@
       <nav class="nav-list" id="mainNav">
         <button class="nav-item active" data-view="dashboard"><span>▦</span> 学习总览</button>
         <button class="nav-item" data-view="diagnostic"><span>◎</span> 基础诊断</button>
-        <button class="nav-item" data-view="listening"><span>◖</span> 听力 Listening</button>
         <button class="nav-item" data-view="reading"><span>▤</span> 阅读 Reading</button>
         <button class="nav-item" data-view="writing"><span>✎</span> 写作 Writing</button>
         <button class="nav-item" data-view="speaking"><span>◉</span> 口语 Speaking</button>
@@ -51,7 +50,7 @@
           </div>
           <div class="stats-grid">
             <article class="stat-card"><span class="stat-label">LATEST OVERALL BAND</span><strong id="dashBand">—</strong><small id="dashBandSub">Complete a mock exam to begin</small></article>
-            <article class="stat-card"><span class="stat-label">VOCABULARY SAVED</span><strong id="dashWords">0</strong><small>Words in your personal bank</small></article>
+            <article class="stat-card"><span class="stat-label">已背词汇</span><strong id="dashWords">0</strong><small>已掌握 / 4000 个目标词汇</small></article>
             <article class="stat-card"><span class="stat-label">STUDY DAYS</span><strong id="dashDays">0</strong><small>Days with completed activities</small></article>
             <article class="stat-card"><span class="stat-label">TASKS COMPLETED</span><strong id="dashTasks">0</strong><small>This learning workspace</small></article>
           </div>
@@ -69,9 +68,8 @@
             </article>
           </div>
           <div class="panel">
-            <div class="panel-heading"><div><p class="eyebrow">FOUR SKILLS · ONE GOAL</p><h2>Your learning areas</h2></div></div>
+            <div class="panel-heading"><div><p class="eyebrow">THREE SKILLS · ONE GOAL</p><h2>Your learning areas</h2></div></div>
             <div class="skill-grid">
-              <button class="skill-card listening" data-go="listening"><span class="skill-icon">◖</span><b>Listening</b><small>Audio comprehension · Note-taking · Spelling</small><span class="skill-link">Open practice →</span></button>
               <button class="skill-card reading" data-go="reading"><span class="skill-icon">▤</span><b>Reading</b><small>Question types · Skimming · Scanning</small><span class="skill-link">Open practice →</span></button>
               <button class="skill-card writing" data-go="writing"><span class="skill-icon">✎</span><b>Writing</b><small>Task response · Structure · Language</small><span class="skill-link">Open studio →</span></button>
               <button class="skill-card speaking" data-go="speaking"><span class="skill-icon">◉</span><b>Speaking</b><small>Fluency · Vocabulary · Pronunciation</small><span class="skill-link">Open practice →</span></button>
@@ -119,7 +117,7 @@
         </section>
 
         <section class="view" id="view-speaking">
-          <div class="page-heading"><p class="eyebrow">SKILL 04</p><h1>Speaking practice</h1><p class="muted">Part 1 / 2 / 3 题目分类 · 口语计时 · 练习记录 · 四项标准自评。</p></div>
+          <div class="page-heading"><p class="eyebrow">SKILL 04</p><h1>Speaking practice</h1><p class="muted">Part 1 / 2 / 3 题目分类 · 每个 Part 独立答案记录 · 四项标准自评。</p></div>
           <div class="panel skill-test-panel"><div class="panel-heading"><div><p class="eyebrow">SELF-ASSESSMENT</p><h2>Speaking band estimate</h2></div><span class="pill">4 assessment criteria</span></div><p class="muted">练习结束后，根据流利度、词汇、语法和发音给自己打分。此分数是自评参考，不是 AI 或官方评分。</p><div id="speakingAssessment"></div></div>
           <div class="feature-grid">
             <article class="panel"><p class="eyebrow">PRACTICE PROMPT</p><h2 id="speakingPart">Part 1 · Getting to know you</h2><div class="prompt-card" id="speakingPrompt">Do you work or are you a student?</div><button class="button button-light" id="newPrompt">Generate another prompt ↻</button><div class="timer"><strong id="timerDisplay">01:00</strong><small>Practice timer</small><div class="timer-actions"><button class="button button-dark" id="timerStart">Start</button><button class="button button-light" id="timerReset">Reset</button></div></div></article>
@@ -129,8 +127,8 @@
         </section>
 
         <section class="view" id="view-vocabulary">
-          <div class="page-heading"><p class="eyebrow">PERSONAL WORD BANK</p><h1>Vocabulary centre</h1><p class="muted">Collect useful words, practise active recall and revisit words over time.</p></div>
-          <div class="stats-grid three"><article class="stat-card"><span class="stat-label">TOTAL WORDS</span><strong id="vocabTotal">0</strong><small>In your personal bank</small></article><article class="stat-card"><span class="stat-label">DUE FOR REVIEW</span><strong id="vocabDue">0</strong><small>Ready for revision today</small></article><article class="stat-card"><span class="stat-label">MASTERED</span><strong id="vocabMastered">0</strong><small>Marked as mastered</small></article></div>
+          <div class="page-heading"><p class="eyebrow">PERSONAL WORD BANK</p><h1>Vocabulary centre</h1><p class="muted">目标：逐步掌握 4,000 个雅思核心词汇。已背数量只统计你通过复习标记为掌握的单词。</p></div>
+          <div class="stats-grid three"><article class="stat-card"><span class="stat-label">总词汇量目标</span><strong id="vocabTotal">4,000</strong><small>IELTS 学习目标词汇量</small></article><article class="stat-card"><span class="stat-label">DUE FOR REVIEW</span><strong id="vocabDue">0</strong><small>Ready for revision today</small></article><article class="stat-card"><span class="stat-label">已背词汇</span><strong id="vocabMastered">0 / 4,000</strong><small>通过复习标记为已掌握</small></article></div>
           <div class="feature-grid">
             <article class="panel"><h2>Add a word</h2><label>Word or phrase<input id="newWord" placeholder="e.g. significant"></label><label>Meaning<input id="newMeaning" placeholder="Meaning in your preferred language"></label><label>Example sentence<textarea id="newExample" rows="2" placeholder="Write a natural example sentence"></textarea></label><label>Topic<select id="newWordTopic"><option>General</option><option>Education</option><option>Environment</option><option>Technology</option><option>Society</option><option>Health</option><option>Work</option><option>Culture</option></select></label><button class="button button-dark" id="addWord">Add to vocabulary</button></article>
             <article class="panel review-panel"><p class="eyebrow">ACTIVE RECALL</p><h2>Quick review</h2><div id="reviewCard" class="review-card"><span class="muted">Add a few words to start reviewing.</span></div><button class="button button-dark" id="revealWord" disabled>Reveal meaning</button><div class="review-actions"><button class="button button-light" id="reviewAgain" disabled>Review again</button><button class="button button-light" id="reviewKnown" disabled>I know this</button></div></article>
