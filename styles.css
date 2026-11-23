@@ -844,36 +844,43 @@ td{background:rgba(250,249,241,.82)!important;color:#4b574b!important;border-col
 #view-reading .reading-library-card{border-radius:16px!important;overflow:hidden}
 
 
-/* Prominent typography — single, stronger charcoal shadow for clear depth */
-#view-home h1,#view-home h2,#view-home h3,
-.view h1,.view h2,.view h3,
-.page-heading h1,.page-heading h2,
-.panel-heading h2,.panel-heading h3,
-.stat-card strong,.skill-card b,
-.reading-library-card b,.reading-task-heading,
-.speaking-answer-editor h3,.speaking-selected-question b,
-.prompt-card h2,.prompt-card h3,
-.breadcrumb b,.today-label b {
-  text-shadow: 0 3px 3px rgba(25,32,25,.34)!important;
+/* Typography: shadows only on genuinely large headings; all other text stays crisp */
+*{text-shadow:none!important}
+h1,.page-heading h1,
+h2,.panel-heading h2,
+h3,.panel-heading h3,
+.stat-card strong,
+.reading-task-heading,
+.speaking-answer-editor h3{
+  text-shadow:0 2px 3px rgba(25,32,25,.24)!important;
 }
 
-/* Light lettering on dark surfaces also uses one stronger dark shadow */
-.sidebar .brand,.sidebar .nav-item,
-.sidebar .storage-note b,
-.button-dark,.calendar-day.active,
-.avatar,.reading-task-heading.light,
-.badge-strong,.status-pill-strong {
-  text-shadow: 0 3px 3px rgba(12,20,12,.48)!important;
+/* Mobile sidebar controls */
+.sidebar{position:fixed}
+.sidebar-close{
+ display:none;
 }
-
-/* Small/supporting copy stays flat for comfortable long reading */
-small,.muted,.body-copy,.eyebrow,
-.sidebar .brand small,.sidebar .sidebar-label,
-.sidebar .nav-item span,.sidebar .storage-note small,
-.stat-label,.stat-card small,
-.reading-library-card small,
-.reading-task-heading small,
-.speaking-answer-footer small,
-.footer,.caption,.hint,.helper-text {
-  text-shadow:none!important;
+.sidebar-backdrop{display:none}
+@media(max-width:720px){
+ .sidebar-close{
+  display:grid;place-items:center;
+  position:absolute;top:14px;right:14px;
+  width:34px;height:34px;border:1px solid rgba(255,255,255,.35);
+  border-radius:10px;background:rgba(255,255,255,.16);
+  color:#fff;font-size:23px;line-height:1;
+  z-index:12;
+ }
+ .sidebar-backdrop{
+  display:block;position:fixed;inset:0;z-index:9;
+  background:rgba(24,34,27,.38);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .2s,visibility .2s;
+ }
+ body.sidebar-open .sidebar-backdrop{
+  opacity:1;visibility:visible;pointer-events:auto;
+ }
+ .sidebar{z-index:10}
+ .mobile-menu[aria-expanded="true"]{
+  color:#71876b;background:#e5eddf;border-radius:8px;
+ }
 }
