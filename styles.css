@@ -354,3 +354,21 @@ body.reading-page-open .reading-practice-toolbar{background:rgba(198,213,233,.97
 .speaking-prompt-item>span{font-size:10px;color:#0d7c83;font-weight:800}.speaking-prompt-item>b{font-size:13px}.speaking-prompt-item>small{font-size:11px;line-height:1.6;color:#5c7088}.speaking-prompt-item>em{font-size:10px;font-style:normal;color:#166c79;font-weight:700}
 @media(max-width:850px){.roadmap-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.writing-template-grid,.speaking-prompt-list{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.skill-roadmap{padding:17px}.roadmap-heading{flex-direction:column}.roadmap-steps,.writing-template-grid,.speaking-part-grid,.speaking-prompt-list{grid-template-columns:1fr}.writing-tools-row,.speaking-tools-row{flex-wrap:wrap}.writing-tools-row>div,.speaking-tools-row>div{width:100%}.roadmap-steps article{padding:12px}}
+
+
+/* User choice: temporarily remove Listening from the visible workspace */
+#view-listening{display:none!important}
+#mainNav [data-view="listening"],.skill-card.listening{display:none!important}
+.skill-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:760px){.skill-grid{grid-template-columns:1fr}}
+/* Speaking: answer notebook replaces timer and after-practice reflection */
+#view-speaking .speaking-tools-row,
+#view-speaking .feature-grid,
+#view-speaking>.panel:last-child{display:none!important}
+.speaking-answer-editor{margin-top:18px;padding:19px;border-radius:15px;background:linear-gradient(145deg,#d5e5f0,#d9d4ec);border:1px solid #b4c5dc}
+.speaking-answer-editor h3{margin:0 0 7px;color:#203958;font-size:17px}
+.speaking-answer-editor p{margin:0 0 12px;color:#526982;font-size:12px;line-height:1.6}
+.speaking-answer-editor textarea{width:100%;min-height:230px;resize:vertical;padding:15px;border-radius:12px;line-height:1.8;background:#edf1f8!important}
+.speaking-answer-footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:11px}
+.speaking-answer-footer small{font-size:11px;color:#506783}
+@media(max-width:620px){.speaking-answer-editor{padding:14px}.speaking-answer-editor textarea{min-height:190px}}
