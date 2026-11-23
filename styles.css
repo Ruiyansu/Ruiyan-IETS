@@ -393,3 +393,15 @@ body.reading-page-open .reading-practice-toolbar{background:rgba(198,213,233,.97
 #speakingAnswerPage>textarea{min-height:360px}
 #speakingAnswerPage>#backToSpeakingQuestions{margin-bottom:18px}
 @media(max-width:620px){#view-speaking .speaking-prompt-list{grid-template-columns:1fr}#speakingAnswerPage>textarea{min-height:260px}}
+
+/* Personal Reading library: grouped task instructions, matching selectors and source diagrams. */
+.reading-task-heading{margin:10px 0 4px;padding:13px 14px;border:1px solid #d9cce9;border-radius:11px;background:#e8e0f4;color:#51406f}
+.reading-task-heading b{display:block;font-size:13px;margin-bottom:5px}
+.reading-task-heading small{display:block;color:#655b78;line-height:1.55;margin-top:4px}
+.reading-diagram{margin:12px 0 4px;padding:10px;background:#fff;border:1px solid #ded5e9;border-radius:9px}
+.reading-diagram img{display:block;width:100%;max-height:300px;object-fit:contain}
+.reading-diagram figcaption{font-size:11px;color:#68738a;margin-top:7px}
+.reading-answer-label select{display:block;width:100%;margin-top:8px;padding:11px 12px;border:1px solid #cfc3df;border-radius:9px;background:#fff;color:#283652;font:inherit}
+.reading-review-item small{display:block;line-height:1.65;margin-top:8px}
+.reading-review-item .reading-evidence{margin-top:10px;padding:10px 12px;border-radius:8px;background:rgba(255,255,255,.55)}
+.reading-evidence blockquote{margin:5px 0;padding-left:10px;border-left:3px solid #8c7aa9;font-family:Georgia,serif}
