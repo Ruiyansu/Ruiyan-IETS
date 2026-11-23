@@ -69,3 +69,21 @@ body{background:radial-gradient(ellipse at 12% 8%,rgba(188,213,231,.48),transpar
 .reading-passage p{font-size:14px;line-height:1.9;color:#263b57}
 .reading-questions .quiz-question{padding:18px 0}
 @media(max-width:720px){.reading-library-panel{padding:16px}.reading-library-head{align-items:flex-start}.reading-filter-row{grid-template-columns:1fr 1fr}.reading-filter-row .reading-search{grid-column:1/-1}.reading-bank-grid{grid-template-columns:1fr}.reading-practice-shell{padding:15px}.reading-workspace-head{align-items:flex-start}}
+
+
+/* Stronger, non-white Reading module cards */
+.reading-bank-card{
+ background:linear-gradient(145deg,#dce7ed 0%,#d2e0e5 100%);
+ border:1px solid #9fb7c3;
+ box-shadow:0 8px 22px rgba(39,67,83,.12),inset 0 1px 0 rgba(255,255,255,.38);
+}
+.reading-bank-card:nth-child(4n+2){background:linear-gradient(145deg,#e0e1ee 0%,#d5d9e9 100%);border-color:#adb3cc}
+.reading-bank-card:nth-child(4n+3){background:linear-gradient(145deg,#d8e6e1 0%,#cbded9 100%);border-color:#9fbdb4}
+.reading-bank-card:nth-child(4n+4){background:linear-gradient(145deg,#e8e1d8 0%,#ddd6cd 100%);border-color:#c5b8a9}
+.reading-card-icon{background:#c3d5e2;color:#365b78}
+.reading-meta{background:rgba(255,255,255,.48);color:#35495b;border:1px solid rgba(91,117,137,.15)}
+.reading-status{background:#c7d8df;color:#385568}
+.reading-status.is-done{background:#b9ddd0;color:#245f4b}
+.reading-bank-card h3{color:#172d42}
+.reading-card-detail{color:#526a7b}
+.reading-card-actions .button-light{background:rgba(255,255,255,.52);border:1px solid rgba(87,111,130,.2)}
