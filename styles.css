@@ -656,3 +656,100 @@ td{background:rgba(255,253,242,.72)!important;color:#4b594b!important;border-col
   .sidebar{background:linear-gradient(180deg,#52734d,#78976b)!important}
   .topbar{background:rgba(255,253,242,.97)!important}
 }
+
+
+/* IELTS Studio — softened sage / cream / dusty peach / lavender palette */
+:root{
+ --bg:#f0f3e9;--paper:#faf9f1;--ink:#39463c;--muted:#727d70;--line:#dfe5d8;
+ --sage:#788f72;--sage-dark:#61775c;--sage-pale:#e5eddf;
+ --peach:#efd0c2;--lavender:#ded8e9;--cream:#f5f1df;
+}
+html,body{background:#f0f3e9!important;color:#39463c!important}
+body{background:linear-gradient(135deg,#f2f4eb 0%,#edf2e8 58%,#f4eee9 100%)!important}
+.main,.page-wrap,.view{background:transparent!important}
+.sidebar{
+ background:linear-gradient(180deg,#71876b 0%,#687f63 55%,#60775b 100%)!important;
+ border-right:1px solid #60775b!important;color:#fffdf7!important;
+ box-shadow:4px 0 18px rgba(61,79,57,.08)!important
+}
+.sidebar .brand,.sidebar .nav-item,.sidebar .storage-note b{color:#fffdf7!important}
+.sidebar .brand small,.sidebar .sidebar-label,.sidebar .nav-item span,
+.sidebar .storage-note small{color:#e8eee2!important}
+.sidebar .brand-mark{background:#e5eddf!important;color:#52694e!important}
+.sidebar .nav-item:hover,.sidebar .nav-item.active{
+ background:rgba(250,249,241,.18)!important;color:#fff!important;
+ box-shadow:inset 3px 0 #e9c7b9!important
+}
+.sidebar .nav-item.active span{color:#fff!important}
+.sidebar .sidebar-bottom{border-color:rgba(255,255,255,.2)!important}
+.sidebar .text-button{color:#f6e8df!important}
+.topbar{background:rgba(250,249,241,.94)!important;border-color:#dfe5d8!important}
+.breadcrumb,.today-label{color:#788273!important}
+.breadcrumb b{color:#39463c!important}
+.avatar{background:#e5eddf!important;color:#52694e!important}
+h1,h2,h3,.page-heading h1,.panel-heading h2{
+ color:#39483a!important;text-shadow:0 1px 1px rgba(57,70,60,.10)!important
+}
+.eyebrow{color:#71866b!important}
+.muted,.body-copy,.empty-state,.empty-table{color:#737d70!important}
+.panel,.stat-card{
+ background:#faf9f1!important;border:1px solid #dfe5d8!important;
+ box-shadow:0 7px 20px rgba(67,83,62,.055)!important
+}
+.stat-card:nth-child(1){background:linear-gradient(145deg,#f8f6e9,#f1f1df)!important}
+.stat-card:nth-child(2){background:linear-gradient(145deg,#f7e8df,#f1d9ce)!important}
+.stat-card:nth-child(3){background:linear-gradient(145deg,#eeeaf3,#e3deec)!important}
+.stat-card:nth-child(4){background:linear-gradient(145deg,#e7eee0,#dce8d4)!important}
+.stat-label,.stat-card small{color:#737d70!important}
+.stat-card strong{color:#39483a!important}
+.skill-card{box-shadow:0 5px 14px rgba(67,83,62,.05)!important;border-radius:15px!important}
+.skill-card.reading{background:#e2ebdc!important;border-color:#d0ddc8!important}
+.skill-card.listening{background:#e8eee1!important;border-color:#d8e2d0!important}
+.skill-card.writing{background:#f2ddd3!important;border-color:#e9c9bb!important}
+.skill-card.speaking{background:#e7e1ee!important;border-color:#d8cfe3!important}
+.skill-card b,.skill-card small,.skill-link{color:#39463c!important}
+.skill-card .skill-icon{color:#687f63!important}
+.skill-card.writing .skill-icon{color:#a97868!important}
+.skill-card.speaking .skill-icon{color:#827493!important}
+.button-dark{background:#71876b!important;color:#fffdf7!important}
+.button-dark:hover{background:#60775b!important}
+.button-light{background:#f2ddd3!important;color:#654d43!important;border:1px solid #e9c9bb!important}
+.pill{background:#e7e1ee!important;color:#62566f!important}
+label{color:#4e5b4d!important}
+input:not([type=checkbox]),textarea,select{background:#fffef9!important;color:#39463c!important;border-color:#d8e0d2!important}
+input::placeholder,textarea::placeholder{color:#929a8d!important}
+input:focus,textarea:focus,select:focus{border-color:#9caf91!important;box-shadow:0 0 0 3px rgba(156,175,145,.16)!important}
+.question p,.mock-question,.mock-question b{color:#465246!important}
+.option{background:#fffef9!important;color:#465246!important;border-color:#dfe5d8!important}
+.option:has(input:checked){background:#e5eddf!important;border-color:#a9bd9d!important}
+.notice{background:#eeeaf3!important;color:#5d5668!important}
+.notice b{color:#51475e!important}
+.info-grid div{background:#f2e1d9!important}
+.info-grid b,.info-grid small{color:#654d43!important}
+.table-wrap th,th{background:#e5eddf!important;color:#465b42!important}
+td{background:rgba(250,249,241,.82)!important;color:#4b574b!important;border-color:#e1e6dc!important}
+.reading-library-card,.reading-library-card:nth-child(3n+1){background:#e5eddf!important;border-color:#d4e0cc!important}
+.reading-library-card:nth-child(3n+2){background:#eeeaf3!important;border-color:#ded7e8!important}
+.reading-library-card:nth-child(3n){background:#f5e5dc!important;border-color:#ead2c6!important}
+.reading-library-card b,.reading-library-card small,.reading-library-card span,.reading-library-card em{color:#465246!important}
+.reading-article-pane{background:#f8f7ed!important}
+.reading-questions-pane{background:#eeeaf3!important}
+.reading-questions-pane .option{background:#fffef9!important}
+.reading-practice-toolbar{background:#f2e1d9!important}
+.reading-result-top{background:linear-gradient(120deg,#e5eddf,#eeeaf3)!important}
+.reading-task-heading{background:#eeeaf3!important;color:#5d5668!important;border-color:#ded7e8!important}
+.reading-task-heading small{color:#756d7e!important}
+.text-button{color:#687f63!important}
+.progress-track{background:#e6e9df!important}
+.progress-fill{background:linear-gradient(90deg,#9caf91,#d9ad9d)!important}
+.calendar-day{background:#e5eddf!important;color:#465b42!important}
+.calendar-day.active{background:#71876b!important;color:#fff!important}
+.footer{color:#818a7e!important;border-color:#dfe5d8!important}
+#view-writing .prompt-card,.prompt-card{background:#f5e5dc!important;color:#654d43!important}
+#view-speaking .speaking-part-card.active{background:#e7e1ee!important;border-color:#d0c5df!important}
+#view-speaking .speaking-prompt-item.selected{background:#e7e1ee!important;border-color:#c9bdd9!important}
+.speaking-answer-editor{background:#eeeaf3!important;border-color:#ded7e8!important}
+.speaking-answer-editor h3,.speaking-selected-question b{color:#554b62!important}
+.speaking-answer-editor p,.speaking-answer-footer small,.speaking-selected-question p{color:#756d7e!important}
+.speaking-answer-editor textarea{background:#fffef9!important}
+@media(max-width:720px){.sidebar{background:linear-gradient(180deg,#71876b,#60775b)!important}.topbar{background:rgba(250,249,241,.97)!important}}
