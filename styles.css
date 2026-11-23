@@ -768,22 +768,47 @@ td{background:rgba(250,249,241,.82)!important;color:#4b574b!important;border-col
 }
 
 
-/* Reading library cards — slightly richer powder blue, between vivid and grey */
+/* Reading library cards — restore the varied palette, with a little more colour and clearer green typography */
 .reading-library-card,
 .reading-library-card:nth-child(3n+1),
 .reading-library-card:nth-child(3n+2),
 .reading-library-card:nth-child(3n){
-  background:#d6e5f0!important;
-  border-color:#c3d6e5!important;
-  box-shadow:0 4px 12px rgba(74,94,116,.05)!important;
+  box-shadow:0 8px 20px rgba(65,82,61,.08)!important;
+  color:#354b3a!important;
+  border-width:1px!important;
+  position:relative;
+  overflow:hidden;
 }
-.reading-library-card:hover,
-.reading-library-card:nth-child(3n+1):hover,
-.reading-library-card:nth-child(3n+2):hover,
-.reading-library-card:nth-child(3n):hover{
-  background:#ccdeeb!important;
-  border-color:#b8cedf!important;
+.reading-library-card:nth-child(3n+1){
+  background:linear-gradient(145deg,#e1edd9 0%,#d7e7ce 100%)!important;
+  border-color:#c5d9b9!important;
+  box-shadow:inset 0 4px 0 #91ad82,0 8px 20px rgba(65,82,61,.08)!important;
 }
-.reading-library-card b,.reading-library-card small,.reading-library-card span,.reading-library-card em{
-  color:#40566b!important;
+.reading-library-card:nth-child(3n+2){
+  background:linear-gradient(145deg,#eee8f4 0%,#e5ddec 100%)!important;
+  border-color:#d5c9df!important;
+  box-shadow:inset 0 4px 0 #a99abb,0 8px 20px rgba(65,82,61,.08)!important;
 }
+.reading-library-card:nth-child(3n){
+  background:linear-gradient(145deg,#f5e5da 0%,#efd8ca 100%)!important;
+  border-color:#e5c7b6!important;
+  box-shadow:inset 0 4px 0 #d5a38e,0 8px 20px rgba(65,82,61,.08)!important;
+}
+.reading-library-card:hover{
+  transform:translateY(-3px)!important;
+  filter:saturate(1.04);
+}
+.reading-library-card:nth-child(3n+1):hover{background:linear-gradient(145deg,#dcebd3,#d0e2c6)!important}
+.reading-library-card:nth-child(3n+2):hover{background:linear-gradient(145deg,#e9e2f0,#ded5e8)!important}
+.reading-library-card:nth-child(3n):hover{background:linear-gradient(145deg,#f2dfd3,#ebd0c1)!important}
+.reading-library-card b,
+.reading-library-card small,
+.reading-library-card span,
+.reading-library-card em{
+  color:#405641!important;
+}
+.reading-library-card span{
+  background:rgba(255,255,248,.62)!important;
+  border:1px solid rgba(64,86,65,.10)!important;
+}
+.reading-library-card em{font-weight:800!important}
