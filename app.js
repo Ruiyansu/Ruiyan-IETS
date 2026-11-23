@@ -394,55 +394,59 @@ document.getElementById("writingTimerReset")?.addEventListener("click",()=>{
 document.getElementById("essayType")?.addEventListener("change",()=>{writingTimerSeconds=document.getElementById("essayType").value.includes("Task 1")?1200:2400;updateWritingTimer()});
 const speakingLibrary={
  1:[
- ["Work or study","Do you work or are you a student?"],
- ["Hometown","What do you like most about your hometown?"],
- ["Home and accommodation","Do you live in a house or an apartment? What would you like to change about your home?"],
- ["Daily routine","Which part of your day do you enjoy most?"],
- ["Reading","Do you often read books? What kind of books do you enjoy?"],
- ["Music","What kind of music do you usually listen to?"],
- ["Friends","How often do you meet your friends? What do you usually do together?"],
- ["Food","What food did you enjoy when you were a child? Do you like cooking?"],
- ["Weather","What kind of weather do you like most? Does the weather affect your mood?"],
- ["Transport","How do you usually travel around your city?"],
- ["Technology","What piece of technology do you use most every day?"],
- ["Photography","Do you like taking photos? What do you usually take photos of?"],
- ["Weekends","What do you usually do at weekends?"],
- ["Learning","Do you prefer learning alone or with other people?"],
- ["Public places","Is there a public place near your home that you often visit?"]
+ ["Work or study",["Do you work or are you a student?","What subject are you studying?","Why did you choose that subject?","What do you find most interesting about your studies?","What would you like to do after you finish your studies?"]],
+ ["Hometown",["Where is your hometown?","What do you like most about your hometown?","Has your hometown changed much in recent years?","Is there anything you dislike about your hometown?","Would you like to live there in the future?"]],
+ ["Home and accommodation",["Do you live in a house or an apartment?","Who do you live with?","Which room do you like most in your home?","What would you like to change about your home?","Would you like to move to a different home in the future?"]],
+ ["Daily routine",["What is your daily routine like?","Which part of the day do you enjoy most?","Do you usually have the same routine every day?","Has your daily routine changed recently?","Would you like to change anything about your routine?"]],
+ ["Reading",["Do you enjoy reading?","What kind of books do you like to read?","Did you read more when you were younger?","Do you prefer printed books or e-books?","Do you often visit libraries or bookshops?"]],
+ ["Music",["What kind of music do you usually listen to?","When do you usually listen to music?","Did you learn to play a musical instrument as a child?","Have your music preferences changed over time?","Would you like to learn a musical instrument?"]],
+ ["Friends",["Do you prefer spending time with one friend or a group of friends?","How often do you meet your friends?","What do you usually do with your friends?","Do you prefer making friends online or in person?","Have your friendships changed since childhood?"]],
+ ["Food",["What kind of food do you like?","Do you prefer eating at home or eating out?","Can you cook?","What food did you enjoy when you were a child?","Is there any food you dislike?"]],
+ ["Weather",["What kind of weather do you like most?","What is the weather usually like in your hometown?","Does the weather affect your mood?","What do you usually do on rainy days?","Do you prefer hot or cold weather?"]],
+ ["Transport",["How do you usually travel around your city?","What is the most popular means of transport in your hometown?","Do you often use public transport?","How could transport in your area be improved?","Do you prefer travelling by car or public transport?"]],
+ ["Technology",["What piece of technology do you use most every day?","When did you first start using a computer?","Do you think you use your phone too much?","Is there any technology you would like to buy?","How has technology changed your daily life?"]],
+ ["Photography",["Do you like taking photographs?","What do you usually take photos of?","Do you prefer taking photos with a phone or a camera?","Do you often look at old photographs?","Would you like to learn more about photography?"]],
+ ["Weekends",["What do you usually do at weekends?","Do you prefer relaxing or going out at weekends?","Did you do the same things at weekends when you were a child?","Do you make plans for your weekends?","Would you like to have more free time at weekends?"]],
+ ["Learning",["Do you prefer learning alone or with other people?","What do you find difficult about learning?","How do you usually remember new information?","Did you enjoy learning new things as a child?","What would you like to learn in the future?"]],
+ ["Public places",["Is there a public place near your home that you often visit?","Do you prefer parks or shopping centres?","What do people usually do in public places in your city?","Have public places in your area changed recently?","What public facilities would you like your city to have?"]]
  ],
  2:[
- ["A skill you would like to learn","Describe a skill you would like to learn. You should say what it is, why you want to learn it, how you would learn it, and explain how this skill might be useful in the future."],
- ["A memorable journey","Describe a journey that you remember well. You should say where you went, who you went with, what happened, and explain why you remember it."],
- ["A person who inspired you","Describe a person who has inspired you. You should say who this person is, how you know them, what they have done, and explain why they inspired you."],
- ["A useful website","Describe a website you often use. You should say what it is, how you found it, what you use it for, and explain why you find it useful."],
- ["A memorable event","Describe an event that you attended and enjoyed. You should say what it was, where it took place, who you went with, and explain why you enjoyed it."],
- ["A place you would like to visit","Describe a place you would like to visit in the future. You should say where it is, what you know about it, who you would go with, and explain why you want to visit it."],
- ["A book or story","Describe a book or story that you enjoyed. You should say what it is about, when you read it, who recommended it, and explain why you liked it."],
- ["A time you helped someone","Describe a time when you helped another person. You should say who you helped, what the problem was, what you did, and explain how you felt."],
- ["An important decision","Describe an important decision you made. You should say what the decision was, when you made it, what the result was, and explain why it was important."],
- ["A creative person","Describe someone you know who is creative. You should say who the person is, what they create, how you know about their work, and explain why you think they are creative."]
+ ["A skill you would like to learn",["Describe a skill you would like to learn.","What the skill is","Why you want to learn it","How you would learn it","And explain how this skill might be useful in the future"]],
+ ["A memorable journey",["Describe a journey that you remember well.","Where you went","Who you went with","What happened during the journey","And explain why you remember it"]],
+ ["A person who inspired you",["Describe a person who has inspired you.","Who this person is","How you know them","What they have done","And explain why they inspired you"]],
+ ["A useful website",["Describe a website you often use.","What the website is","How you found it","What you use it for","And explain why you find it useful"]],
+ ["A memorable event",["Describe an event that you attended and enjoyed.","What the event was","Where it took place","Who you went with","And explain why you enjoyed it"]],
+ ["A place you would like to visit",["Describe a place you would like to visit in the future.","Where it is","What you know about it","Who you would go with","And explain why you want to visit it"]],
+ ["A book or story",["Describe a book or story that you enjoyed.","What it is about","When you read it","Who recommended it to you","And explain why you liked it"]],
+ ["A time you helped someone",["Describe a time when you helped another person.","Who you helped","What the problem was","What you did","And explain how you felt about helping them"]],
+ ["An important decision",["Describe an important decision you made.","What the decision was","When you made it","What the result was","And explain why it was important"]],
+ ["A creative person",["Describe someone you know who is creative.","Who the person is","What they create","How you know about their work","And explain why you think they are creative"]]
  ],
  3:[
- ["Technology and communication","How has technology changed the way people communicate? Do these changes have more advantages or disadvantages?"],
- ["Education and work","Should universities focus more on practical skills or academic knowledge? Why?"],
- ["Cities and public spaces","Why are public spaces important in modern cities? How can governments encourage people to use them?"],
- ["Work-life balance","Why do some people find it difficult to maintain a good work-life balance? What can employers do to help?"],
- ["Advertising and consumer behaviour","How does advertising influence people's decisions? Should advertising aimed at children be restricted?"],
- ["Online learning","Can online learning replace traditional classroom education? What are its main advantages and disadvantages?"],
- ["Tourism","How can tourism benefit local communities? What problems can mass tourism create?"],
- ["Social relationships","Has modern technology made friendships stronger or weaker? Why?"],
- ["The environment","Who should take more responsibility for protecting the environment: individuals or governments?"],
- ["Culture and tradition","Why is it important to preserve traditional culture? Can traditions change over time?"],
- ["Public transport","How can governments persuade more people to use public transport?"],
- ["Children and creativity","Why is creativity important for children? How can schools encourage it?"]
+ ["Technology and communication",["How has technology changed the way people communicate?","Do you think online communication can replace face-to-face conversations?","What are the disadvantages of relying too much on digital communication?","Do different generations use communication technology differently?"]],
+ ["Education and work",["Should universities focus more on practical skills or academic knowledge?","What skills are most important for young people entering the workplace?","Should employers provide more training for their staff?","How might the relationship between education and work change in the future?"]],
+ ["Cities and public spaces",["Why are public spaces important in modern cities?","How can governments encourage people to use public spaces?","Should cities spend more money on parks or shopping facilities?","How can public spaces bring different communities together?"]],
+ ["Work-life balance",["Why do some people find it difficult to maintain a good work-life balance?","What can employers do to help their staff?","Do you think people work longer hours now than in the past?","How important is free time for a person's wellbeing?"]],
+ ["Advertising and consumer behaviour",["How does advertising influence people's decisions?","Should advertising aimed at children be restricted?","Why do some people buy things they do not really need?","How has online shopping changed the way companies advertise?"]],
+ ["Online learning",["Can online learning replace traditional classroom education?","What are the main advantages and disadvantages of studying online?","Do students learn better independently or in a classroom?","How might technology change education in the future?"]],
+ ["Tourism",["How can tourism benefit local communities?","What problems can mass tourism create?","Should governments limit the number of tourists visiting popular places?","How can tourists behave more responsibly?"]],
+ ["Social relationships",["Has modern technology made friendships stronger or weaker?","Why do some people find it difficult to make new friends?","Are friendships at work different from friendships outside work?","How important are social relationships for older people?"]],
+ ["The environment",["Who should take more responsibility for protecting the environment: individuals or governments?","Why do some people find it difficult to live in an environmentally friendly way?","Should companies be punished for causing pollution?","How can schools encourage children to protect the environment?"]],
+ ["Culture and tradition",["Why is it important to preserve traditional culture?","Can traditions change over time?","How does globalisation affect local cultures?","Should young people be encouraged to learn traditional skills?"]],
+ ["Public transport",["How can governments persuade more people to use public transport?","What are the main problems with public transport in large cities?","Should public transport be free?","How might transport systems change in the future?"]],
+ ["Children and creativity",["Why is creativity important for children?","How can schools encourage children to be creative?","Do you think children today have enough time for creative activities?","Is it better for children to learn arts at school or at home?"]]
  ]
 };
 let activeSpeakingPart=1,speakingTemplateSeconds=30,speakingTemplateInterval=null;
 function renderSpeakingLibrary(){
  const items=speakingLibrary[activeSpeakingPart];
  document.getElementById("speakingLibraryTitle").textContent="Part "+activeSpeakingPart+" · 题目列表";
- document.getElementById("speakingPromptCount").textContent=items.length+" 道练习题";
- document.getElementById("speakingPromptLibrary").innerHTML=items.map((p,i)=>"<button class='speaking-prompt-item' data-speaking-prompt='"+i+"'><span>"+String(i+1).padStart(2,"0")+"</span><b>"+escapeHTML(p[0])+"</b><small>"+escapeHTML(p[1])+"</small><em>打开笔记 →</em></button>").join("");
+ document.getElementById("speakingPromptCount").textContent=items.length+" 个话题";
+ document.getElementById("speakingPromptLibrary").innerHTML=items.map((p,i)=>{
+  const preview=activeSpeakingPart===2?p[1].slice(1,4).join(" · "):p[1].slice(0,2).join(" · ");
+  const count=activeSpeakingPart===2?"Cue Card":p[1].length+" 道问题";
+  return "<button class='speaking-prompt-item' data-speaking-prompt='"+i+"'><span>"+String(i+1).padStart(2,"0")+" · "+count+"</span><b>"+escapeHTML(p[0])+"</b><small>"+escapeHTML(preview)+"</small><em>打开练习 →</em></button>";
+ }).join("");
  document.querySelectorAll("[data-speaking-prompt]").forEach(btn=>btn.onclick=()=>{
   activeSpeakingPrompt=Number(btn.dataset.speakingPrompt);
   renderSpeakingAnswerEditor();
@@ -466,7 +470,7 @@ function renderSpeakingAnswerEditor(){
  area.value=saved;
  document.getElementById("speakingAnswerTitle").textContent="Part "+activeSpeakingPart+" · 我的笔记";
  document.getElementById("speakingSelectedTitle").textContent=p[0];
- document.getElementById("speakingSelectedPrompt").textContent=p[1];
+ document.getElementById("speakingSelectedPrompt").textContent=(activeSpeakingPart===2?p[1][0]+"\\n\\nYou should say:\\n"+p[1].slice(1).map(x=>"• "+x).join("\\n"):p[1].map((q,i)=>(i+1)+". "+q).join("\\n"));
  document.getElementById("speakingAnswerStatus").textContent=saved?"已载入这道题上次保存的答案":"这道题还没有答案";
 }
 document.getElementById("backToSpeakingQuestions")?.addEventListener("click",()=>{document.getElementById("speakingAnswerPage").hidden=true;document.getElementById("speakingTemplateHub").hidden=false;window.scrollTo({top:0,behavior:"smooth"})});
