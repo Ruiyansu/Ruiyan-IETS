@@ -217,7 +217,7 @@ const skillQuizState = {reading:state.practiceResults?.reading||null,listening:s
 // Reading data is imported by the owner into this browser; copyrighted passage text is
 // deliberately not committed to this public repository.
 function getReadingBank(){try{return JSON.parse(localStorage.getItem("ieltsStudio.readingBank")||"null")}catch(e){return null}}
-function normAnswer(v){return String(v??"").trim().toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:]/g,"").replace(/\\s+/g," ")}
+function normAnswer(v){return String(v??"").trim().toLowerCase().replace(/[’‘]/g,"'").replace(/[.,!?;:]/g,"").replace(/\s+/g," ")}
 function answerMatches(user, q){
  if(Array.isArray(q.answers)||Array.isArray(q.answer)){
   const expected=q.answers||q.answer;
