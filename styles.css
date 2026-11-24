@@ -884,3 +884,6 @@ h3,.panel-heading h3,
   color:#71876b;background:#e5eddf;border-radius:8px;
  }
 }
+
+/* Listening Studio navigation link */
+.nav-list a.nav-item{text-decoration:none}
